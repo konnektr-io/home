@@ -175,8 +175,7 @@ useHead({
             <h2 class="text-3xl font-bold text-slate-900 dark:text-white">About Konnektr</h2>
             <p class="mt-4 text-lg text-slate-500 dark:text-slate-400">
               We're building the future of data integration and knowledge management. Our mission is to help
-              organizations
-              connect their data worlds and unlock the full potential of their information.
+              organizations connect their data and unlock the full potential of their information.
             </p>
             <div class="mt-8">
               <Button
