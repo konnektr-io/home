@@ -20,6 +20,6 @@ FROM nginxinc/nginx-unprivileged:alpine-slim
 USER root
 RUN apk upgrade --no-cache
 USER nginx
-COPY client/nginx.conf /etc/nginx/templates/default.conf.template
+COPY nginx.conf /etc/nginx/templates/default.conf.template
 COPY --from=build-stage /src/dist/pwa /usr/share/nginx/html
 EXPOSE 8080
