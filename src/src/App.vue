@@ -199,8 +199,8 @@ useHead({
     <!-- Footer -->
     <footer class="bg-slate-900 text-white">
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <!--           <div>
+        <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
             <h3 class="text-sm font-semibold uppercase tracking-wider">Products</h3>
             <ul class="mt-4 space-y-4">
               <li
@@ -215,7 +215,7 @@ useHead({
                 </a>
               </li>
             </ul>
-          </div> -->
+          </div>
           <div>
             <h3 class="text-sm font-semibold uppercase tracking-wider">Company</h3>
             <ul class="mt-4 space-y-4">
@@ -230,8 +230,8 @@ useHead({
                 >Contact</a></li>
             </ul>
           </div>
-        </div>
-        <div class="mt-8 border-t border-slate-700 pt-8 text-center">
+        </div> -->
+        <div class="mt-8 pt-8 text-center">
           <p class="text-slate-400">
             © {{ new Date().getFullYear() }} Konnektr. All rights reserved.
           </p>
