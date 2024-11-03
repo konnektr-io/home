@@ -110,7 +110,7 @@ useHead({
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-36 relative z-10">
         <div class="text-center">
           <h1 class="tracking-tight font-bold">
-            <span class="block sm:text-[7rem] md:text-[10rem] jersey-10-regular">
+            <span class="block text-[7rem] md:text-[10rem] jersey-10-regular">
               <span class="text-slate-300">K</span>onnektr</span>
             <span class="block text-slate-900 text-2xl sm:text-3xl mt-3">
               Coming soon ...
