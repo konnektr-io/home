@@ -1,4 +1,5 @@
 FROM node:lts-alpine AS build-stage
+WORKDIR /
 
 # Set environment variables for the frontend build
 ARG GTAG
