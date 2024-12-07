@@ -1,5 +1,4 @@
 FROM node:lts-alpine AS build-stage
-WORKDIR /src
 
 # Set environment variables for the frontend build
 ARG GTAG
@@ -21,5 +20,5 @@ USER root
 RUN apk upgrade --no-cache
 USER nginx
 COPY nginx.conf /etc/nginx/templates/default.conf.template
-COPY --from=build-stage /src/dist /usr/share/nginx/html
+COPY --from=build-stage /dist /usr/share/nginx/html
 EXPOSE 8080
