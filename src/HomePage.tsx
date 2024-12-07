@@ -35,7 +35,7 @@ function HomePage () {
           <Card>
             <CardHeader className="relative">
               <Network className="h-8 w-8 mb-2 text-blue-600" />
-              <Badge className="absolute top-0 right-4 cursor-pointer" onClick={() => window.location.href = 'https://ontomanager.konnektr.io'}>Try now</Badge>
+                <Badge className="absolute top-0 right-4 cursor-pointer" onClick={() => window.open('https://ontomanager.konnektr.io', '_blank')}>Try now</Badge>
               <CardTitle>Konnektr Ontologies</CardTitle>
               <CardDescription>
                 Build and manage semantic data models with our intuitive ontology manager
