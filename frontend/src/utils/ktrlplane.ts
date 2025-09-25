@@ -5,7 +5,10 @@ export interface DeploymentConfig {
   tier: string;
 }
 
-export function getKtrlPlaneUrl(config: DeploymentConfig): string {
+export function getKtrlPlaneUrl(
+  config: DeploymentConfig,
+  theme?: "dark" | "light"
+): string {
   const baseUrl =
     import.meta.env.VITE_KTRLPLANE_BASE_URL || "https://ktrlplane.konnektr.io";
   const endpoint =
@@ -14,6 +17,7 @@ export function getKtrlPlaneUrl(config: DeploymentConfig): string {
   const params = new URLSearchParams({
     resourceType: config.resourceType,
     tier: config.tier,
+    ...(theme && { theme }),
   });
 
   return `${baseUrl}${endpoint}?${params.toString()}`;
@@ -23,10 +27,13 @@ export function redirectToKtrlPlane(
   resourceType: string,
   tier: PricingTier
 ): void {
-  const url = getKtrlPlaneUrl({
-    resourceType: resourceType.toLowerCase(),
-    tier: tier.name.toLowerCase(),
-  });
+  const url = getKtrlPlaneUrl(
+    {
+      resourceType: resourceType.toLowerCase(),
+      tier: tier.name.toLowerCase(),
+    },
+    "dark"
+  );
 
   // Open in new tab for better user experience
   window.open(url, "_blank", "noopener,noreferrer");

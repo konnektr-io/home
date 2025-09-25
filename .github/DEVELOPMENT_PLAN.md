@@ -33,6 +33,7 @@ Based on the existing codebase, the current homepage includes:
 - [x] **Hero Section Improvements**: Enhanced hero sections for all product pages
 - [x] **Product Pricing Tiers**: Individual pricing sections for Assembler, Graph, and Flow
 - [x] **Waiting List Integration**: For products not yet ready (Assembler, Flow, Compass)
+- [x] **Waiting List Backend Implementation**: Minimal Python backend (FastAPI) for waiting list signup, MailerLite integration, stateless, containerized, and deployable in Kubernetes. Frontend POSTs email/product to backend endpoint, backend subscribes user via MailerLite API.
 - [x] **KtrlPlane Integration**: Deployment redirects with environment-based URLs
 - [x] **Static Site Generation**: Prepare for production deployment
 - [ ] Content strategy and messaging optimization
@@ -42,15 +43,18 @@ Based on the existing codebase, the current homepage includes:
 
 ## 🏗️ Technology Architecture
 
-### Current Stack
 
-- **Frontend**: React 18+ with TypeScript
+### Current Stack & Folder Structure
+
+- **Frontend**: React 18+ with TypeScript (located in `/frontend`)
 - **Build System**: Vite for fast development and optimized builds
 - **Routing**: React Router for SPA navigation with proper URL paths
 - **UI Framework**: shadcn/ui components with Radix UI primitives
 - **Styling**: Tailwind CSS with custom design tokens and OKLCH color space
-- **Deployment**: Static hosting (ready for CDN deployment)
+- **Deployment**: Static hosting (Nginx/CDN) for frontend
 - **Icons**: Lucide React icon library
+- **Backend**: Python FastAPI for waiting list signup (located in `/backend`)
+- **Backend Deployment**: Containerized, runs as a stateless service in Kubernetes
 - **Integration**: KtrlPlane deployment redirects with environment configuration
 
 ### Key Design Decisions
@@ -89,6 +93,20 @@ Based on the existing codebase, the current homepage includes:
   - Developer-focused messaging
   - Time-to-value emphasis
   - Competitive differentiation
+
+
+#### Waiting List Signup Backend (MailerLite Integration)
+
+- The waiting list signup feature is implemented via a minimal Python backend (FastAPI preferred) running as a separate service in Kubernetes.
+- The backend exposes an endpoint (e.g., `/api/waiting-list`) that accepts email and product name from the frontend.
+- The backend securely uses the MailerLite API token (stored in environment variables, never exposed to the frontend).
+- The backend subscribes users to the appropriate MailerLite list/group based on product.
+- The frontend must POST to this endpoint and handle success/error states.
+- Do NOT call MailerLite API directly from the frontend (never expose API tokens).
+- Do NOT add waiting list logic to KtrlPlane backend unless waiting list becomes a platform-wide feature.
+- All backend code must be Python (no new backend languages).
+- Backend must be stateless, containerized, and deployable in Kubernetes.
+- Ensure GDPR compliance and secure handling of user emails (no persistent storage, only MailerLite API).
 
 ### Week 2: Interactive Elements & Demos
 
@@ -430,8 +448,12 @@ _Track anything preventing progress_
 
 Track all significant changes to this plan:
 
-- **2025-09-25**: Initial comprehensive development plan created for Konnektr Home marketing website
-- **[Future Date]**: [Description of changes made]
+
+---
+
+## License
+
+This project is licensed under the Apache License 2.0. See [LICENSE](../../LICENSE).
 
 ---
 

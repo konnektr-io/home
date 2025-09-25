@@ -14,12 +14,25 @@ export function WaitingListSection({
 }: WaitingListProps) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement actual waiting list signup
-    console.log(`Waiting list signup for ${productName}:`, email);
-    setSubmitted(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/waiting-list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, product: productName }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.detail || "Signup failed. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err: any) {
+      setError(err.message || "Signup failed. Please try again.");
+    }
   };
 
   if (submitted) {
@@ -65,6 +78,11 @@ export function WaitingListSection({
               Join List <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
+          {error && (
+            <div className="mt-4 text-sm text-red-500" role="alert">
+              {error}
+            </div>
+          )}
         </form>
       </div>
     </Card>

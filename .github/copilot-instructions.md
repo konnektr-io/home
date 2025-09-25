@@ -4,18 +4,19 @@
 
 Konnektr Home is the **public-facing marketing and information website** for the Konnektr Platform. It serves as the primary entry point for potential users, providing product information, pricing, interactive demos, and seamless transitions to the platform's applications.
 
-**Technology Stack:**
+**Technology Stack & Folder Structure:**
 
-- Frontend: React + TypeScript + Vite + shadcn/ui + Tailwind CSS
-- Deployment: Static hosting (Nginx/CDN)
+- Frontend: React + TypeScript + Vite + shadcn/ui + Tailwind CSS (located in `/frontend`)
+- Backend: Python (FastAPI) for waiting list signup (located in `/backend`)
+- Deployment: Static hosting (Nginx/CDN) for frontend, containerized backend in Kubernetes
 - Integration: Links to KtrlPlane for authentication and resource creation
+
 
 ## 📋 Core Instructions for GitHub Copilot
 
 ### 1. Maintain These Instructions
 
 **CRITICAL:** Always keep this file and `.github/DEVELOPMENT_PLAN.md` up to date:
-
 - When user provides new instructions ("don't do this", "always do that"), immediately add them to this file
 - When significant features are added or architectural decisions are made, update both files
 - When user mentions "in the future we might add X", add it to the development plan roadmap but don't implement
@@ -38,13 +39,22 @@ Konnektr Home is the **Marketing Website** only. Always refer to `.github/PLATFO
 
 ### 3. Architecture Principles
 
+
 #### Frontend (React + TypeScript)
 
+- All frontend code is located in `/frontend`
 - Follow modern React best practices with functional components and hooks
 - Use TypeScript strictly - no `any` types
 - Component-based architecture with clear separation of concerns
-- Feature-based folder structure in `/src`
+- Feature-based folder structure in `/frontend/src`
 - Responsive design with mobile-first approach
+
+#### Backend (Python FastAPI)
+
+- All backend code is located in `/backend`
+- Stateless, containerized, and deployable in Kubernetes
+- Handles waiting list signup and MailerLite integration only
+
 
 #### UI/UX Guidelines
 
@@ -66,10 +76,12 @@ Konnektr Home is the **Marketing Website** only. Always refer to `.github/PLATFO
 
 #### Always Start With:
 
+
 1. Check DEVELOPMENT_PLAN.md for current priorities
 2. Understand the marketing scope and user journey
 3. Plan before implementing (use manage_todo_list for complex tasks)
 4. Consider SEO and performance implications
+5. Use `/frontend` for all marketing site code and `/backend` for API integrations
 
 #### Code Quality Standards:
 
@@ -247,3 +259,9 @@ When updating these instructions, add entries here:
 ---
 
 **Remember:** This file is the source of truth for development guidelines. Keep it updated with every significant instruction or architectural decision.
+
+---
+
+## License
+
+This project is licensed under the Apache License 2.0. See [LICENSE](../../LICENSE).
