@@ -44,11 +44,11 @@ export default function GraphPage() {
         </div>
         {/* Hero Image/Visualization */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-          <div className="relative rounded-xl shadow-2xl shadow-[#1E9E95]/10 border border-white/10 bg-[#0B111D]/50 p-4 md:p-6 backdrop-blur-sm">
+          <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
             {/* Placeholder for Graph Network visualization */}
-            <div className="rounded-lg bg-gradient-to-br from-[#2D4263]/20 to-[#1E9E95]/20 aspect-video flex items-center justify-center">
+            <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
               <div className="text-center">
-                <Network className="h-16 w-16 text-[#1E9E95] mx-auto mb-4" />
+                <Network className="h-16 w-16 text-brand-teal mx-auto mb-4" />
                 <p className="text-lg font-medium text-white">
                   Graph Database Runtime
                 </p>
@@ -75,8 +75,8 @@ export default function GraphPage() {
             </div>
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Feature 1: Open Standards & APIs */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-[#1E9E95] hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-[#2D4263]/50 text-[#1E9E95] border border-[#1E9E95]/50">
+              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
                   <DatabaseZap className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-white">
@@ -89,8 +89,8 @@ export default function GraphPage() {
                 </p>
               </Card>
               {/* Feature 2: Flexible Deployment */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-[#1E9E95] hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-[#2D4263]/50 text-[#1E9E95] border border-[#1E9E95]/50">
+              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
                   <Shield className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-white">
@@ -103,8 +103,8 @@ export default function GraphPage() {
                 </p>
               </Card>
               {/* Feature 3: Advanced Querying */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-[#1E9E95] hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-[#2D4263]/50 text-[#1E9E95] border border-[#1E9E95]/50">
+              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
                   <Zap className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-white">
@@ -141,8 +141,8 @@ export default function GraphPage() {
               <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
                 {/* Step 1 */}
                 <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-[#0B111D] border-2 border-[#1E9E95] mx-auto mb-4">
-                    <DatabaseZap className="h-8 w-8 text-[#1E9E95]" />
+                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
+                    <DatabaseZap className="h-8 w-8 text-brand-teal" />
                   </div>
                   <h3 className="text-xl font-bold text-white">
                     PostgreSQL Foundation
@@ -154,8 +154,8 @@ export default function GraphPage() {
                 </div>
                 {/* Step 2 */}
                 <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-[#0B111D] border-2 border-[#1E9E95] mx-auto mb-4">
-                    <Network className="h-8 w-8 text-[#1E9E95]" />
+                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
+                    <Network className="h-8 w-8 text-brand-teal" />
                   </div>
                   <h3 className="text-xl font-bold text-white">
                     Apache AGE Graph Engine
@@ -167,8 +167,8 @@ export default function GraphPage() {
                 </div>
                 {/* Step 3 */}
                 <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-[#0B111D] border-2 border-[#1E9E95] mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-[#1E9E95]" />
+                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
+                    <Shield className="h-8 w-8 text-brand-teal" />
                   </div>
                   <h3 className="text-xl font-bold text-white">
                     Enterprise Security
@@ -187,15 +187,16 @@ export default function GraphPage() {
           tiers={graphProduct.pricingTiers}
           productName="Graph"
           onDeployClick={(tier) => {
-            // TODO: Implement KtrlPlane redirect
-            console.log(`Deploy Graph with ${tier.name} tier`);
+            import("@/utils/ktrlplane").then(({ redirectToKtrlPlane }) => {
+              redirectToKtrlPlane("graph", tier);
+            });
           }}
         />
 
         {/* Final CTA Section */}
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-[#2D4263] to-[#1E9E95] text-center">
+            <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-brand-blue to-brand-teal text-center">
               <DatabaseZap className="mx-auto h-10 w-10 mb-4 text-white" />
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Ready to Scale Your Digital Twin Platform?

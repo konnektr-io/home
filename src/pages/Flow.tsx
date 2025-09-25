@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { WaitingListSection } from "@/components/WaitingList";
 import { PricingSection } from "@/components/PricingSection";
 import { flowProduct } from "@/data/products";
-import { Workflow, ArrowRight, Zap, Play } from "lucide-react";
+import { Workflow, ArrowRight, Zap } from "lucide-react";
 import { DatabaseZap } from "lucide-react";
 import KonnektrLogo from "../assets/konnektr.svg";
 
@@ -36,11 +36,11 @@ export default function FlowPage() {
         </div>
         {/* Hero Image/Visualization */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-          <div className="relative rounded-xl shadow-2xl shadow-[#1E9E95]/10 border border-white/10 bg-[#0B111D]/50 p-4 md:p-6 backdrop-blur-sm">
+          <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
             {/* Placeholder for Flow Pipeline visualization */}
-            <div className="rounded-lg bg-gradient-to-br from-[#2D4263]/20 to-[#1E9E95]/20 aspect-video flex items-center justify-center">
+            <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
               <div className="text-center">
-                <Workflow className="h-16 w-16 text-[#1E9E95] mx-auto mb-4" />
+                <Workflow className="h-16 w-16 text-brand-teal mx-auto mb-4" />
                 <p className="text-lg font-medium text-white">
                   Visual Flow Designer
                 </p>
@@ -67,7 +67,7 @@ export default function FlowPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="feature-card rounded-xl p-8">
-                <Workflow className="h-10 w-10 text-[#1E9E95]" />
+                <Workflow className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Visual Flow Builder
                 </h3>
@@ -77,7 +77,7 @@ export default function FlowPage() {
                 </p>
               </Card>
               <Card className="feature-card rounded-xl p-8">
-                <DatabaseZap className="h-10 w-10 text-[#1E9E95]" />
+                <DatabaseZap className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Rich Connector Library
                 </h3>
@@ -87,7 +87,7 @@ export default function FlowPage() {
                 </p>
               </Card>
               <Card className="feature-card rounded-xl p-8">
-                <Zap className="h-10 w-10 text-[#1E9E95]" />
+                <Zap className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Event-Driven Automation
                 </h3>
@@ -112,7 +112,7 @@ export default function FlowPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="rounded-xl p-8 text-center">
-                <Badge className="mb-4 bg-[#1E9E95]">1</Badge>
+                <Badge className="mb-4 bg-brand-teal">1</Badge>
                 <h3 className="text-xl font-bold text-white">
                   Triggered by Graph Events
                 </h3>
@@ -123,7 +123,7 @@ export default function FlowPage() {
                 </p>
               </Card>
               <Card className="rounded-xl p-8 text-center">
-                <Badge className="mb-4 bg-[#1E9E95]">2</Badge>
+                <Badge className="mb-4 bg-brand-teal">2</Badge>
                 <h3 className="text-xl font-bold text-white">
                   Serverless Execution
                 </h3>
@@ -133,7 +133,7 @@ export default function FlowPage() {
                 </p>
               </Card>
               <Card className="rounded-xl p-8 text-center">
-                <Badge className="mb-4 bg-[#1E9E95]">3</Badge>
+                <Badge className="mb-4 bg-brand-teal">3</Badge>
                 <h3 className="text-xl font-bold text-white">
                   Enterprise Integrations
                 </h3>
@@ -158,7 +158,7 @@ export default function FlowPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="feature-card rounded-xl p-8">
-                <ArrowRight className="h-10 w-10 text-[#1E9E95]" />
+                <ArrowRight className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Predictive Maintenance
                 </h3>
@@ -168,7 +168,7 @@ export default function FlowPage() {
                 </p>
               </Card>
               <Card className="feature-card rounded-xl p-8">
-                <Zap className="h-10 w-10 text-[#1E9E95]" />
+                <Zap className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Real-Time Alerting
                 </h3>
@@ -178,7 +178,7 @@ export default function FlowPage() {
                 </p>
               </Card>
               <Card className="feature-card rounded-xl p-8">
-                <Workflow className="h-10 w-10 text-[#1E9E95]" />
+                <Workflow className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Data Pipeline Automation
                 </h3>
@@ -191,7 +191,7 @@ export default function FlowPage() {
                 <img
                   src={KonnektrLogo}
                   alt="Integration Logo"
-                  className="h-10 w-10 text-[#1E9E95]"
+                  className="h-10 w-10 text-brand-teal"
                 />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Business Process Integration
@@ -211,6 +211,11 @@ export default function FlowPage() {
             <PricingSection
               tiers={flowProduct.pricingTiers}
               productName={flowProduct.title}
+              onDeployClick={(tier) => {
+                import("@/utils/ktrlplane").then(({ redirectToKtrlPlane }) => {
+                  redirectToKtrlPlane("flow", tier);
+                });
+              }}
             />
           </div>
         </section>
@@ -218,7 +223,7 @@ export default function FlowPage() {
         {/* Final CTA Section */}
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-[#2D4263] to-[#1E9E95] text-center">
+            <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-brand-blue to-brand-teal text-center">
               <img
                 src={KonnektrLogo}
                 alt="Konnektr Logo"

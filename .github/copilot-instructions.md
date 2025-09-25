@@ -208,6 +208,7 @@ Available Brand Colors:
 - Do not compromise on performance for marketing features
 - Do not ignore accessibility requirements
 - Do not create separate design systems (use shared Konnektr Design System)
+- NEVER use inline dynamic imports (e.g., `import("...")`) for utility functions or modules (only for true code splitting purposes). Always use top-level imports for all utility functions, modules, and shared code.
 
 ## 🎯 Marketing-Specific Guidelines
 

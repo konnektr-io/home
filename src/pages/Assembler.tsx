@@ -1,16 +1,17 @@
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { WaitingListSection } from "@/components/WaitingList";
 import { PricingSection } from "@/components/PricingSection";
 import { assemblerProduct } from "@/data/products";
 import {
-  Bot,
+  // Bot,
   BrainCircuit,
   DatabaseZap,
   Sparkles,
   Zap,
   Users,
 } from "lucide-react";
+import { redirectToKtrlPlane } from "@/utils/ktrlplane";
 
 export default function AssemblerPage() {
   return (
@@ -50,11 +51,11 @@ export default function AssemblerPage() {
         </div>
         {/* Hero Image/Visualization */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-          <div className="relative rounded-xl shadow-2xl shadow-[#1E9E95]/10 border border-white/10 bg-[#0B111D]/50 p-4 md:p-6 backdrop-blur-sm">
+          <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
             {/* Placeholder for Assembler Engine UI visualization */}
-            <div className="rounded-lg bg-gradient-to-br from-[#2D4263]/20 to-[#1E9E95]/20 aspect-video flex items-center justify-center">
+            <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
               <div className="text-center">
-                <BrainCircuit className="h-16 w-16 text-[#1E9E95] mx-auto mb-4" />
+                <BrainCircuit className="h-16 w-16 text-brand-teal mx-auto mb-4" />
                 <p className="text-lg font-medium text-white">
                   Assembler Engine UI Visualization
                 </p>
@@ -123,8 +124,10 @@ export default function AssemblerPage() {
               <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
                 {/* Step 1 */}
                 <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-[#0B111D] border-2 border-[#1E9E95] mx-auto mb-4">
-                    <span className="text-2xl font-bold text-[#1E9E95]">1</span>
+                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
+                    <span className="text-2xl font-bold text-brand-teal">
+                      1
+                    </span>
                   </div>
                   <h3 className="text-xl font-bold text-white">
                     Connect Your Data
@@ -136,8 +139,10 @@ export default function AssemblerPage() {
                 </div>
                 {/* Step 2 */}
                 <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-[#0B111D] border-2 border-[#1E9E95] mx-auto mb-4">
-                    <span className="text-2xl font-bold text-[#1E9E95]">2</span>
+                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
+                    <span className="text-2xl font-bold text-brand-teal">
+                      2
+                    </span>
                   </div>
                   <h3 className="text-xl font-bold text-white">
                     AI Generates the Model
@@ -150,8 +155,10 @@ export default function AssemblerPage() {
                 </div>
                 {/* Step 3 */}
                 <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-[#0B111D] border-2 border-[#1E9E95] mx-auto mb-4">
-                    <span className="text-2xl font-bold text-[#1E9E95]">3</span>
+                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
+                    <span className="text-2xl font-bold text-brand-teal">
+                      3
+                    </span>
                   </div>
                   <h3 className="text-xl font-bold text-white">
                     Deploy & Analyze
@@ -167,7 +174,8 @@ export default function AssemblerPage() {
           </div>
         </section>
 
-        {/* Interactive Demo Section */}
+        {/* Interactive Demo Section - commented out, product not ready yet
+        /*
         <section className="py-20 md:py-28 bg-black/10">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
@@ -225,22 +233,21 @@ export default function AssemblerPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section>*/}
 
         {/* Pricing Section */}
         <PricingSection
           tiers={assemblerProduct.pricingTiers}
           productName="Assembler"
           onDeployClick={(tier) => {
-            // TODO: Implement KtrlPlane redirect
-            console.log(`Deploy Assembler with ${tier.name} tier`);
+            redirectToKtrlPlane("assembler", tier);
           }}
         />
 
         {/* Final CTA Section */}
         <section className="py-20 md:py-28">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-[#2D4263] to-[#1E9E95]">
+            <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-brand-blue to-brand-teal">
               <div className="relative z-10 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-white">
                   Ready to Build Your First Intelligent Twin?

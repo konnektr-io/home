@@ -60,10 +60,10 @@ export default function HomePage() {
               className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
               onClick={() => navigate("/assembler")}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1E9E95]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-[#1E9E95]/20 border border-[#1E9E95]/30 mb-6">
-                  <Bot className="h-6 w-6 text-[#1E9E95]" />
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
+                  <Bot className="h-6 w-6 text-brand-teal" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   Konnektr Assembler
@@ -73,7 +73,7 @@ export default function HomePage() {
                   creation from any data source with a low-code visual
                   interface.
                 </p>
-                <div className="flex items-center text-[#1E9E95] font-medium text-sm group-hover:text-white transition-colors">
+                <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
                   Start Building{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -85,10 +85,10 @@ export default function HomePage() {
               className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
               onClick={() => navigate("/graph")}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1E9E95]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-[#1E9E95]/20 border border-[#1E9E95]/30 mb-6">
-                  <DatabaseZap className="h-6 w-6 text-[#1E9E95]" />
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
+                  <DatabaseZap className="h-6 w-6 text-brand-teal" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   Konnektr Graph
@@ -98,7 +98,7 @@ export default function HomePage() {
                   database and API layer, fully compatible with ADT and built on
                   open standards.
                 </p>
-                <div className="flex items-center text-[#1E9E95] font-medium text-sm group-hover:text-white transition-colors">
+                <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
                   Start Deploying{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -110,10 +110,10 @@ export default function HomePage() {
               className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
               onClick={() => navigate("/flow")}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1E9E95]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-[#1E9E95]/20 border border-[#1E9E95]/30 mb-6">
-                  <Workflow className="h-6 w-6 text-[#1E9E95]" />
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
+                  <Workflow className="h-6 w-6 text-brand-teal" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   Konnektr Flow
@@ -123,7 +123,7 @@ export default function HomePage() {
                   nervous system for your digital twin, enabling intelligent
                   automation.
                 </p>
-                <div className="flex items-center text-[#1E9E95] font-medium text-sm group-hover:text-white transition-colors">
+                <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
                   Start Flowing{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -135,10 +135,10 @@ export default function HomePage() {
               className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
               onClick={() => navigate("/compass")}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1E9E95]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-[#1E9E95]/20 border border-[#1E9E95]/30 mb-6">
-                  <Compass className="h-6 w-6 text-[#1E9E95]" />
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
+                  <Compass className="h-6 w-6 text-brand-teal" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   Konnektr Compass
@@ -147,7 +147,7 @@ export default function HomePage() {
                   Analytics and insights platform that transforms complex
                   digital twin data into actionable intelligence.
                 </p>
-                <div className="flex items-center text-[#1E9E95] font-medium text-sm group-hover:text-white transition-colors">
+                <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
                   Join Waiting List{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -307,7 +307,7 @@ export default function HomePage() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Feature 1: Fast Modeling */}
             <div className="feature-card rounded-xl p-8">
-              <Bot className="h-10 w-10 text-[#1E9E95]" />
+              <Bot className="h-10 w-10 text-brand-teal" />
               <h3 className="mt-6 text-xl font-bold text-white">
                 Speed to Value
               </h3>
@@ -318,7 +318,7 @@ export default function HomePage() {
             </div>
             {/* Feature 2: Scalable Graph */}
             <div className="feature-card rounded-xl p-8">
-              <DatabaseZap className="h-10 w-10 text-[#1E9E95]" />
+              <DatabaseZap className="h-10 w-10 text-brand-teal" />
               <h3 className="mt-6 text-xl font-bold text-white">
                 Enterprise-Grade Scale
               </h3>

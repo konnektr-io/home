@@ -6,7 +6,7 @@ import { compassProduct } from "@/data/products";
 import {
   Compass,
   ArrowRight,
-  Play,
+  // Play,
   BarChart3,
   TrendingUp,
   Eye,
@@ -41,11 +41,11 @@ export default function CompassPage() {
 
         {/* Hero Image/Visualization */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-          <div className="relative rounded-xl shadow-2xl shadow-[#1E9E95]/10 border border-white/10 bg-[#0B111D]/50 p-4 md:p-6 backdrop-blur-sm">
+          <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
             {/* Placeholder for Compass Analytics UI visualization */}
-            <div className="rounded-lg bg-gradient-to-br from-[#2D4263]/20 to-[#1E9E95]/20 aspect-video flex items-center justify-center">
+            <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
               <div className="text-center">
-                <Compass className="h-16 w-16 text-[#1E9E95] mx-auto mb-4" />
+                <Compass className="h-16 w-16 text-brand-teal mx-auto mb-4" />
                 <p className="text-lg font-medium text-white">
                   Compass Analytics Dashboard
                 </p>
@@ -76,8 +76,8 @@ export default function CompassPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Feature 1: Advanced Visualization */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-[#1E9E95] hover:-translate-y-1">
-                <BarChart3 className="h-10 w-10 text-[#1E9E95]" />
+              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
+                <BarChart3 className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Advanced Visualization
                 </h3>
@@ -89,8 +89,8 @@ export default function CompassPage() {
               </Card>
 
               {/* Feature 2: Predictive Analytics */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-[#1E9E95] hover:-translate-y-1">
-                <TrendingUp className="h-10 w-10 text-[#1E9E95]" />
+              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
+                <TrendingUp className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Predictive Analytics
                 </h3>
@@ -101,8 +101,8 @@ export default function CompassPage() {
               </Card>
 
               {/* Feature 3: Real-time Monitoring */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-[#1E9E95] hover:-translate-y-1">
-                <Eye className="h-10 w-10 text-[#1E9E95]" />
+              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
+                <Eye className="h-10 w-10 text-brand-teal" />
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Real-time Monitoring
                 </h3>
@@ -133,7 +133,7 @@ export default function CompassPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Use Case 1: Performance Optimization */}
               <Card className="feature-card rounded-xl p-6">
-                <Target className="h-8 w-8 text-[#1E9E95] mb-4" />
+                <Target className="h-8 w-8 text-brand-teal mb-4" />
                 <h3 className="text-lg font-semibold text-white mb-2">
                   Performance Optimization
                 </h3>
@@ -145,7 +145,7 @@ export default function CompassPage() {
 
               {/* Use Case 2: Predictive Maintenance */}
               <Card className="feature-card rounded-xl p-6">
-                <TrendingUp className="h-8 w-8 text-[#1E9E95] mb-4" />
+                <TrendingUp className="h-8 w-8 text-brand-teal mb-4" />
                 <h3 className="text-lg font-semibold text-white mb-2">
                   Predictive Maintenance
                 </h3>
@@ -157,7 +157,7 @@ export default function CompassPage() {
 
               {/* Use Case 3: Operational Intelligence */}
               <Card className="feature-card rounded-xl p-6">
-                <Eye className="h-8 w-8 text-[#1E9E95] mb-4" />
+                <Eye className="h-8 w-8 text-brand-teal mb-4" />
                 <h3 className="text-lg font-semibold text-white mb-2">
                   Operational Intelligence
                 </h3>
@@ -169,7 +169,7 @@ export default function CompassPage() {
 
               {/* Use Case 4: Strategic Planning */}
               <Card className="feature-card rounded-xl p-6">
-                <Compass className="h-8 w-8 text-[#1E9E95] mb-4" />
+                <Compass className="h-8 w-8 text-brand-teal mb-4" />
                 <h3 className="text-lg font-semibold text-white mb-2">
                   Strategic Planning
                 </h3>
@@ -200,8 +200,8 @@ export default function CompassPage() {
               <div className="bg-gray-800 rounded-xl p-8 mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {/* Demo Card 1: Live Dashboard */}
-                  <div className="bg-[#2D4263]/30 rounded-lg p-6 border border-[#1E9E95]/30">
-                    <BarChart3 className="h-10 w-10 text-[#1E9E95] mx-auto mb-4" />
+                  <div className="bg-brand-blue/30 rounded-lg p-6 border border-brand-teal/30">
+                    <BarChart3 className="h-10 w-10 text-brand-teal mx-auto mb-4" />
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Live Dashboard
                     </h3>
@@ -212,15 +212,15 @@ export default function CompassPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="mt-4 w-full border-[#1E9E95]/50 text-[#1E9E95] hover:bg-[#1E9E95]/10"
+                      className="mt-4 w-full border-brand-teal/50 text-brand-teal hover:bg-brand-teal/10"
                     >
                       Explore Demo
                     </Button>
                   </div>
 
                   {/* Demo Card 2: Predictive Models */}
-                  <div className="bg-[#2D4263]/30 rounded-lg p-6 border border-[#1E9E95]/30">
-                    <TrendingUp className="h-10 w-10 text-[#1E9E95] mx-auto mb-4" />
+                  <div className="bg-brand-blue/30 rounded-lg p-6 border border-brand-teal/30">
+                    <TrendingUp className="h-10 w-10 text-brand-teal mx-auto mb-4" />
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Predictive Models
                     </h3>
@@ -230,15 +230,15 @@ export default function CompassPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="mt-4 w-full border-[#1E9E95]/50 text-[#1E9E95] hover:bg-[#1E9E95]/10"
+                      className="mt-4 w-full border-brand-teal/50 text-brand-teal hover:bg-brand-teal/10"
                     >
                       Try Predictions
                     </Button>
                   </div>
 
                   {/* Demo Card 3: Custom Reports */}
-                  <div className="bg-[#2D4263]/30 rounded-lg p-6 border border-[#1E9E95]/30">
-                    <Target className="h-10 w-10 text-[#1E9E95] mx-auto mb-4" />
+                  <div className="bg-brand-blue/30 rounded-lg p-6 border border-brand-teal/30">
+                    <Target className="h-10 w-10 text-brand-teal mx-auto mb-4" />
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Custom Reports
                     </h3>
@@ -249,7 +249,7 @@ export default function CompassPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="mt-4 w-full border-[#1E9E95]/50 text-[#1E9E95] hover:bg-[#1E9E95]/10"
+                      className="mt-4 w-full border-brand-teal/50 text-brand-teal hover:bg-brand-teal/10"
                     >
                       Generate Report
                     </Button>
@@ -271,7 +271,7 @@ export default function CompassPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-r from-[#2D4263] to-[#1E9E95]">
+        <section className="py-20 md:py-32 bg-gradient-to-r from-brand-blue to-brand-teal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -285,7 +285,7 @@ export default function CompassPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-white text-[#2D4263] hover:bg-gray-100"
+                  className="bg-white text-brand-blue hover:bg-gray-100"
                 >
                   Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
