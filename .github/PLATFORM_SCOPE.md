@@ -1,4 +1,4 @@
-# Konnektr Platform - Application Scope & Boundaries
+nektr Platform - Application Scope & Boundaries
 
 ## 🎯 Overview
 
@@ -122,6 +122,30 @@ Each application has a single primary responsibility and excels at that function
 - Redirects to KtrlPlane for authentication and resource creation
 - Supports deep linking to specific product creation flows
 - Integration with KtrlPlane URL patterns for seamless transitions
+
+---
+
+### Konnektr Documentation Site (docs.konnektr.com)
+
+**One-Liner**: Central portal for all user-facing Konnektr documentation, guides, and API references.
+
+**✅ In-Scope:**
+- Interactive, searchable docs for all products using MDX, React, Vite, and Shadcn/UI
+- Consistent branding and design system
+- Automated PRs from product repos merge user docs into the site
+
+**❌ Out-of-Scope:**
+- Marketing, sales, or lead generation (see Konnektr Home)
+- Product business logic, backend integration, or user authentication
+
+**Key Interactions:**
+- "Docs" links from all apps point to docs.konnektr.com
+- Product repos push doc changes via GitHub Actions/PRs
+
+**Architecture:**
+- Separate Vite/React/MDX/Shadcn project (konnektr-docs)
+- Content organized by product, with live React components for demos
+- Deployed to docs.konnektr.com via static hosting/CDN
 
 ---
 
