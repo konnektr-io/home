@@ -70,8 +70,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Assembler Product Card */}
             <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => navigate("/assembler")}
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
@@ -120,8 +119,7 @@ export default function HomePage() {
 
             {/* Flow Product Card */}
             <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => navigate("/flow")}
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
@@ -145,8 +143,7 @@ export default function HomePage() {
 
             {/* Compass Product Card */}
             <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => navigate("/compass")}
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
