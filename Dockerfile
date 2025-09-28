@@ -1,25 +1,37 @@
-FROM node:lts-alpine AS build-stage
-WORKDIR /
+# syntax=docker/dockerfile:1
 
-# Set environment variables for the frontend build
-ARG GTAG
-ENV VITE_GTAG=$GTAG
-
-# Install pnpm globally
-RUN npm install -g pnpm
-
-# Copy package files and install dependencies
-COPY package*.json ./
-RUN pnpm install
-
-# Copy the rest of the frontend code and build it
-COPY / ./
+# --- Build frontend ---
+FROM node:lts-alpine AS frontend-build
+WORKDIR /app/frontend
+COPY frontend/package.json frontend/pnpm-lock.yaml ./
+RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
+COPY frontend .
+RUN chmod +x node_modules/.bin/*
 RUN pnpm run build
 
-FROM nginxinc/nginx-unprivileged:alpine-slim
-USER root
-RUN apk upgrade --no-cache
-USER nginx
-COPY nginx.conf /etc/nginx/templates/default.conf.template
-COPY --from=build-stage /dist /usr/share/nginx/html
+# --- Build backend ---
+FROM python:3.12-slim AS backend-build
+WORKDIR /app/backend
+COPY backend/requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY backend .
+
+# --- Final image ---
+FROM python:3.12-slim
+WORKDIR /app
+
+# Copy backend code
+COPY --from=backend-build /app/backend ./backend
+# Copy frontend build output
+COPY --from=frontend-build /app/frontend/dist ./frontend/dist
+
+
+
+# Install backend dependencies in final image
+RUN pip install --no-cache-dir -r backend/requirements.txt
+
+# Expose port
 EXPOSE 8080
+
+# Entrypoint: serve FastAPI app with uvicorn
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8080"]
