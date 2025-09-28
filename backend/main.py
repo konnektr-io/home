@@ -41,7 +41,7 @@ async def waiting_list_signup(data: WaitingListSignup):
     url = f"https://api.mailerlite.com/api/v2/groups/{MAILERLITE_GROUP_WAITINGLIST}/subscribers"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {MAILERLITE_API_TOKEN}",
+        "X-MailerLite-ApiKey": MAILERLITE_API_TOKEN,
     }
     payload = {"email": data.email}
     resp = requests.post(url, json=payload, headers=headers)
