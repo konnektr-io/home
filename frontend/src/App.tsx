@@ -45,10 +45,10 @@ function App() {
                 <PopoverContent className="bg-brand-dark border-white/20 text-foreground w-80 p-4 rounded-xl shadow-xl">
                   <div className="space-y-4">
                     <button
-                      onClick={() => handleProductClick("/assembler")}
-                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors"
+                      disabled
+                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg bg-brand-dark/40 text-muted-foreground cursor-not-allowed"
                     >
-                      <span className="font-semibold text-foreground">
+                      <span className="font-semibold text-muted-foreground">
                         Konnektr Assembler
                       </span>
                       <span className="text-xs text-muted-foreground">
@@ -67,10 +67,10 @@ function App() {
                       </span>
                     </button>
                     <button
-                      onClick={() => handleProductClick("/flow")}
-                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors"
+                      disabled
+                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg bg-brand-dark/40 text-muted-foreground cursor-not-allowed"
                     >
-                      <span className="font-semibold text-foreground">
+                      <span className="font-semibold text-muted-foreground">
                         Konnektr Flow
                       </span>
                       <span className="text-xs text-muted-foreground">
@@ -78,10 +78,10 @@ function App() {
                       </span>
                     </button>
                     <button
-                      onClick={() => handleProductClick("/compass")}
-                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors"
+                      disabled
+                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg bg-brand-dark/40 text-muted-foreground cursor-not-allowed"
                     >
-                      <span className="font-semibold text-foreground">
+                      <span className="font-semibold text-muted-foreground">
                         Konnektr Compass
                       </span>
                       <span className="text-xs text-muted-foreground">
@@ -93,12 +93,12 @@ function App() {
               </Popover>
             </nav>
             <div className="flex items-center gap-4">
-              <a
+              {/* <a
                 href="#"
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Sign In
-              </a>
+              </a> */}
               <MailingListDialog
                 trigger={
                   <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-white shadow hover:bg-brand-teal/90">

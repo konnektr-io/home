@@ -19,30 +19,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve static frontend files
-frontend_dist_path = os.path.join(os.path.dirname(__file__), "..", "frontend", "dist")
-app.mount("/", StaticFiles(directory=frontend_dist_path, html=True), name="static")
-
-
-# Optional: fallback to index.html for SPA routing
-@app.get("/{full_path:path}")
-async def spa_fallback(full_path: str):
-    index_path = os.path.join(frontend_dist_path, "index.html")
-    if os.path.exists(index_path):
-        return FileResponse(index_path)
-    raise HTTPException(status_code=404, detail="Not Found")
-
-
 MAILERLITE_API_TOKEN = os.getenv("MAILERLITE_API_TOKEN")
-MAILERLITE_GROUP_WAITINGLIST = os.getenv("MAILERLITE_GROUP", "")
-
+MAILERLITE_GROUP_WAITINGLIST = os.getenv("MAILERLITE_GROUP_WAITINGLIST", "")
 
 class WaitingListSignup(BaseModel):
     email: EmailStr
     product: str
 
 
-@app.post("/api/waiting-list")
+@app.post("/api/waitinglist")
 async def waiting_list_signup(data: WaitingListSignup):
     if not MAILERLITE_API_TOKEN:
         raise HTTPException(
@@ -63,3 +48,16 @@ async def waiting_list_signup(data: WaitingListSignup):
     if resp.status_code not in (200, 201):
         raise HTTPException(status_code=502, detail=f"MailerLite error: {resp.text}")
     return {"success": True}
+
+# Serve static frontend files
+frontend_dist_path = os.path.join(os.path.dirname(__file__), "..", "frontend", "dist")
+app.mount("/", StaticFiles(directory=frontend_dist_path, html=True), name="static")
+
+
+# Optional: fallback to index.html for SPA routing
+@app.get("/{full_path:path}")
+async def spa_fallback(full_path: str):
+    index_path = os.path.join(frontend_dist_path, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    raise HTTPException(status_code=404, detail="Not Found")

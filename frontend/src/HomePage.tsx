@@ -31,15 +31,25 @@ export default function HomePage() {
             Konnektr automates digital twin creation, deployment, and
             orchestration. We solve for complexity, cost, and context, turning
             your disconnected data into a competitive advantage.
+            <br />
+            <span className="block mt-4 text-brand-teal font-semibold text-lg">
+              <span className="bg-brand-teal/10 px-2 py-1 rounded">
+                Open Source
+              </span>{" "}
+              &mdash; All Konnektr products are open-source and available for
+              self-hosting.
+            </span>
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <button
-              onClick={() => navigate("/assembler")}
-              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-white shadow hover:bg-brand-teal/90"
-            >
-              Explore Our Products
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </button>
+            {/*
+                <button
+                  onClick={() => navigate("/assembler")}
+                  className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-white shadow hover:bg-brand-teal/90"
+                >
+                  Explore Our Products
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+                */}
           </div>
         </div>
       </section>
@@ -51,10 +61,10 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               Complete Digital Twin Platform
             </h2>
-            <p className="mt-4 text-lg text-gray-400">
-              From intelligent modeling to scalable deployment and real-time
-              orchestration, our integrated platform covers the entire digital
-              twin lifecycle.
+            <p className="mt-4 text-lg text-brand-teal font-semibold">
+              100% Open Source. From intelligent modeling to scalable deployment
+              and real-time orchestration, our integrated platform covers the
+              entire digital twin lifecycle.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -224,10 +234,15 @@ export default function HomePage() {
                   Scalable digital twin runtime
                 </p>
                 <div className="mb-4">
+                  {/*
                   <span className="text-2xl font-bold text-foreground">
                     $25
                   </span>
                   <span className="text-muted-foreground ml-2">/month</span>
+                  */}
+                  <span className="text-2xl font-bold text-foreground">
+                    Coming Soon
+                  </span>
                 </div>
               </div>
               <ul className="space-y-2 mb-6">
@@ -328,11 +343,48 @@ export default function HomePage() {
               Why Konnektr?
             </h2>
             <p className="mt-4 text-lg text-gray-400">
-              Our integrated approach solves the biggest challenges in digital
-              twin adoption.
+              <span className="block mb-2">
+                Konnektr is 100% open source—no vendor lock-in, no hidden costs.
+                Our platform is built for transparency, flexibility, and
+                community-driven innovation.
+              </span>
+              <span className="block mb-2">
+                We don't just build products—we build solutions. Our team
+                delivers bespoke IoT and digital twin platforms for enterprises,
+                customizing every layer to your needs.
+              </span>
+              <span className="block mb-2">
+                Whether you want to self-host, use our managed cloud, or need
+                expert help building your next digital twin solution, Konnektr
+                is your partner for success.
+              </span>
             </p>
           </div>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Feature 3: Open Source & Customization */}
+            <div className="feature-card rounded-xl p-8">
+              <Star className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                100% Open Source
+              </h3>
+              <p className="mt-2 text-gray-400">
+                All Konnektr products are open source and available for
+                self-hosting. We also offer managed cloud and enterprise
+                support.
+              </p>
+            </div>
+            {/* Feature 4: Enterprise Customization */}
+            <div className="feature-card rounded-xl p-8">
+              <Compass className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Bespoke Solutions for Enterprises
+              </h3>
+              <p className="mt-2 text-gray-400">
+                Need a custom IoT or digital twin platform? Our team builds
+                tailored solutions for enterprises, from architecture to
+                deployment.
+              </p>
+            </div>
             {/* Feature 1: Fast Modeling */}
             <div className="feature-card rounded-xl p-8">
               <Bot className="h-10 w-10 text-brand-teal" />

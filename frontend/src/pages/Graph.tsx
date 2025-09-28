@@ -1,15 +1,8 @@
+import { MailingListDialog } from "@/components/MailingListDialog";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { PricingSection } from "@/components/PricingSection";
 import { graphProduct } from "@/data/products";
-import {
-  DatabaseZap,
-  ArrowRight,
-  Play,
-  Network,
-  Shield,
-  Zap,
-} from "lucide-react";
+import { DatabaseZap, Play, Network, Shield, Zap } from "lucide-react";
 
 export default function GraphPage() {
   return (
@@ -26,20 +19,31 @@ export default function GraphPage() {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto">
             {graphProduct.description}
+            <br />
+            <span className="block mt-4 text-brand-teal font-semibold text-lg">
+              <span className="bg-brand-teal/10 px-2 py-1 rounded">
+                Open Source
+              </span>{" "}
+              &mdash; All Konnektr products are open-source and available for
+              self-hosting.
+            </span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-teal hover:bg-brand-teal/90">
-              Deploy Now
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/20 text-foreground hover:bg-white/10"
+            {/*
+               <Button size="lg" className="bg-brand-teal hover:bg-brand-teal/90">
+                 Deploy Now
+                 <ArrowRight className="ml-2 h-4 w-4" />
+               </Button>
+               */}
+            <a
+              href="https://konnektr-io.github.io/pg-age-digitaltwins/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
             >
               <Play className="mr-2 h-5 w-5" />
               View Docs
-            </Button>
+            </a>
           </div>
         </div>
         {/* Hero Image/Visualization */}
@@ -67,9 +71,9 @@ export default function GraphPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Enterprise-Grade Digital Twin Infrastructure
               </h2>
-              <p className="mt-4 text-lg text-gray-400">
-                Open source, flexible, and built for scale. Your digital twin
-                data, your way, with enterprise reliability.
+              <p className="mt-4 text-lg text-brand-teal font-semibold">
+                100% Open Source. Flexible, scalable, and built for enterprise
+                reliability. Your digital twin data, your way.
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -181,16 +185,20 @@ export default function GraphPage() {
             </div>
           </div>
         </section>
-        {/* Pricing Section */}
-        <PricingSection
-          tiers={graphProduct.pricingTiers}
-          productName="Graph"
-          onDeployClick={(tier) => {
-            import("@/utils/ktrlplane").then(({ redirectToKtrlPlane }) => {
-              redirectToKtrlPlane("graph", tier);
-            });
-          }}
-        />
+        {/* Pricing Section - Coming Soon */}
+        <section className="py-20 md:py-28">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Pricing Coming Soon
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Konnektr Graph is open source and free to self-host. Managed
+                cloud pricing will be announced soon.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Final CTA Section */}
         <section className="py-12 md:py-20">
@@ -203,11 +211,30 @@ export default function GraphPage() {
               <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
                 Open source, flexible, and built for the modern enterprise. Get
                 started with Konnektr Graph today.
+                <br />
+                <span className="block mt-2 text-brand-light text-base font-semibold">
+                  Future managed cloud plans will include a free tier for
+                  everyone.
+                </span>
               </p>
               <div className="mt-8">
+                {/*
                 <Button className="h-11 px-6 py-3 bg-white text-black shadow hover:bg-gray-200 text-base font-medium">
-                  Start Your Free Trial
+                  Start for Free
                 </Button>
+                */}
+                <MailingListDialog
+                  trigger={
+                    <Button className="h-11 px-6 py-3 bg-brand-teal text-white shadow hover:bg-brand-teal/90 text-base font-medium">
+                      Join Waiting List
+                    </Button>
+                  }
+                  title="Join the Graph Waiting List"
+                  description="Get notified when Konnektr Graph launches its managed cloud plans."
+                  ctaText="Join List"
+                  product="Graph"
+                  successMessage="You're on the list! We'll notify you about Graph updates."
+                />
               </div>
             </div>
           </div>
