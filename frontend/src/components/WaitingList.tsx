@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CheckCircle, Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
+import { MailingListDialog } from "./MailingListDialog";
 
 interface WaitingListProps {
   productName: string;
@@ -12,46 +12,6 @@ export function WaitingListSection({
   productName,
   description,
 }: WaitingListProps) {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    try {
-      const res = await fetch("/api/waiting-list", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, product: productName }),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.detail || "Signup failed. Please try again.");
-      }
-      setSubmitted(true);
-    } catch (err: any) {
-      setError(err.message || "Signup failed. Please try again.");
-    }
-  };
-
-  if (submitted) {
-    return (
-      <Card className="p-8 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border-brand-teal/20">
-        <div className="text-center">
-          <CheckCircle className="mx-auto h-12 w-12 text-brand-teal mb-4" />
-          <h3 className="text-xl font-semibold text-foreground mb-2">
-            You're on the list!
-          </h3>
-          <p className="text-muted-foreground">
-            Thanks for your interest in {productName}. We'll notify you as soon
-            as it's available.
-          </p>
-        </div>
-      </Card>
-    );
-  }
-
   return (
     <Card className="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10">
       <div className="text-center">
@@ -61,29 +21,20 @@ export function WaitingListSection({
           {description ||
             `${productName} is currently in development. Join our waiting list to be the first to know when it's available.`}
         </p>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-          <div className="flex gap-2">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              required
-              className="flex-1 px-4 py-2 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-brand-teal/50"
-            />
-            <Button
-              type="submit"
-              className="bg-brand-teal hover:bg-brand-teal/90"
-            >
-              Join List <ArrowRight className="ml-2 h-4 w-4" />
+        <MailingListDialog
+          trigger={
+            <Button className="bg-brand-teal hover:bg-brand-teal/90 w-full">
+              Join Waiting List <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </div>
-          {error && (
-            <div className="mt-4 text-sm text-red-500" role="alert">
-              {error}
-            </div>
-          )}
-        </form>
+          }
+          title={`Join the ${productName} Waiting List`}
+          description={
+            description || `Be the first to know when ${productName} launches.`
+          }
+          ctaText="Join List"
+          product={productName}
+          successMessage={`You're on the list! We'll notify you as soon as ${productName} is available.`}
+        />
       </div>
     </Card>
   );

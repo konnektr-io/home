@@ -12,6 +12,7 @@ import GraphPage from "./pages/Graph";
 import FlowPage from "./pages/Flow";
 import CompassPage from "./pages/Compass";
 import KonnektrLogo from "./assets/konnektr.svg";
+import { MailingListDialog } from "./components/MailingListDialog";
 
 function App() {
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -98,12 +99,18 @@ function App() {
               >
                 Sign In
               </a>
-              <a
-                href="#"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-white shadow hover:bg-brand-teal/90"
-              >
-                Request a Demo
-              </a>
+              <MailingListDialog
+                trigger={
+                  <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-white shadow hover:bg-brand-teal/90">
+                    Request a Demo
+                  </button>
+                }
+                title="Request a Demo"
+                description="Get a personalized walkthrough and see how Konnektr can accelerate your digital twin journey."
+                ctaText="Request Demo"
+                product="demo"
+                successMessage="Thank you! We'll be in touch soon."
+              />
             </div>
           </div>
         </div>

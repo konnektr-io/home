@@ -8,8 +8,11 @@ import {
   Star,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { MailingListDialog } from "@/components/MailingListDialog";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -190,12 +193,18 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-              <Button
-                onClick={() => navigate("/assembler")}
-                className="w-full bg-brand-blue hover:bg-brand-blue/90"
-              >
-                Join Waiting List
-              </Button>
+              <MailingListDialog
+                trigger={
+                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
+                    Join Waiting List
+                  </Button>
+                }
+                title="Join the Assembler Waiting List"
+                description="Be the first to know when Assembler launches."
+                ctaText="Join List"
+                product="Assembler"
+                successMessage="You're on the list! We'll notify you as soon as Assembler is available."
+              />
             </Card>
 
             {/* Graph Pricing - Ready */}
@@ -235,12 +244,18 @@ export default function HomePage() {
                   </span>
                 </li>
               </ul>
-              <Button
-                onClick={() => navigate("/graph")}
-                className="w-full bg-brand-teal hover:bg-brand-teal/90"
-              >
-                Start Deploying
-              </Button>
+              <MailingListDialog
+                trigger={
+                  <Button className="w-full bg-brand-teal hover:bg-brand-teal/90">
+                    Join Waiting List
+                  </Button>
+                }
+                title="Join the Graph Waiting List"
+                description="Get notified about updates and new features for Graph."
+                ctaText="Join List"
+                product="Graph"
+                successMessage="You're on the list! We'll notify you about Graph updates."
+              />
             </Card>
 
             {/* Flow Pricing - Coming Soon */}
@@ -257,12 +272,18 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-              <Button
-                onClick={() => navigate("/flow")}
-                className="w-full bg-brand-blue hover:bg-brand-blue/90"
-              >
-                Join Waiting List
-              </Button>
+              <MailingListDialog
+                trigger={
+                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
+                    Join Waiting List
+                  </Button>
+                }
+                title="Join the Flow Waiting List"
+                description="Be the first to know when Flow launches."
+                ctaText="Join List"
+                product="Flow"
+                successMessage="You're on the list! We'll notify you as soon as Flow is available."
+              />
             </Card>
 
             {/* Compass Pricing - Coming Soon */}
@@ -281,18 +302,25 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-              <Button
-                onClick={() => navigate("/compass")}
-                className="w-full bg-brand-blue hover:bg-brand-blue/90"
-              >
-                Join Waiting List
-              </Button>
+              <MailingListDialog
+                trigger={
+                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
+                    Join Waiting List
+                  </Button>
+                }
+                title="Join the Compass Waiting List"
+                description="Be the first to know when Compass launches."
+                ctaText="Join List"
+                product="Compass"
+                successMessage="You're on the list! We'll notify you as soon as Compass is available."
+              />
             </Card>
           </div>
         </div>
       </section>
 
       {/* Why Konnektr Section */}
+
       <section id="features" className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">

@@ -29,7 +29,7 @@ export default function GraphPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-brand-teal hover:bg-brand-teal/90">
-              Start Deploying
+              Deploy Now
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
@@ -38,14 +38,13 @@ export default function GraphPage() {
               className="border-white/20 text-foreground hover:bg-white/10"
             >
               <Play className="mr-2 h-5 w-5" />
-              View API Docs
+              View Docs
             </Button>
           </div>
         </div>
         {/* Hero Image/Visualization */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        {/* <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
           <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
-            {/* Placeholder for Graph Network visualization */}
             <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
               <div className="text-center">
                 <Network className="h-16 w-16 text-brand-teal mx-auto mb-4" />
@@ -58,7 +57,7 @@ export default function GraphPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
       <main>
         {/* Features Section */}

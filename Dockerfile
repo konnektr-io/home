@@ -25,8 +25,6 @@ COPY --from=backend-build /app/backend ./backend
 # Copy frontend build output
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 
-# Copy .env if present (for local dev, override in cloud)
-COPY backend/.env ./backend/.env
 
 
 # Install backend dependencies in final image
