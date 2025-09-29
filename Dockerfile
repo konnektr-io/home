@@ -3,6 +3,8 @@
 # --- Build frontend ---
 FROM node:lts-alpine AS frontend-build
 WORKDIR /app/frontend
+ARG GTAG
+ENV PUBLIC_ENV__GOOGLE_ANALYTICS=${GTAG}
 COPY frontend/package.json frontend/pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
 COPY frontend .
