@@ -7,15 +7,12 @@ import {
   Check,
   Star,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { navigate } from "vike/client/router";
+import { Card } from "../../components/ui/card.js";
+import { Button } from "../../components/ui/button.js";
+import { MailingListDialog } from "../../components/MailingListDialog.js";
 
-
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MailingListDialog } from "@/components/MailingListDialog";
-
-export default function HomePage() {
-  const navigate = useNavigate();
+export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       <section className="relative py-20 md:py-32 hero-glow">
@@ -69,9 +66,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Assembler Product Card */}
-            <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20"
-            >
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
@@ -85,10 +80,10 @@ export default function HomePage() {
                   creation from any data source with a low-code visual
                   interface.
                 </p>
-                <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
+                {/* <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
                   Start Building{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -111,16 +106,14 @@ export default function HomePage() {
                   open standards.
                 </p>
                 <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
-                  Start Deploying{" "}
+                  Start Twinning{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </div>
 
             {/* Flow Product Card */}
-            <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20"
-            >
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
@@ -134,17 +127,15 @@ export default function HomePage() {
                   nervous system for your digital twin, enabling intelligent
                   automation.
                 </p>
-                <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
+                {/* <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
                   Start Flowing{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
+                </div> */}
               </div>
             </div>
 
             {/* Compass Product Card */}
-            <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20"
-            >
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
@@ -157,10 +148,10 @@ export default function HomePage() {
                   Analytics and insights platform that transforms complex
                   digital twin data into actionable intelligence.
                 </p>
-                <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
+                {/* <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
                   Join Waiting List{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -202,7 +193,7 @@ export default function HomePage() {
               </div>
               <MailingListDialog
                 trigger={
-                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
+                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 cursor-pointer">
                     Join Waiting List
                   </Button>
                 }
@@ -258,7 +249,7 @@ export default function HomePage() {
               </ul>
               <MailingListDialog
                 trigger={
-                  <Button className="w-full bg-brand-teal hover:bg-brand-teal/90">
+                  <Button className="w-full bg-brand-teal hover:bg-brand-teal/90 cursor-pointer">
                     Join Waiting List
                   </Button>
                 }
@@ -286,7 +277,7 @@ export default function HomePage() {
               </div>
               <MailingListDialog
                 trigger={
-                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
+                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 cursor-pointer">
                     Join Waiting List
                   </Button>
                 }
@@ -316,7 +307,7 @@ export default function HomePage() {
               </div>
               <MailingListDialog
                 trigger={
-                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
+                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 cursor-pointer">
                     Join Waiting List
                   </Button>
                 }

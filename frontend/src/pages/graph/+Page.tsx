@@ -1,10 +1,10 @@
-import { MailingListDialog } from "@/components/MailingListDialog";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { graphProduct } from "@/data/products";
 import { DatabaseZap, Play, Network, Shield, Zap } from "lucide-react";
+import { MailingListDialog } from "../../components/MailingListDialog.js";
+import { Button } from "../../components/ui/button.js";
+import { Card } from "../../components/ui/card.js";
+import { graphProduct } from "../../data/products.js";
 
-export default function GraphPage() {
+export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       {/* Hero Section */}
@@ -225,7 +225,7 @@ export default function GraphPage() {
                 */}
                 <MailingListDialog
                   trigger={
-                    <Button className="h-11 px-6 py-3 bg-brand-teal text-white shadow hover:bg-brand-teal/90 text-base font-medium">
+                    <Button className="h-11 px-6 py-3 bg-brand-teal text-white shadow hover:bg-brand-teal/90 text-base font-medium  cursor-pointer">
                       Join Waiting List
                     </Button>
                   }
