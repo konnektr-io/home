@@ -15,5 +15,7 @@ export default {
 
   bodyAttributes: { class: "dark" },
 
+  prerender: true,
+
   extends: vikeReact,
 } satisfies Config;
