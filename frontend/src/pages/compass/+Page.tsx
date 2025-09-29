@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { WaitingListSection } from "@/components/WaitingList";
-import { PricingSection } from "@/components/PricingSection";
-import { compassProduct } from "@/data/products";
+import { Button } from "../../components/ui/button.js";
+import { Card } from "../../components/ui/card.js";
+import { WaitingListSection } from "../../components/WaitingList.js";
+import { PricingSection } from "../../components/PricingSection.js";
+import { compassProduct } from "../../data/products.js";
 import {
   Compass,
   ArrowRight,
@@ -13,7 +13,7 @@ import {
   Target,
 } from "lucide-react";
 
-export default function CompassPage() {
+export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       {/* Hero Section */}

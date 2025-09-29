@@ -1,8 +1,3 @@
-// import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { WaitingListSection } from "@/components/WaitingList";
-import { PricingSection } from "@/components/PricingSection";
-import { assemblerProduct } from "@/data/products";
 import {
   // Bot,
   BrainCircuit,
@@ -11,9 +6,13 @@ import {
   Zap,
   Users,
 } from "lucide-react";
-import { redirectToKtrlPlane } from "@/utils/ktrlplane";
+import { Card } from "../../components/ui/card.js";
+import { WaitingListSection } from "../../components/WaitingList.js";
+import { PricingSection } from "../../components/PricingSection.js";
+import { assemblerProduct } from "../../data/products.js";
+import { redirectToKtrlPlane } from "@/utils/ktrlplane.js";
 
-export default function AssemblerPage() {
+export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       {/* Hero Section */}

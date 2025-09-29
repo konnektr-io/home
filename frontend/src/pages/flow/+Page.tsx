@@ -1,14 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { WaitingListSection } from "@/components/WaitingList";
-import { PricingSection } from "@/components/PricingSection";
-import { flowProduct } from "@/data/products";
-import { Workflow, ArrowRight, Zap } from "lucide-react";
-import { DatabaseZap } from "lucide-react";
-import KonnektrLogo from "../assets/konnektr.svg";
+import { Workflow, ArrowRight, Zap, DatabaseZap } from "lucide-react";
+import { Button } from "../../components/ui/button.js";
+import { Card } from "../../components/ui/card.js";
+import { Badge } from "../../components/ui/badge.js";
+import { WaitingListSection } from "../../components/WaitingList.js";
+import { PricingSection } from "../../components/PricingSection.js";
+import { flowProduct } from "../../data/products.js";
+import KonnektrLogo from "../../assets/konnektr.svg";
 
-export default function FlowPage() {
+export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       {/* Hero Section */}

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -35,7 +35,7 @@
   --sidebar-accent-foreground: oklch(0.15 0.01 240);
   --sidebar-border: oklch(0.91 0.01 240);
   --sidebar-ring: oklch(0.35 0.08 240);
-  
+
   /* Konnektr Brand Colors */
   --brand-dark: oklch(0.12 0.02 240); /* #0B111D equivalent - Dark Background */
   --brand-blue: oklch(0.35 0.08 240); /* #2D4263 equivalent - Primary Blue */
@@ -79,7 +79,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.25 0.02 240);
   --sidebar-ring: oklch(0.65 0.12 180);
-  
+
   /* Konnektr Brand Colors for dark mode */
   --brand-dark: oklch(0.12 0.02 240); /* Same as background in dark mode */
   --brand-blue: oklch(0.45 0.08 240); /* Slightly lighter blue for dark mode */
@@ -148,7 +148,6 @@
   }
 }
 
-
 @layer utilities {
   /* Brand gradient text */
   .gradient-text {
@@ -158,9 +157,13 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Hero section background glow */  
+  /* Hero section background glow */
   .hero-glow {
-    background-image: radial-gradient(ellipse 50% 80% at 50% -20%, color-mix(in oklch, var(--brand-blue) 50%, transparent), transparent);
+    background-image: radial-gradient(
+      ellipse 50% 80% at 50% -20%,
+      color-mix(in oklch, var(--brand-blue) 50%, transparent),
+      transparent
+    );
   }
 
   /* Interactive feature cards */

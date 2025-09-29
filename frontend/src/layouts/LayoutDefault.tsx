@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import "./index.css";
+import { useState } from "react";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@/components/ui/popover";
+} from "../components/ui/popover";
 import { ChevronDown } from "lucide-react";
-import HomePage from "./HomePage";
-import AssemblerPage from "./pages/Assembler";
-import GraphPage from "./pages/Graph";
-import FlowPage from "./pages/Flow";
-import CompassPage from "./pages/Compass";
-import KonnektrLogo from "./assets/konnektr.svg";
-import { MailingListDialog } from "./components/MailingListDialog";
+import { navigate } from "vike/client/router";
+import KonnektrLogo from "../assets/konnektr.svg";
+import { MailingListDialog } from "../components/MailingListDialog.js";
+import { Link } from "../components/Link.js";
 
-function App() {
+export default function LayoutDefault({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [popoverOpen, setPopoverOpen] = useState(false);
-  const navigate = useNavigate();
 
   const handleProductClick = (path: string) => {
     navigate(path);
@@ -30,7 +30,7 @@ function App() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link
-              to="/"
+              href="/"
               className="flex items-center gap-2 font-semibold text-lg"
             >
               <img src={KonnektrLogo} alt="Konnektr Logo" className="h-7 w-7" />
@@ -39,7 +39,7 @@ function App() {
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
               {/* Popover for Products */}
               <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
-                <PopoverTrigger className="flex items-center gap-1 hover:text-foreground transition-colors outline-none">
+                <PopoverTrigger className="flex items-center gap-1 hover:text-foreground transition-colors outline-none cursor-pointer">
                   Products <ChevronDown className="h-4 w-4" />
                 </PopoverTrigger>
                 <PopoverContent className="bg-brand-dark border-white/20 text-foreground w-80 p-4 rounded-xl shadow-xl">
@@ -57,7 +57,7 @@ function App() {
                     </button>
                     <button
                       onClick={() => handleProductClick("/graph")}
-                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors"
+                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer"
                     >
                       <span className="font-semibold text-foreground">
                         Konnektr Graph
@@ -101,7 +101,7 @@ function App() {
               </a> */}
               <MailingListDialog
                 trigger={
-                  <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-white shadow hover:bg-brand-teal/90">
+                  <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-white shadow hover:bg-brand-teal/90 cursor-pointer">
                     Request a Demo
                   </button>
                 }
@@ -115,17 +115,7 @@ function App() {
           </div>
         </div>
       </header>
-      <main className="pt-16">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/assembler" element={<AssemblerPage />} />
-          <Route path="/graph" element={<GraphPage />} />
-          <Route path="/flow" element={<FlowPage />} />
-          <Route path="/compass" element={<CompassPage />} />
-        </Routes>
-      </main>
+      <main className="pt-16">{children}</main>
     </>
   );
 }
-
-export default App;
