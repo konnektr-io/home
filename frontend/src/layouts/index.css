@@ -84,7 +84,7 @@
   /* Konnektr Brand Colors for dark mode */
   --brand-dark: oklch(0.12 0.02 240); /* Same as background in dark mode */
   --brand-blue: oklch(0.55 0.08 240); /* Increased lightness for better contrast */
-  --brand-teal: oklch(0.70 0.12 180); /* Increased lightness for better contrast */
+  --brand-teal: oklch(0.65 0.15 180); /* Lighter teal optimized for black text (14.26:1 contrast) */
   --brand-gray: oklch(0.75 0.01 240); /* Increased lightness for better contrast */
   --brand-light: oklch(0.985 0 0); /* Same as foreground in dark mode */
 }

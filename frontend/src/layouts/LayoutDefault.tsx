@@ -138,7 +138,7 @@ export default function LayoutDefault({
               </a> */}
               <MailingListDialog
                 trigger={
-                  <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-white shadow hover:bg-brand-teal/90 cursor-pointer">
+                  <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-black shadow hover:bg-brand-teal/90 cursor-pointer">
                     Request a Demo
                   </button>
                 }

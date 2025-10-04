@@ -396,7 +396,7 @@ export default function Page() {
                 */}
                 <MailingListDialog
                   trigger={
-                    <Button className="h-11 px-6 py-3 bg-brand-teal text-white shadow hover:bg-brand-teal/90 text-base font-medium  cursor-pointer">
+                    <Button className="h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90 text-base font-medium  cursor-pointer">
                       Join Waiting List
                     </Button>
                   }

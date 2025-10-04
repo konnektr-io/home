@@ -48,7 +48,7 @@ export default function Page() {
             {/*
                 <button
                   onClick={() => navigate("/assembler")}
-                  className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-white shadow hover:bg-brand-teal/90"
+                  className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
                 >
                   Explore Our Products
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -219,7 +219,7 @@ export default function Page() {
             {/* Graph Pricing - Ready */}
             <Card className="relative p-6 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border-brand-teal">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <div className="bg-brand-teal text-white px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+                <div className="bg-brand-teal text-black px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
                   <Star className="h-3 w-3" />
                   Ready Now
                 </div>

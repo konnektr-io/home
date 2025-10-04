@@ -54,7 +54,7 @@ export function PricingSection({
             >
               {tier.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-brand-teal text-white px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+                  <div className="bg-brand-teal text-black px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
                     <Star className="h-3 w-3" />
                     Most Popular
                   </div>
