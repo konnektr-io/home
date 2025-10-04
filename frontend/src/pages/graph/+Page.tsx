@@ -36,7 +36,7 @@ export default function Page() {
                </Button>
                */}
             <a
-              href="https://konnektr-io.github.io/pg-age-digitaltwins/"
+              href="https://docs.konnektr.io/docs/graph"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
