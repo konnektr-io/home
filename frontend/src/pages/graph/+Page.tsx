@@ -8,8 +8,15 @@ export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 hero-glow">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section
+        className="relative py-20 md:py-32 hero-glow"
+        aria-label="Graph Hero Section"
+      >
+        <div
+          className="container mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          role="region"
+          aria-label="Graph Hero Content"
+        >
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
             <DatabaseZap className="h-4 w-4" />
             High-Performance Graph Database
@@ -47,7 +54,11 @@ export default function Page() {
           </div>
         </div>
         {/* Hero Image/Visualization */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div
+          className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16"
+          role="region"
+          aria-label="Graph Visualization"
+        >
           <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
             <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
               <div className="text-center">
@@ -222,7 +233,10 @@ export default function Page() {
       </section>
       <main>
         {/* Features Section */}
-        <section className="py-20 md:py-28 bg-black/10">
+        <section
+          className="py-20 md:py-28 bg-black/10"
+          aria-label="Graph Features"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -281,7 +295,7 @@ export default function Page() {
         </section>
 
         {/* How It Works Section */}
-        <section className="py-20 md:py-28">
+        <section className="py-20 md:py-28" aria-label="Graph Technology">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -343,7 +357,7 @@ export default function Page() {
           </div>
         </section>
         {/* Pricing Section - Coming Soon */}
-        <section className="py-20 md:py-28">
+        <section className="py-20 md:py-28" aria-label="Graph Pricing">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -358,7 +372,7 @@ export default function Page() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-12 md:py-20">
+        <section className="py-12 md:py-20" aria-label="Graph Call to Action">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-brand-blue to-brand-teal text-center">
               <DatabaseZap className="mx-auto h-10 w-10 mb-4 text-white" />

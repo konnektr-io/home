@@ -79,7 +79,11 @@ export function CookieConsent({
                 , you agree to our use of cookies.
               </span>
               <br />
-              <a href="#" className="text-xs underline">
+              <a
+                href="/privacy-policy"
+                className="text-xs underline"
+                aria-label="Learn more about our cookie policy (opens privacy policy page)"
+              >
                 Learn more.
               </a>
             </p>

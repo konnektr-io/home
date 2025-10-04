@@ -11,8 +11,15 @@ export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 hero-glow">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section
+        className="relative py-20 md:py-32 hero-glow"
+        aria-label="Flow Hero Section"
+      >
+        <div
+          className="container mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          role="region"
+          aria-label="Flow Hero Content"
+        >
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-gray-300 mb-4 border border-white/10">
             <Workflow className="h-4 w-4" />
             Real-Time Event Processing
@@ -34,7 +41,11 @@ export default function Page() {
           </div>
         </div>
         {/* Hero Image/Visualization */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div
+          className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16"
+          role="region"
+          aria-label="Flow Visualization"
+        >
           <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
             {/* Placeholder for Flow Pipeline visualization */}
             <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
@@ -53,7 +64,10 @@ export default function Page() {
       </section>
       <main className="pb-16">
         {/* Features Section */}
-        <section className="py-12 md:py-20 bg-black/10">
+        <section
+          className="py-12 md:py-20 bg-black/10"
+          aria-label="Flow Features"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -99,7 +113,7 @@ export default function Page() {
           </div>
         </section>
         {/* How It Works Section */}
-        <section className="py-12 md:py-20">
+        <section className="py-12 md:py-20" aria-label="Flow Capabilities">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -145,7 +159,10 @@ export default function Page() {
           </div>
         </section>
         {/* Use Cases Section */}
-        <section className="py-12 md:py-20 bg-black/10">
+        <section
+          className="py-12 md:py-20 bg-black/10"
+          aria-label="Flow Use Cases"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -205,7 +222,7 @@ export default function Page() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-12 md:py-20">
+        <section className="py-12 md:py-20" aria-label="Flow Pricing">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <PricingSection
               tiers={flowProduct.pricingTiers}
@@ -220,7 +237,7 @@ export default function Page() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-12 md:py-20">
+        <section className="py-12 md:py-20" aria-label="Flow Call to Action">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-brand-blue to-brand-teal text-center">
               <img

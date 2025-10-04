@@ -15,8 +15,15 @@ import { MailingListDialog } from "../../components/MailingListDialog.js";
 export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
-      <section className="relative py-20 md:py-32 hero-glow">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section
+        className="relative py-20 md:py-32 hero-glow"
+        aria-label="Home Hero Section"
+      >
+        <div
+          className="container mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          role="region"
+          aria-label="Home Hero Content"
+        >
           <div className="inline-block rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
             The Intelligent Twin Platform
           </div>
@@ -52,7 +59,10 @@ export default function Page() {
       </section>
 
       {/* Products Overview Section */}
-      <section className="py-20 md:py-28 bg-black/10">
+      <section
+        className="py-20 md:py-28 bg-black/10"
+        aria-label="Products Overview"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -162,6 +172,7 @@ export default function Page() {
       <section
         id="pricing"
         className="py-20 md:py-28 bg-gradient-to-b from-transparent to-brand-dark/50"
+        aria-label="Pricing"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -324,7 +335,11 @@ export default function Page() {
 
       {/* Why Konnektr Section */}
 
-      <section id="features" className="py-20 md:py-28">
+      <section
+        id="features"
+        className="py-20 md:py-28"
+        aria-label="Why Konnektr"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white">

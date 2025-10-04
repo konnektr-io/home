@@ -17,8 +17,15 @@ export default function Page() {
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 hero-glow">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section
+        className="relative py-20 md:py-32 hero-glow"
+        aria-label="Compass Hero Section"
+      >
+        <div
+          className="container mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          role="region"
+          aria-label="Compass Hero Content"
+        >
           <div className="inline-block rounded-full bg-white/10 px-3 py-1 text-sm text-gray-300 mb-4 border border-white/10">
             ✨ Analytics & Insights Platform
           </div>
@@ -40,7 +47,11 @@ export default function Page() {
         </div>
 
         {/* Hero Image/Visualization */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div
+          className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16"
+          role="region"
+          aria-label="Compass Visualization"
+        >
           <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
             {/* Placeholder for Compass Analytics UI visualization */}
             <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
@@ -60,7 +71,7 @@ export default function Page() {
 
       <main>
         {/* Key Features Section */}
-        <section className="py-20 md:py-32">
+        <section className="py-20 md:py-32" aria-label="Compass Key Features">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -117,7 +128,10 @@ export default function Page() {
         </section>
 
         {/* Use Cases Section */}
-        <section className="py-20 md:py-32 bg-white/3">
+        <section
+          className="py-20 md:py-32 bg-white/3"
+          aria-label="Compass Use Cases"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -183,7 +197,10 @@ export default function Page() {
         </section>
 
         {/* Interactive Demo Section */}
-        <section className="py-20 md:py-32">
+        <section
+          className="py-20 md:py-32"
+          aria-label="Compass Interactive Demo"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -261,7 +278,7 @@ export default function Page() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-12 md:py-20">
+        <section className="py-12 md:py-20" aria-label="Compass Pricing">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <PricingSection
               tiers={compassProduct.pricingTiers}
@@ -271,7 +288,10 @@ export default function Page() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-r from-brand-blue to-brand-teal">
+        <section
+          className="py-20 md:py-32 bg-gradient-to-r from-brand-blue to-brand-teal"
+          aria-label="Compass Call to Action"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">

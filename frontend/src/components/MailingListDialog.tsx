@@ -78,7 +78,11 @@ export function MailingListDialog({
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
+            <label htmlFor="mailing-list-email" className="sr-only">
+              Email address
+            </label>
             <input
+              id="mailing-list-email"
               type="email"
               required
               value={email}
@@ -86,6 +90,7 @@ export function MailingListDialog({
               placeholder="Your email address"
               className="w-full px-4 py-2 rounded-md border border-brand-teal/30 bg-brand-dark text-foreground focus:outline-none focus:ring-2 focus:ring-brand-teal"
               disabled={loading}
+              aria-label="Email address for mailing list"
             />
             {error && <div className="text-red-500 text-sm">{error}</div>}
             <DialogFooter>
