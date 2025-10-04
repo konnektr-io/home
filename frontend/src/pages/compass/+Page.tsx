@@ -26,14 +26,14 @@ export default function Page() {
           role="region"
           aria-label="Compass Hero Content"
         >
-          <div className="inline-block rounded-full bg-white/10 px-3 py-1 text-sm text-gray-300 mb-4 border border-white/10">
+          <div className="inline-block rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
             ✨ Analytics & Insights Platform
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Navigate Your Digital Twin Universe with{" "}
             <span className="gradient-text">Compass</span>
           </h1>
-          <p className="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             {compassProduct.description}
           </p>
 
@@ -60,7 +60,7 @@ export default function Page() {
                 <p className="text-lg font-medium text-white">
                   Compass Analytics Dashboard
                 </p>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   Interactive data visualization and insights
                 </p>
               </div>
@@ -78,7 +78,7 @@ export default function Page() {
                 Illuminate Your Digital Twin{" "}
                 <span className="gradient-text">Intelligence</span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Turn your digital twin data into strategic advantages with
                 advanced analytics, real-time monitoring, and predictive
                 insights.
@@ -92,7 +92,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Advanced Visualization
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Interactive dashboards, 3D visualizations, and customizable
                   charts that bring your digital twin data to life. Create
                   compelling stories from complex data.
@@ -105,7 +105,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Predictive Analytics
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   AI-powered forecasting and trend analysis. Identify patterns,
                   predict failures, and optimize operations before issues occur.
                 </p>
@@ -117,7 +117,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Real-time Monitoring
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Live data streams, automated alerts, and continuous health
                   monitoring. Stay informed about your digital twin ecosystem's
                   performance.
@@ -138,7 +138,7 @@ export default function Page() {
                 Navigate Every{" "}
                 <span className="gradient-text">Business Challenge</span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 From operational efficiency to strategic planning, Compass
                 provides the insights you need to make data-driven decisions.
               </p>
@@ -151,7 +151,7 @@ export default function Page() {
                 <h3 className="text-lg font-semibold text-white mb-2">
                   Performance Optimization
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-muted-foreground text-sm">
                   Identify bottlenecks, optimize resource allocation, and
                   improve system efficiency across your digital infrastructure.
                 </p>
@@ -163,7 +163,7 @@ export default function Page() {
                 <h3 className="text-lg font-semibold text-white mb-2">
                   Predictive Maintenance
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-muted-foreground text-sm">
                   Forecast equipment failures, schedule maintenance proactively,
                   and reduce downtime costs.
                 </p>
@@ -175,7 +175,7 @@ export default function Page() {
                 <h3 className="text-lg font-semibold text-white mb-2">
                   Operational Intelligence
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-muted-foreground text-sm">
                   Real-time operational insights, KPI tracking, and performance
                   benchmarking for continuous improvement.
                 </p>
@@ -187,7 +187,7 @@ export default function Page() {
                 <h3 className="text-lg font-semibold text-white mb-2">
                   Strategic Planning
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-muted-foreground text-sm">
                   Long-term trend analysis, scenario modeling, and strategic
                   decision support for business growth.
                 </p>
@@ -208,7 +208,7 @@ export default function Page() {
                 <span className="gradient-text">Compass Analytics</span>{" "}
                 Instantly
               </h2>
-              <p className="text-xl text-gray-400 mt-4 mb-12">
+              <p className="text-xl text-muted-foreground mt-4 mb-12">
                 See how Compass transforms raw digital twin data into actionable
                 business intelligence in real-time.
               </p>
@@ -222,7 +222,7 @@ export default function Page() {
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Live Dashboard
                     </h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       Interactive analytics dashboard with real-time data
                       visualization
                     </p>
@@ -241,7 +241,7 @@ export default function Page() {
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Predictive Models
                     </h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       AI-powered forecasting and trend analysis capabilities
                     </p>
                     <Button
@@ -259,7 +259,7 @@ export default function Page() {
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Custom Reports
                     </h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       Build custom reports and share insights across your
                       organization
                     </p>

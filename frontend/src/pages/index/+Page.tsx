@@ -31,7 +31,7 @@ export default function Page() {
             Go from Raw Data to Digital Twin in{" "}
             <span className="gradient-text">Minutes</span>
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">
+          <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
             Konnektr automates digital twin creation, deployment, and
             orchestration. We solve for complexity, cost, and context, turning
             your disconnected data into a competitive advantage.
@@ -85,7 +85,7 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-white mb-3">
                   Konnektr Assembler
                 </h3>
-                <p className="text-gray-400 mb-6">
+                <p className="text-muted-foreground mb-6">
                   AI-powered digital twin builder that automates DTDL model
                   creation from any data source with a low-code visual
                   interface.
@@ -110,7 +110,7 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-white mb-3">
                   Konnektr Graph
                 </h3>
-                <p className="text-gray-400 mb-6">
+                <p className="text-muted-foreground mb-6">
                   Scalable digital twin runtime with high-performance graph
                   database and API layer, fully compatible with ADT and built on
                   open standards.
@@ -132,7 +132,7 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-white mb-3">
                   Konnektr Flow
                 </h3>
-                <p className="text-gray-400 mb-6">
+                <p className="text-muted-foreground mb-6">
                   Real-time data and event orchestrator that serves as the
                   nervous system for your digital twin, enabling intelligent
                   automation.
@@ -154,7 +154,7 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-white mb-3">
                   Konnektr Compass
                 </h3>
-                <p className="text-gray-400 mb-6">
+                <p className="text-muted-foreground mb-6">
                   Analytics and insights platform that transforms complex
                   digital twin data into actionable intelligence.
                 </p>
@@ -345,7 +345,7 @@ export default function Page() {
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               Why Konnektr?
             </h2>
-            <p className="mt-4 text-lg text-gray-400">
+            <p className="mt-4 text-lg text-muted-foreground">
               <span className="block mb-2">
                 Konnektr is 100% open source—no vendor lock-in, no hidden costs.
                 Our platform is built for transparency, flexibility, and
@@ -370,7 +370,7 @@ export default function Page() {
               <h3 className="mt-6 text-xl font-bold text-white">
                 100% Open Source
               </h3>
-              <p className="mt-2 text-gray-400">
+              <p className="mt-2 text-muted-foreground">
                 All Konnektr products are open source and available for
                 self-hosting. We also offer managed cloud and enterprise
                 support.
@@ -382,7 +382,7 @@ export default function Page() {
               <h3 className="mt-6 text-xl font-bold text-white">
                 Bespoke Solutions for Enterprises
               </h3>
-              <p className="mt-2 text-gray-400">
+              <p className="mt-2 text-muted-foreground">
                 Need a custom IoT or digital twin platform? Our team builds
                 tailored solutions for enterprises, from architecture to
                 deployment.
@@ -394,7 +394,7 @@ export default function Page() {
               <h3 className="mt-6 text-xl font-bold text-white">
                 Speed to Value
               </h3>
-              <p className="mt-2 text-gray-400">
+              <p className="mt-2 text-muted-foreground">
                 Go from raw data to deployed digital twin in minutes, not
                 months. Our AI eliminates the complexity of manual modeling.
               </p>
@@ -405,7 +405,7 @@ export default function Page() {
               <h3 className="mt-6 text-xl font-bold text-white">
                 Enterprise-Grade Scale
               </h3>
-              <p className="mt-2 text-gray-400">
+              <p className="mt-2 text-muted-foreground">
                 Built for the demands of enterprise workloads with open
                 standards, flexible deployment, and no vendor lock-in.
               </p>

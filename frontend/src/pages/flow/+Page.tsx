@@ -20,7 +20,7 @@ export default function Page() {
           role="region"
           aria-label="Flow Hero Content"
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-gray-300 mb-4 border border-white/10">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
             <Workflow className="h-4 w-4" />
             Real-Time Event Processing
           </div>
@@ -28,7 +28,7 @@ export default function Page() {
             <span className="gradient-text">Flow</span>: The Real-Time Data &
             Event Orchestrator
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">
+          <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
             {flowProduct.description}
           </p>
 
@@ -54,7 +54,7 @@ export default function Page() {
                 <p className="text-lg font-medium text-white">
                   Visual Flow Designer
                 </p>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   Drag-and-drop pipeline builder
                 </p>
               </div>
@@ -73,7 +73,7 @@ export default function Page() {
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Why Konnektr Flow?
               </h2>
-              <p className="mt-4 text-lg text-gray-400">
+              <p className="mt-4 text-lg text-muted-foreground">
                 Connect, automate, and orchestrate. Your digital twin's nervous
                 system.
               </p>
@@ -84,7 +84,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Visual Flow Builder
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Design complex data ingestion and business logic workflows
                   with a simple drag-and-drop interface.
                 </p>
@@ -94,7 +94,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Rich Connector Library
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Connect to dozens of services out-of-the-box, from IoT Hubs
                   and message brokers to databases and SaaS APIs.
                 </p>
@@ -104,7 +104,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Event-Driven Automation
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Initiate flows automatically based on state changes in your
                   Konnektr Graph instances or external triggers.
                 </p>
@@ -119,7 +119,7 @@ export default function Page() {
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Flow Capabilities
               </h2>
-              <p className="mt-4 text-lg text-gray-400">
+              <p className="mt-4 text-lg text-muted-foreground">
                 Everything you need for intelligent data orchestration.
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-white">
                   Triggered by Graph Events
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   React instantly to changes in your digital twin graph. When a
                   property updates, a relationship changes, or a threshold is
                   crossed.
@@ -140,7 +140,7 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-white">
                   Serverless Execution
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   All flows run on our scalable, serverless infrastructure. You
                   only pay for what you use, with automatic scaling.
                 </p>
@@ -150,7 +150,7 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-white">
                   Enterprise Integrations
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Native connectors for Slack, Teams, ServiceNow, Salesforce,
                   and hundreds of other enterprise systems.
                 </p>
@@ -168,7 +168,7 @@ export default function Page() {
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Common Use Cases
               </h2>
-              <p className="mt-4 text-lg text-gray-400">
+              <p className="mt-4 text-lg text-muted-foreground">
                 From simple notifications to complex automation workflows.
               </p>
             </div>
@@ -178,7 +178,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Predictive Maintenance
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Automatically create work orders when equipment shows signs of
                   wear, notify technicians, and order replacement parts.
                 </p>
@@ -188,7 +188,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Real-Time Alerting
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Send intelligent alerts to the right people at the right time,
                   with context and recommended actions.
                 </p>
@@ -198,7 +198,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Data Pipeline Automation
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Automatically ingest, transform, and route data from multiple
                   sources to keep your digital twin up-to-date.
                 </p>
@@ -212,7 +212,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Business Process Integration
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Connect your digital twin to ERP, CRM, and other business
                   systems for seamless operational workflows.
                 </p>

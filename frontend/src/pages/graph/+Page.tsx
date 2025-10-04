@@ -223,7 +223,7 @@ export default function Page() {
                 <p className="text-lg font-medium text-white">
                   Graph Database Runtime
                 </p>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   Real-time twin relationship queries
                 </p>
               </div>
@@ -256,7 +256,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   ADT-Compatible APIs
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Fully compatible with Azure Digital Twins API. Migrate
                   existing applications with zero code changes while gaining
                   superior performance.
@@ -270,7 +270,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Flexible Deployment
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Self-hosted or fully managed. Deploy on your cloud,
                   on-premises, or use our hosted service. Your data sovereignty,
                   guaranteed.
@@ -284,7 +284,7 @@ export default function Page() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   Advanced Querying & Events
                 </h3>
-                <p className="mt-2 text-gray-400">
+                <p className="mt-2 text-muted-foreground">
                   Rich Cypher query language, real-time validation, and
                   intelligent event routing. Build complex digital twin logic
                   with ease.
@@ -301,7 +301,7 @@ export default function Page() {
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Built on Battle-Tested Technology
               </h2>
-              <p className="mt-4 text-lg text-gray-400">
+              <p className="mt-4 text-lg text-muted-foreground">
                 Powered by Apache AGE and PostgreSQL, with enterprise features
                 you can trust in production.
               </p>
@@ -321,7 +321,7 @@ export default function Page() {
                   <h3 className="text-xl font-bold text-white">
                     PostgreSQL Foundation
                   </h3>
-                  <p className="mt-2 text-gray-400">
+                  <p className="mt-2 text-muted-foreground">
                     Built on the world's most advanced open source database,
                     with ACID transactions and enterprise reliability.
                   </p>
@@ -334,7 +334,7 @@ export default function Page() {
                   <h3 className="text-xl font-bold text-white">
                     Apache AGE Graph Engine
                   </h3>
-                  <p className="mt-2 text-gray-400">
+                  <p className="mt-2 text-muted-foreground">
                     Powerful graph processing with Cypher queries, enabling
                     complex relationship analysis and traversals.
                   </p>
@@ -347,7 +347,7 @@ export default function Page() {
                   <h3 className="text-xl font-bold text-white">
                     Enterprise Security
                   </h3>
-                  <p className="mt-2 text-gray-400">
+                  <p className="mt-2 text-muted-foreground">
                     Row-level security, encryption at rest and in transit, audit
                     logging, and compliance-ready features.
                   </p>

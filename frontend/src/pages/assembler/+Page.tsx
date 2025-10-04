@@ -58,7 +58,7 @@ export default function Page() {
                 <p className="text-lg font-medium text-white">
                   Assembler Engine UI Visualization
                 </p>
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   Interactive digital twin model generation
                 </p>
               </div>
@@ -109,7 +109,7 @@ export default function Page() {
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Three Steps to an Intelligent Twin
               </h2>
-              <p className="mt-4 text-lg text-gray-400">
+              <p className="mt-4 text-lg text-muted-foreground">
                 Our agentic framework automates the entire process, from
                 connection to deployment.
               </p>
@@ -131,7 +131,7 @@ export default function Page() {
                   <h3 className="text-xl font-bold text-white">
                     Connect Your Data
                   </h3>
-                  <p className="mt-2 text-gray-400">
+                  <p className="mt-2 text-muted-foreground">
                     Securely connect to your existing data stores—data lakes,
                     databases, or event streams—with our guided wizard.
                   </p>
@@ -146,7 +146,7 @@ export default function Page() {
                   <h3 className="text-xl font-bold text-white">
                     AI Generates the Model
                   </h3>
-                  <p className="mt-2 text-gray-400">
+                  <p className="mt-2 text-muted-foreground">
                     Our Assembler Engine analyzes your data and automatically
                     generates an interactive digital twin graph for your review
                     and approval.
@@ -162,7 +162,7 @@ export default function Page() {
                   <h3 className="text-xl font-bold text-white">
                     Deploy & Analyze
                   </h3>
-                  <p className="mt-2 text-gray-400">
+                  <p className="mt-2 text-muted-foreground">
                     With one click, deploy the twin, connectors, and query
                     services to your cloud, and start generating immediate
                     operational insights.
@@ -183,7 +183,7 @@ export default function Page() {
                 <span className="gradient-text">Assembler Engine</span>{" "}
                 Instantly
               </h2>
-              <p className="mt-4 text-lg text-gray-400">
+              <p className="mt-4 text-lg text-muted-foreground">
                 Paste a sample of your JSON data below. Our AI will analyze it
                 and suggest a digital twin model in real-time.
               </p>
@@ -191,14 +191,14 @@ export default function Page() {
             <div className="mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               <div className="w-full">
                 <label
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-muted-foreground mb-2"
                   htmlFor="data-input"
                 >
                   Your Sample Data (JSON)
                 </label>
                 <textarea
                   id="data-input"
-                  className="w-full p-4 rounded-lg bg-[#0B111D] border border-white/20 text-gray-300 font-mono text-sm focus:ring-2 focus:ring-[#1E9E95] focus:border-[#1E9E95] transition"
+                  className="w-full p-4 rounded-lg bg-[#0B111D] border border-white/20 text-muted-foreground font-mono text-sm focus:ring-2 focus:ring-[#1E9E95] focus:border-[#1E9E95] transition"
                   rows={15}
                   placeholder={`{
     "deviceId": "Pump-101",
@@ -218,13 +218,13 @@ export default function Page() {
                 </Button>
               </div>
               <div className="w-full">
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   AI-Generated Model Suggestion
                 </label>
-                <div className="w-full h-[380px] p-6 rounded-lg bg-[#0B111D] border border-white/20 text-gray-300 text-sm bg-white/3 hover:bg-white/5 transition-all duration-300">
+                <div className="w-full h-[380px] p-6 rounded-lg bg-[#0B111D] border border-white/20 text-muted-foreground text-sm bg-white/3 hover:bg-white/5 transition-all duration-300">
                   <div className="flex flex-col items-center justify-center h-full text-center">
-                    <Bot className="h-12 w-12 text-gray-500 mb-4" />
-                    <p className="text-gray-500">
+                    <Bot className="h-12 w-12 text-muted-foreground mb-4" />
+                    <p className="text-muted-foreground">
                       Your AI-generated model analysis will appear here.
                     </p>
                   </div>
