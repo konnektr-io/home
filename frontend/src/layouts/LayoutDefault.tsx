@@ -1,5 +1,5 @@
 import "./index.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Popover,
   PopoverTrigger,

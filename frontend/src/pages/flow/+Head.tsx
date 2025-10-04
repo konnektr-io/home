@@ -18,7 +18,10 @@ export default function Head() {
       <meta property="og:title" content={flowSEO.title} />
       <meta property="og:description" content={flowSEO.description} />
       <meta property="og:url" content="https://konnektr.io/flow" />
-      <meta property="og:image" content="https://konnektr.io/og-flow.jpg" />
+      <meta
+        property="og:image"
+        content={`https://konnektr.io${flowSEO.ogImage}`}
+      />
       <meta property="og:site_name" content="Konnektr" />
 
       {/* Twitter Card */}
@@ -26,7 +29,10 @@ export default function Head() {
       <meta name="twitter:site" content="@konnektr" />
       <meta name="twitter:title" content={flowSEO.title} />
       <meta name="twitter:description" content={flowSEO.description} />
-      <meta name="twitter:image" content="https://konnektr.io/og-flow.jpg" />
+      <meta
+        name="twitter:image"
+        content={`https://konnektr.io${flowSEO.ogImage}`}
+      />
 
       {/* Product specific */}
       <meta name="product:price:amount" content="10" />

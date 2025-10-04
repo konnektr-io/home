@@ -18,7 +18,10 @@ export default function Head() {
       <meta property="og:title" content={compassSEO.title} />
       <meta property="og:description" content={compassSEO.description} />
       <meta property="og:url" content="https://konnektr.io/compass" />
-      <meta property="og:image" content="https://konnektr.io/og-compass.jpg" />
+      <meta
+        property="og:image"
+        content={`https://konnektr.io${compassSEO.ogImage}`}
+      />
       <meta property="og:site_name" content="Konnektr" />
 
       {/* Twitter Card */}
@@ -26,7 +29,10 @@ export default function Head() {
       <meta name="twitter:site" content="@konnektr" />
       <meta name="twitter:title" content={compassSEO.title} />
       <meta name="twitter:description" content={compassSEO.description} />
-      <meta name="twitter:image" content="https://konnektr.io/og-compass.jpg" />
+      <meta
+        name="twitter:image"
+        content={`https://konnektr.io${compassSEO.ogImage}`}
+      />
 
       {/* Product specific */}
       <meta name="product:availability" content="pre-order" />

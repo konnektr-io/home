@@ -47,11 +47,168 @@ export default function Page() {
           </div>
         </div>
         {/* Hero Image/Visualization */}
-        {/* <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
           <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
             <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
               <div className="text-center">
-                <Network className="h-16 w-16 text-brand-teal mx-auto mb-4" />
+                <div className="mb-6 flex justify-center">
+                  <svg
+                    width="120"
+                    height="120"
+                    viewBox="0 0 120 120"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="drop-shadow-lg"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="heroGraphGrad1"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          style={{ stopColor: "#1E9E95", stopOpacity: 1 }}
+                        />
+                        <stop
+                          offset="100%"
+                          style={{ stopColor: "#2D4263", stopOpacity: 1 }}
+                        />
+                      </linearGradient>
+                      <linearGradient
+                        id="heroGraphGrad2"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          style={{ stopColor: "#2D4263", stopOpacity: 1 }}
+                        />
+                        <stop
+                          offset="100%"
+                          style={{ stopColor: "#1E9E95", stopOpacity: 1 }}
+                        />
+                      </linearGradient>
+                    </defs>
+
+                    {/* Main nodes */}
+                    <circle
+                      cx="30"
+                      cy="30"
+                      r="12"
+                      fill="url(#heroGraphGrad1)"
+                      stroke="rgba(255,255,255,0.2)"
+                      strokeWidth="2"
+                    />
+                    <circle
+                      cx="90"
+                      cy="30"
+                      r="10"
+                      fill="url(#heroGraphGrad2)"
+                      stroke="rgba(255,255,255,0.2)"
+                      strokeWidth="2"
+                    />
+                    <circle
+                      cx="60"
+                      cy="60"
+                      r="14"
+                      fill="url(#heroGraphGrad1)"
+                      stroke="rgba(255,255,255,0.2)"
+                      strokeWidth="2"
+                    />
+                    <circle
+                      cx="25"
+                      cy="90"
+                      r="10"
+                      fill="url(#heroGraphGrad2)"
+                      stroke="rgba(255,255,255,0.2)"
+                      strokeWidth="2"
+                    />
+                    <circle
+                      cx="85"
+                      cy="85"
+                      r="11"
+                      fill="url(#heroGraphGrad1)"
+                      stroke="rgba(255,255,255,0.2)"
+                      strokeWidth="2"
+                    />
+                    <circle
+                      cx="90"
+                      cy="60"
+                      r="8"
+                      fill="url(#heroGraphGrad2)"
+                      stroke="rgba(255,255,255,0.2)"
+                      strokeWidth="2"
+                    />
+
+                    {/* Connection lines */}
+                    <path
+                      d="M30 30 L60 60"
+                      stroke="url(#heroGraphGrad1)"
+                      strokeWidth="3"
+                      opacity="0.8"
+                    />
+                    <path
+                      d="M90 30 L60 60"
+                      stroke="url(#heroGraphGrad2)"
+                      strokeWidth="3"
+                      opacity="0.8"
+                    />
+                    <path
+                      d="M60 60 L25 90"
+                      stroke="url(#heroGraphGrad1)"
+                      strokeWidth="3"
+                      opacity="0.8"
+                    />
+                    <path
+                      d="M60 60 L85 85"
+                      stroke="url(#heroGraphGrad2)"
+                      strokeWidth="3"
+                      opacity="0.8"
+                    />
+                    <path
+                      d="M90 30 L90 60"
+                      stroke="url(#heroGraphGrad1)"
+                      strokeWidth="2"
+                      opacity="0.6"
+                    />
+                    <path
+                      d="M85 85 L90 60"
+                      stroke="url(#heroGraphGrad2)"
+                      strokeWidth="2"
+                      opacity="0.6"
+                    />
+                    <path
+                      d="M30 30 L90 30"
+                      stroke="url(#heroGraphGrad1)"
+                      strokeWidth="2"
+                      opacity="0.4"
+                    />
+
+                    {/* Highlight dots */}
+                    <circle
+                      cx="30"
+                      cy="30"
+                      r="4"
+                      fill="rgba(255,255,255,0.9)"
+                    />
+                    <circle
+                      cx="60"
+                      cy="60"
+                      r="5"
+                      fill="rgba(255,255,255,0.9)"
+                    />
+                    <circle
+                      cx="90"
+                      cy="30"
+                      r="3"
+                      fill="rgba(255,255,255,0.9)"
+                    />
+                  </svg>
+                </div>
                 <p className="text-lg font-medium text-white">
                   Graph Database Runtime
                 </p>
@@ -61,7 +218,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </section>
       <main>
         {/* Features Section */}

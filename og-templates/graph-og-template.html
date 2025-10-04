@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konnektr Graph - OG Image</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      :root {
+        /* Konnektr Brand Colors */
+        --brand-dark: oklch(0.12 0.02 240);
+        --brand-blue: oklch(0.35 0.08 240);
+        --brand-teal: oklch(0.55 0.12 180);
+        --brand-gray: oklch(0.45 0.01 240);
+        --brand-light: oklch(0.98 0.001 240);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        width: 1200px;
+        height: 630px;
+        background: linear-gradient(
+          135deg,
+          var(--brand-dark) 0%,
+          var(--brand-blue) 70%,
+          var(--brand-teal) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        padding: 60px;
+      }
+
+      /* Graph network pattern */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle at 300px 150px,
+            rgba(30, 158, 149, 0.1) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 500px 200px,
+            rgba(30, 158, 149, 0.1) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 700px 100px,
+            rgba(30, 158, 149, 0.1) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 400px 350px,
+            rgba(30, 158, 149, 0.1) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 600px 400px,
+            rgba(30, 158, 149, 0.1) 2px,
+            transparent 2px
+          );
+        background-size: 200px 200px;
+      }
+
+      /* Connection lines */
+      body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            45deg,
+            transparent 49%,
+            rgba(30, 158, 149, 0.05) 50%,
+            transparent 51%
+          ),
+          linear-gradient(
+            -45deg,
+            transparent 49%,
+            rgba(30, 158, 149, 0.05) 50%,
+            transparent 51%
+          );
+        background-size: 100px 100px;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+        flex: 1;
+        max-width: 600px;
+      }
+
+      .product-badge {
+        background: rgba(30, 158, 149, 0.2);
+        color: var(--brand-teal);
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 20px;
+        border: 1px solid rgba(30, 158, 149, 0.3);
+      }
+
+      .logo-brand {
+        color: var(--brand-light);
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .title {
+        font-size: 72px;
+        font-weight: 800;
+        color: var(--brand-light);
+        margin-bottom: 20px;
+        line-height: 1;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          var(--brand-teal) 0%,
+          var(--brand-light) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+
+      .subtitle {
+        font-size: 24px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 30px;
+        line-height: 1.3;
+      }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--brand-light);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .feature-icon {
+        width: 20px;
+        height: 20px;
+        color: var(--brand-teal);
+        flex-shrink: 0;
+      }
+
+      .visual {
+        position: relative;
+        z-index: 2;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .graph-visual {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .database-icon {
+        width: 180px;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 20px 40px rgba(30, 158, 149, 0.3));
+        position: relative;
+      }
+
+      .database-icon svg {
+        width: 180px;
+        height: 180px;
+      }
+
+      .pricing {
+        position: absolute;
+        top: 60px;
+        right: 60px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 25px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+      }
+
+      .pricing-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+      }
+
+      .pricing-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--brand-teal);
+      }
+
+      .domain {
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        font-size: 18px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pricing">
+      <div class="pricing-label">Starting at</div>
+      <div class="pricing-value">$25/mo</div>
+    </div>
+
+    <div class="content">
+      <div class="product-badge">High-Performance Graph Database</div>
+      <div class="logo-brand">Konnektr</div>
+
+      <h1 class="title">
+        <span class="gradient-text">Graph</span>
+      </h1>
+
+      <p class="subtitle">
+        Enterprise-grade digital twin runtime with ADT-compatible APIs
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <i data-lucide="check-circle" class="feature-icon"></i>
+          ADT-Compatible APIs
+        </div>
+        <div class="feature">
+          <i data-lucide="zap" class="feature-icon"></i>
+          Built on PostgreSQL & Apache AGE
+        </div>
+        <div class="feature">
+          <i data-lucide="rotate-cw" class="feature-icon"></i>
+          Real-time Eventing
+        </div>
+        <div class="feature">
+          <i data-lucide="rocket" class="feature-icon"></i>
+          Fully Managed & Scalable
+        </div>
+      </div>
+    </div>
+
+    <div class="visual">
+      <div class="graph-visual">
+        <div class="database-icon">
+          <svg
+            width="180"
+            height="180"
+            viewBox="0 0 120 120"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient
+                id="graphGrad1"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop
+                  offset="0%"
+                  style="stop-color: #1e9e95; stop-opacity: 1"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #2d4263; stop-opacity: 1"
+                />
+              </linearGradient>
+              <linearGradient
+                id="graphGrad2"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop
+                  offset="0%"
+                  style="stop-color: #2d4263; stop-opacity: 1"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #1e9e95; stop-opacity: 1"
+                />
+              </linearGradient>
+            </defs>
+
+            <!-- Main nodes -->
+            <circle
+              cx="30"
+              cy="30"
+              r="12"
+              fill="url(#graphGrad1)"
+              stroke="rgba(255,255,255,0.2)"
+              stroke-width="2"
+            />
+            <circle
+              cx="90"
+              cy="30"
+              r="10"
+              fill="url(#graphGrad2)"
+              stroke="rgba(255,255,255,0.2)"
+              stroke-width="2"
+            />
+            <circle
+              cx="60"
+              cy="60"
+              r="14"
+              fill="url(#graphGrad1)"
+              stroke="rgba(255,255,255,0.2)"
+              stroke-width="2"
+            />
+            <circle
+              cx="25"
+              cy="90"
+              r="10"
+              fill="url(#graphGrad2)"
+              stroke="rgba(255,255,255,0.2)"
+              stroke-width="2"
+            />
+            <circle
+              cx="85"
+              cy="85"
+              r="11"
+              fill="url(#graphGrad1)"
+              stroke="rgba(255,255,255,0.2)"
+              stroke-width="2"
+            />
+            <circle
+              cx="90"
+              cy="60"
+              r="8"
+              fill="url(#graphGrad2)"
+              stroke="rgba(255,255,255,0.2)"
+              stroke-width="2"
+            />
+
+            <!-- Connection lines -->
+            <path
+              d="M30 30 L60 60"
+              stroke="url(#graphGrad1)"
+              stroke-width="3"
+              opacity="0.8"
+            />
+            <path
+              d="M90 30 L60 60"
+              stroke="url(#graphGrad2)"
+              stroke-width="3"
+              opacity="0.8"
+            />
+            <path
+              d="M60 60 L25 90"
+              stroke="url(#graphGrad1)"
+              stroke-width="3"
+              opacity="0.8"
+            />
+            <path
+              d="M60 60 L85 85"
+              stroke="url(#graphGrad2)"
+              stroke-width="3"
+              opacity="0.8"
+            />
+            <path
+              d="M90 30 L90 60"
+              stroke="url(#graphGrad1)"
+              stroke-width="2"
+              opacity="0.6"
+            />
+            <path
+              d="M85 85 L90 60"
+              stroke="url(#graphGrad2)"
+              stroke-width="2"
+              opacity="0.6"
+            />
+            <path
+              d="M30 30 L90 30"
+              stroke="url(#graphGrad1)"
+              stroke-width="2"
+              opacity="0.4"
+            />
+
+            <!-- Highlight dots -->
+            <circle cx="30" cy="30" r="4" fill="rgba(255,255,255,0.9)" />
+            <circle cx="60" cy="60" r="5" fill="rgba(255,255,255,0.9)" />
+            <circle cx="90" cy="30" r="3" fill="rgba(255,255,255,0.9)" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="domain">konnektr.io/graph</div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

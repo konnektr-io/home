@@ -26,7 +26,7 @@ export const SITE_CONFIG = {
   description:
     "Build, deploy, and scale digital twin solutions with Konnektr's open-source platform. Graph database, AI builder, real-time processing, and analytics.",
   url: "https://konnektr.io",
-  ogImage: "/og-image.jpg", // We'll need to create this
+  ogImage: "/og-images/homepage-og.png",
   twitterHandle: "@konnektr",
   keywords: [
     "digital twin",
@@ -62,6 +62,7 @@ export const homepageSEO: SEOData = {
     "industrial IoT solutions",
   ],
   ogType: "website",
+  ogImage: "/og-images/homepage-og.png",
   structuredData: {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -93,6 +94,14 @@ export function createProductSEO(product: Product): ProductSEOData {
   if (product.ready) {
     availability = "available";
   }
+
+  // Map product names to OG image filenames
+  const productOGImages: Record<string, string> = {
+    "Konnektr Graph": "/og-images/graph-og.png",
+    "Konnektr Assembler": "/og-images/assembler-og.png",
+    "Konnektr Flow": "/og-images/flow-og.png",
+    "Konnektr Compass": "/og-images/compass-og.png",
+  };
 
   // Product-specific keywords and descriptions
   const productSEOData: Record<string, Partial<ProductSEOData>> = {
@@ -184,6 +193,7 @@ export function createProductSEO(product: Product): ProductSEOData {
     price: specific.price,
     availability,
     ogType: "product",
+    ogImage: productOGImages[productName] || SITE_CONFIG.ogImage,
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Product",
@@ -220,7 +230,7 @@ export function createProductSEO(product: Product): ProductSEOData {
 // Generate meta tags HTML
 export function generateMetaTags(seoData: SEOData): string {
   const canonicalUrl = seoData.canonicalUrl || SITE_CONFIG.url;
-  const ogImage = seoData.ogImage || `${SITE_CONFIG.url}/og-image.jpg`;
+  const ogImage = seoData.ogImage || SITE_CONFIG.ogImage;
 
   return `
     <title>${seoData.title}</title>

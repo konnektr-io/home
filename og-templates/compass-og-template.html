@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konnektr Compass - OG Image</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      :root {
+        --brand-dark: oklch(0.12 0.02 240);
+        --brand-blue: oklch(0.35 0.08 240);
+        --brand-teal: oklch(0.55 0.12 180);
+        --brand-gray: oklch(0.45 0.01 240);
+        --brand-light: oklch(0.98 0.001 240);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        width: 1200px;
+        height: 630px;
+        background: linear-gradient(
+          135deg,
+          var(--brand-dark) 0%,
+          #2d1b69 50%,
+          #6a4c93 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        padding: 60px;
+      }
+
+      /* Analytics pattern */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(106, 76, 147, 0.1) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 75% 25%,
+            rgba(106, 76, 147, 0.1) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 50% 75%,
+            rgba(106, 76, 147, 0.1) 1px,
+            transparent 1px
+          );
+        background-size: 100px 100px;
+      }
+
+      /* Chart lines */
+      body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            45deg,
+            transparent 48%,
+            rgba(106, 76, 147, 0.1) 49%,
+            rgba(106, 76, 147, 0.1) 51%,
+            transparent 52%
+          ),
+          linear-gradient(
+            -45deg,
+            transparent 48%,
+            rgba(106, 76, 147, 0.1) 49%,
+            rgba(106, 76, 147, 0.1) 51%,
+            transparent 52%
+          );
+        background-size: 150px 150px;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+        flex: 1;
+        max-width: 600px;
+      }
+
+      .product-badge {
+        background: rgba(106, 76, 147, 0.2);
+        color: #b19cd9;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 20px;
+        border: 1px solid rgba(106, 76, 147, 0.3);
+      }
+
+      .logo-brand {
+        color: var(--brand-light);
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .title {
+        font-size: 72px;
+        font-weight: 800;
+        color: var(--brand-light);
+        margin-bottom: 20px;
+        line-height: 1;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #b19cd9 0%, var(--brand-teal) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+
+      .subtitle {
+        font-size: 24px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 30px;
+        line-height: 1.3;
+      }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--brand-light);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .feature-icon {
+        width: 20px;
+        height: 20px;
+        color: #b19cd9;
+        flex-shrink: 0;
+      }
+
+      .visual {
+        position: relative;
+        z-index: 2;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .compass-visual {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .compass-icon {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #b19cd9 0%, var(--brand-teal) 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        color: var(--brand-light);
+        box-shadow: 0 20px 40px rgba(177, 156, 217, 0.3);
+        position: relative;
+        animation: rotate 10s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .compass-icon::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: linear-gradient(135deg, #b19cd9, var(--brand-teal));
+        border-radius: 50%;
+        opacity: 0.3;
+        filter: blur(10px);
+        z-index: -1;
+      }
+
+      .coming-soon {
+        position: absolute;
+        top: 60px;
+        right: 60px;
+        background: rgba(255, 193, 7, 0.2);
+        color: #ffc107;
+        padding: 10px 20px;
+        border-radius: 15px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 1px solid rgba(255, 193, 7, 0.3);
+      }
+
+      .domain {
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        font-size: 18px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coming-soon">Coming Soon</div>
+
+    <div class="content">
+      <div class="product-badge">Analytics & Insights Platform</div>
+      <div class="logo-brand">Konnektr</div>
+
+      <h1 class="title">
+        <span class="gradient-text">Compass</span>
+      </h1>
+
+      <p class="subtitle">
+        Transform digital twin data into actionable insights
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <i data-lucide="trending-up" class="feature-icon"></i>
+          Advanced Analytics
+        </div>
+        <div class="feature">
+          <i data-lucide="bar-chart-3" class="feature-icon"></i>
+          Interactive Dashboards
+        </div>
+        <div class="feature">
+          <i data-lucide="sparkles" class="feature-icon"></i>
+          Predictive Insights
+        </div>
+        <div class="feature">
+          <i data-lucide="activity" class="feature-icon"></i>
+          Real-time Monitoring
+        </div>
+      </div>
+    </div>
+
+    <div class="visual">
+      <div class="compass-visual">
+        <div class="compass-icon">🧭</div>
+      </div>
+    </div>
+
+    <div class="domain">konnektr.io/compass</div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

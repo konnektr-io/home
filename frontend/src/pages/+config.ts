@@ -9,11 +9,6 @@ export default {
   // https://vike.dev/Layout
   Layout,
 
-  // https://vike.dev/head-tags
-  title: "Konnektr - The Intelligent Digital Twin Platform",
-  description:
-    "Build, deploy, and scale digital twin solutions with Konnektr's open-source platform. Graph database, AI builder, real-time processing, and analytics.",
-
   bodyAttributes: { class: "dark" },
 
   // Performance optimizations
