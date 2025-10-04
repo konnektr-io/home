@@ -82,10 +82,10 @@ export default function LayoutDefault({
                 <PopoverContent className="bg-brand-dark border-white/20 text-foreground w-80 p-4 rounded-xl shadow-xl">
                   <div className="space-y-4">
                     <button
-                      disabled
-                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg bg-brand-dark/40 text-muted-foreground cursor-not-allowed"
+                      onClick={() => handleProductClick("/assembler")}
+                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer"
                     >
-                      <span className="font-semibold text-muted-foreground">
+                      <span className="font-semibold text-foreground">
                         Konnektr Assembler
                       </span>
                       <span className="text-xs text-muted-foreground">
@@ -104,10 +104,10 @@ export default function LayoutDefault({
                       </span>
                     </button>
                     <button
-                      disabled
-                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg bg-brand-dark/40 text-muted-foreground cursor-not-allowed"
+                      onClick={() => handleProductClick("/flow")}
+                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer"
                     >
-                      <span className="font-semibold text-muted-foreground">
+                      <span className="font-semibold text-foreground">
                         Konnektr Flow
                       </span>
                       <span className="text-xs text-muted-foreground">
@@ -115,10 +115,10 @@ export default function LayoutDefault({
                       </span>
                     </button>
                     <button
-                      disabled
-                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg bg-brand-dark/40 text-muted-foreground cursor-not-allowed"
+                      onClick={() => handleProductClick("/compass")}
+                      className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer"
                     >
-                      <span className="font-semibold text-muted-foreground">
+                      <span className="font-semibold text-foreground">
                         Konnektr Compass
                       </span>
                       <span className="text-xs text-muted-foreground">
