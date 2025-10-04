@@ -1,5 +1,5 @@
 import "./index.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Popover,
   PopoverTrigger,
@@ -10,6 +10,7 @@ import { navigate } from "vike/client/router";
 import KonnektrLogo from "../assets/konnektr.svg";
 import { MailingListDialog } from "../components/MailingListDialog.js";
 import { Link } from "../components/Link.js";
+import { CookieConsent } from "../components/cookie-consent.js";
 
 export default function LayoutDefault({
   children,
@@ -21,6 +22,42 @@ export default function LayoutDefault({
   const handleProductClick = (path: string) => {
     navigate(path);
     setPopoverOpen(false);
+  };
+
+  // Set GTM consent using gtag API
+  const setGtmConsent = (consent: "accepted" | "declined") => {
+    if (typeof window !== "undefined") {
+      // Declare window.gtag for TypeScript
+      type GtagFn = (
+        command: string,
+        action: string,
+        params: Record<string, string>
+      ) => void;
+      const gtag = (window as typeof window & { gtag?: GtagFn }).gtag;
+      if (gtag) {
+        if (consent === "accepted") {
+          gtag("consent", "update", {
+            ad_storage: "granted",
+            analytics_storage: "granted",
+          });
+        } else {
+          gtag("consent", "update", {
+            ad_storage: "denied",
+            analytics_storage: "denied",
+          });
+        }
+      }
+    }
+  };
+
+  // Callback for accepting cookies
+  const handleAccept = () => {
+    setGtmConsent("accepted");
+  };
+
+  // Callback for declining cookies
+  const handleDecline = () => {
+    setGtmConsent("declined");
   };
 
   return (
@@ -116,6 +153,12 @@ export default function LayoutDefault({
         </div>
       </header>
       <main className="pt-16">{children}</main>
+      {/* Render CookieConsent outside main/header for debugging */}
+      <CookieConsent
+        variant="minimal"
+        onAcceptCallback={handleAccept}
+        onDeclineCallback={handleDecline}
+      />
     </>
   );
 }
