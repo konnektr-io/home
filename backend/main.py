@@ -20,7 +20,13 @@ app.add_middleware(
 )
 
 MAILERLITE_API_TOKEN = os.getenv("MAILERLITE_API_TOKEN")
-MAILERLITE_GROUP_WAITINGLIST = os.getenv("MAILERLITE_GROUP_WAITINGLIST", "")
+MAILERLITE_GROUPS = {
+    "graph": os.getenv("MAILERLITE_GROUP_WAITINGLIST_GRAPH", ""),
+    "assembler": os.getenv("MAILERLITE_GROUP_WAITINGLIST_ASSEMBLER", ""),
+    "flow": os.getenv("MAILERLITE_GROUP_WAITINGLIST_FLOW", ""),
+    "compass": os.getenv("MAILERLITE_GROUP_WAITINGLIST_COMPASS", ""),
+    "demo": os.getenv("MAILERLITE_GROUP_WAITINGLIST_REQUESTDEMO", ""),
+}
 
 class WaitingListSignup(BaseModel):
     email: EmailStr
@@ -33,12 +39,14 @@ async def waiting_list_signup(data: WaitingListSignup):
         raise HTTPException(
             status_code=500, detail="MailerLite API token not configured"
         )
-    if not MAILERLITE_GROUP_WAITINGLIST:
+    product = data.product.lower().strip()
+    group_id = MAILERLITE_GROUPS.get(product)
+    if not group_id:
         raise HTTPException(
-            status_code=500, detail="MailerLite Group ID not configured"
+            status_code=400,
+            detail=f"Unknown or unsupported product/group: '{data.product}'. Valid options: {', '.join([k for k, v in MAILERLITE_GROUPS.items() if v])}",
         )
-    # MailerLite API v2: Add subscriber to group
-    url = f"https://api.mailerlite.com/api/v2/groups/{MAILERLITE_GROUP_WAITINGLIST}/subscribers"
+    url = f"https://api.mailerlite.com/api/v2/groups/{group_id}/subscribers"
     headers = {
         "Content-Type": "application/json",
         "X-MailerLite-ApiKey": MAILERLITE_API_TOKEN,
@@ -55,8 +63,7 @@ frontend_dist_path = os.path.join(
 )
 app.mount("/", StaticFiles(directory=frontend_dist_path, html=True), name="static")
 
-
-# Optional: fallback to index.html for SPA routing
+# fallback to index.html for SPA routing
 @app.get("/{full_path:path}")
 async def spa_fallback(full_path: str):
     index_path = os.path.join(frontend_dist_path, "index.html")
