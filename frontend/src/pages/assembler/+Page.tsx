@@ -8,9 +8,7 @@ import {
 } from "lucide-react";
 import { Card } from "../../components/ui/card.js";
 import { WaitingListSection } from "../../components/WaitingList.js";
-import { PricingSection } from "../../components/PricingSection.js";
 import { assemblerProduct } from "../../data/products.js";
-import { redirectToKtrlPlane } from "@/utils/ktrlplane.js";
 
 export default function Page() {
   return (
@@ -20,13 +18,16 @@ export default function Page() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
             <Sparkles className="h-4 w-4" />
-            Powered by Agentic AI
+            Early Development • AI Agents in Progress
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Assembler</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto">
-            {assemblerProduct.description}
+            We're building AI agents that analyze your data sources and
+            automatically generate digital twin schemas, graphs, and mappings.{" "}
+            <strong className="text-white">Join our waiting list</strong> to be
+            the first to experience effortless digital twin creation.
           </p>
           {/* Temporarily commented out - product not ready yet */}
           {/* <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -44,25 +45,8 @@ export default function Page() {
           <div className="max-w-2xl mx-auto">
             <WaitingListSection
               productName="Konnektr Assembler"
-              description="Be the first to experience AI-powered digital twin creation. Join our waiting list for early access."
+              description="We're building AI agents that turn raw data into intelligent digital twins automatically. Be the first to know when it's ready."
             />
-          </div>
-        </div>
-        {/* Hero Image/Visualization */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-          <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
-            {/* Placeholder for Assembler Engine UI visualization */}
-            <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
-              <div className="text-center">
-                <BrainCircuit className="h-16 w-16 text-brand-teal mx-auto mb-4" />
-                <p className="text-lg font-medium text-white">
-                  Assembler Engine UI Visualization
-                </p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Interactive digital twin model generation
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -72,11 +56,12 @@ export default function Page() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                The End of Manual Modeling
+                Why We're Building Assembler
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                We directly address the core challenges that prevent digital
-                twin adoption, validated by industry leaders.
+                Manual digital twin modeling is the biggest barrier to adoption.
+                We're solving this with AI agents that do the heavy lifting for
+                you.
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -107,11 +92,11 @@ export default function Page() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Three Steps to an Intelligent Twin
+                How Our AI Agents Will Work
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Our agentic framework automates the entire process, from
-                connection to deployment.
+                We're developing multiple AI agents that collaborate to
+                transform raw data into intelligent digital twins automatically.
               </p>
             </div>
             <div className="mt-20 relative">
@@ -129,11 +114,12 @@ export default function Page() {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-white">
-                    Connect Your Data
+                    Connect Your Data Sources
                   </h3>
                   <p className="mt-2 text-muted-foreground">
-                    Securely connect to your existing data stores—data lakes,
-                    databases, or event streams—with our guided wizard.
+                    Our AI agents will analyze data from MQTT streams, uploaded
+                    files, databases, and other sources to understand your
+                    physical world.
                   </p>
                 </div>
                 {/* Step 2 */}
@@ -144,12 +130,12 @@ export default function Page() {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-white">
-                    AI Generates the Model
+                    AI Generates DTDL Schemas
                   </h3>
                   <p className="mt-2 text-muted-foreground">
-                    Our Assembler Engine analyzes your data and automatically
-                    generates an interactive digital twin graph for your review
-                    and approval.
+                    Specialized AI agents automatically create DTDL models, twin
+                    graphs, and data mappings based on your data patterns and
+                    relationships.
                   </p>
                 </div>
                 {/* Step 3 */}
@@ -160,12 +146,12 @@ export default function Page() {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-white">
-                    Deploy & Analyze
+                    Deploy to Graph & Flow
                   </h3>
                   <p className="mt-2 text-muted-foreground">
-                    With one click, deploy the twin, connectors, and query
-                    services to your cloud, and start generating immediate
-                    operational insights.
+                    Once generated, your digital twins deploy seamlessly to
+                    Konnektr Graph for storage and Flow for analytics and
+                    insights.
                   </p>
                 </div>
               </div>
@@ -234,7 +220,22 @@ export default function Page() {
           </div>
         </section>*/}
 
-        {/* Pricing Section */}
+        {/* Pricing Section - Coming Soon */}
+        <section className="py-20 md:py-28" aria-label="Assembler Pricing">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Pricing Coming Soon
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Konnektr Assembler is in early access development. Pricing will
+                be announced when we launch.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Commented out pricing section
         <PricingSection
           tiers={assemblerProduct.pricingTiers}
           productName="Assembler"
@@ -242,6 +243,7 @@ export default function Page() {
             redirectToKtrlPlane("assembler", tier);
           }}
         />
+        */}
 
         {/* Final CTA Section */}
         <section className="py-20 md:py-28">
@@ -249,11 +251,12 @@ export default function Page() {
             <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-brand-blue to-brand-teal">
               <div className="relative z-10 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-white">
-                  Ready to Build Your First Intelligent Twin?
+                  Want to Be First in Line?
                 </h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                  Stop wrestling with DTDL and complex cloud architectures.
-                  Start delivering value. Explore the Assembler Engine today.
+                  We're building the AI agents that will eliminate manual
+                  digital twin modeling forever. Join our waiting list and be
+                  the first to experience effortless twin creation.
                 </p>
                 {/* Temporarily commented out - product not ready yet */}
                 {/* <div className="mt-8">

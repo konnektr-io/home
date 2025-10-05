@@ -1,8 +1,6 @@
 import { Button } from "../../components/ui/button.js";
 import { Card } from "../../components/ui/card.js";
 import { WaitingListSection } from "../../components/WaitingList.js";
-import { PricingSection } from "../../components/PricingSection.js";
-import { compassProduct } from "../../data/products.js";
 import {
   Compass,
   ArrowRight,
@@ -27,44 +25,24 @@ export default function Page() {
           aria-label="Compass Hero Content"
         >
           <div className="inline-block rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
-            ✨ Analytics & Insights Platform
+            ✨ In Ideation • Coming Soon
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Navigate Your Digital Twin Universe with{" "}
             <span className="gradient-text">Compass</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            {compassProduct.description}
+            We're envisioning the analytics platform that will turn your digital
+            twin data into actionable insights.{" "}
+            <strong className="text-white">Join our waiting list</strong> to
+            help shape the future of infrastructure monitoring and analytics.
           </p>
 
           {/* Waiting List Section */}
           <div className="max-w-2xl mx-auto">
             <WaitingListSection
               productName="Konnektr Compass"
-              description="Be the first to experience advanced analytics and insights. Join our waiting list for early access."
+              description="We're designing the analytics platform that will make sense of your digital twin data. Be the first to know when Compass is ready."
             />
-          </div>
-        </div>
-
-        {/* Hero Image/Visualization */}
-        <div
-          className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16"
-          role="region"
-          aria-label="Compass Visualization"
-        >
-          <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
-            {/* Placeholder for Compass Analytics UI visualization */}
-            <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
-              <div className="text-center">
-                <Compass className="h-16 w-16 text-brand-teal mx-auto mb-4" />
-                <p className="text-lg font-medium text-white">
-                  Compass Analytics Dashboard
-                </p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Interactive data visualization and insights
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -75,12 +53,11 @@ export default function Page() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Illuminate Your Digital Twin{" "}
-                <span className="gradient-text">Intelligence</span>
+                The Vision for <span className="gradient-text">Compass</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Turn your digital twin data into strategic advantages with
-                advanced analytics, real-time monitoring, and predictive
+                Infrastructure data should tell a story. We're designing Compass
+                to turn complex digital twin data into clear, actionable
                 insights.
               </p>
             </div>
@@ -135,12 +112,11 @@ export default function Page() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Navigate Every{" "}
-                <span className="gradient-text">Business Challenge</span>
+                What We're <span className="gradient-text">Exploring</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                From operational efficiency to strategic planning, Compass
-                provides the insights you need to make data-driven decisions.
+                Compass will focus on infrastructure monitoring, predictive
+                maintenance, and operational insights for the physical world.
               </p>
             </div>
 
@@ -277,7 +253,22 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Pricing Section */}
+        {/* Pricing Section - Coming Soon */}
+        <section className="py-20 md:py-28" aria-label="Compass Pricing">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Pricing Coming Soon
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Konnektr Compass is coming soon. Pricing will be announced when
+                we launch.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Commented out pricing section
         <section className="py-12 md:py-20" aria-label="Compass Pricing">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <PricingSection
@@ -286,6 +277,7 @@ export default function Page() {
             />
           </div>
         </section>
+        */}
 
         {/* CTA Section */}
         <section

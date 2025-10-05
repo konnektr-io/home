@@ -19,7 +19,7 @@ export default function Page() {
         >
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
             <DatabaseZap className="h-4 w-4" />
-            High-Performance Graph Database
+            Semantic Property Graph with Validation
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Graph</span>
@@ -53,183 +53,6 @@ export default function Page() {
             </a>
           </div>
         </div>
-        {/* Hero Image/Visualization */}
-        <div
-          className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16"
-          role="region"
-          aria-label="Graph Visualization"
-        >
-          <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
-            <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
-              <div className="text-center">
-                <div className="mb-6 flex justify-center">
-                  <svg
-                    width="120"
-                    height="120"
-                    viewBox="0 0 120 120"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="drop-shadow-lg"
-                  >
-                    <defs>
-                      <linearGradient
-                        id="heroGraphGrad1"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                      >
-                        <stop
-                          offset="0%"
-                          style={{ stopColor: "#1E9E95", stopOpacity: 1 }}
-                        />
-                        <stop
-                          offset="100%"
-                          style={{ stopColor: "#2D4263", stopOpacity: 1 }}
-                        />
-                      </linearGradient>
-                      <linearGradient
-                        id="heroGraphGrad2"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                      >
-                        <stop
-                          offset="0%"
-                          style={{ stopColor: "#2D4263", stopOpacity: 1 }}
-                        />
-                        <stop
-                          offset="100%"
-                          style={{ stopColor: "#1E9E95", stopOpacity: 1 }}
-                        />
-                      </linearGradient>
-                    </defs>
-
-                    {/* Main nodes */}
-                    <circle
-                      cx="30"
-                      cy="30"
-                      r="12"
-                      fill="url(#heroGraphGrad1)"
-                      stroke="rgba(255,255,255,0.2)"
-                      strokeWidth="2"
-                    />
-                    <circle
-                      cx="90"
-                      cy="30"
-                      r="10"
-                      fill="url(#heroGraphGrad2)"
-                      stroke="rgba(255,255,255,0.2)"
-                      strokeWidth="2"
-                    />
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="14"
-                      fill="url(#heroGraphGrad1)"
-                      stroke="rgba(255,255,255,0.2)"
-                      strokeWidth="2"
-                    />
-                    <circle
-                      cx="25"
-                      cy="90"
-                      r="10"
-                      fill="url(#heroGraphGrad2)"
-                      stroke="rgba(255,255,255,0.2)"
-                      strokeWidth="2"
-                    />
-                    <circle
-                      cx="85"
-                      cy="85"
-                      r="11"
-                      fill="url(#heroGraphGrad1)"
-                      stroke="rgba(255,255,255,0.2)"
-                      strokeWidth="2"
-                    />
-                    <circle
-                      cx="90"
-                      cy="60"
-                      r="8"
-                      fill="url(#heroGraphGrad2)"
-                      stroke="rgba(255,255,255,0.2)"
-                      strokeWidth="2"
-                    />
-
-                    {/* Connection lines */}
-                    <path
-                      d="M30 30 L60 60"
-                      stroke="url(#heroGraphGrad1)"
-                      strokeWidth="3"
-                      opacity="0.8"
-                    />
-                    <path
-                      d="M90 30 L60 60"
-                      stroke="url(#heroGraphGrad2)"
-                      strokeWidth="3"
-                      opacity="0.8"
-                    />
-                    <path
-                      d="M60 60 L25 90"
-                      stroke="url(#heroGraphGrad1)"
-                      strokeWidth="3"
-                      opacity="0.8"
-                    />
-                    <path
-                      d="M60 60 L85 85"
-                      stroke="url(#heroGraphGrad2)"
-                      strokeWidth="3"
-                      opacity="0.8"
-                    />
-                    <path
-                      d="M90 30 L90 60"
-                      stroke="url(#heroGraphGrad1)"
-                      strokeWidth="2"
-                      opacity="0.6"
-                    />
-                    <path
-                      d="M85 85 L90 60"
-                      stroke="url(#heroGraphGrad2)"
-                      strokeWidth="2"
-                      opacity="0.6"
-                    />
-                    <path
-                      d="M30 30 L90 30"
-                      stroke="url(#heroGraphGrad1)"
-                      strokeWidth="2"
-                      opacity="0.4"
-                    />
-
-                    {/* Highlight dots */}
-                    <circle
-                      cx="30"
-                      cy="30"
-                      r="4"
-                      fill="rgba(255,255,255,0.9)"
-                    />
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="5"
-                      fill="rgba(255,255,255,0.9)"
-                    />
-                    <circle
-                      cx="90"
-                      cy="30"
-                      r="3"
-                      fill="rgba(255,255,255,0.9)"
-                    />
-                  </svg>
-                </div>
-                <p className="text-lg font-medium text-white">
-                  Graph Database Runtime
-                </p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Real-time twin relationship queries
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
       <main>
         {/* Features Section */}
@@ -240,122 +63,500 @@ export default function Page() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Enterprise-Grade Digital Twin Infrastructure
+                Rich Semantic Context Made Simple
               </h2>
               <p className="mt-4 text-lg text-brand-teal font-semibold">
-                100% Open Source. Flexible, scalable, and built for enterprise
-                reliability. Your digital twin data, your way.
+                Skip the RDF complexity. Property graphs with built-in
+                validation for startups and growing companies who need
+                meaningful data relationships.
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Feature 1: Open Standards & APIs */}
+              {/* Feature 1: Semantic Relationships */}
               <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
-                  <DatabaseZap className="h-6 w-6" />
+                  <Network className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-white">
-                  ADT-Compatible APIs
+                  Meaningful Relationships
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Fully compatible with Azure Digital Twins API. Migrate
-                  existing applications with zero code changes while gaining
-                  superior performance.
+                  Connect your data with rich semantic relationships. No RDF
+                  complexity, just intuitive property graphs that grow with your
+                  business.
                 </p>
               </Card>
-              {/* Feature 2: Flexible Deployment */}
+              {/* Feature 2: Built-in Validation */}
               <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
                   <Shield className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-white">
-                  Flexible Deployment
+                  Schema Validation
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Self-hosted or fully managed. Deploy on your cloud,
-                  on-premises, or use our hosted service. Your data sovereignty,
-                  guaranteed.
+                  Prevent data corruption with built-in model validation. Ensure
+                  data integrity as your startup scales without breaking
+                  changes.
                 </p>
               </Card>
-              {/* Feature 3: Advanced Querying */}
+              {/* Feature 3: Self-Hosted Trust */}
               <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
                   <Zap className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-white">
-                  Advanced Querying & Events
+                  Your Data, Your Control
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Rich Cypher query language, real-time validation, and
-                  intelligent event routing. Build complex digital twin logic
-                  with ease.
+                  Built on PostgreSQL foundation you can audit and trust. Start
+                  small, scale smart, without vendor lock-in or enterprise
+                  complexity.
                 </p>
               </Card>
             </div>
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="py-20 md:py-28" aria-label="Graph Technology">
+        {/* Problem & Solution Section */}
+        <section
+          className="py-20 md:py-28"
+          aria-label="Graph Problems and Solutions"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Built on Battle-Tested Technology
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Powered by Apache AGE and PostgreSQL, with enterprise features
-                you can trust in production.
-              </p>
-            </div>
-            <div className="mt-20 relative">
-              {/* The connecting line */}
-              <div
-                className="absolute top-1/2 left-0 w-full h-0.5 bg-white/10 hidden md:block"
-                aria-hidden="true"
-              ></div>
-              <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
-                {/* Step 1 */}
-                <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
-                    <DatabaseZap className="h-8 w-8 text-brand-teal" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">
-                    PostgreSQL Foundation
-                  </h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Built on the world's most advanced open source database,
-                    with ACID transactions and enterprise reliability.
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Problem Statement */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                  Stop Fighting Your Database
+                </h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p className="text-lg">
+                    Your growing company has complex data that traditional
+                    databases can't handle. You have:
                   </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                      <span>
+                        <strong className="text-white">
+                          Complex relationships
+                        </strong>{" "}
+                        that SQL makes painful to query
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                      <span>
+                        <strong className="text-white">
+                          Data validation nightmares
+                        </strong>{" "}
+                        when your schema evolves
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                      <span>
+                        <strong className="text-white">
+                          Semantic context loss
+                        </strong>{" "}
+                        in rigid database schemas
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                      <span>
+                        <strong className="text-white">
+                          Vendor lock-in fears
+                        </strong>{" "}
+                        with proprietary graph databases
+                      </span>
+                    </li>
+                  </ul>
                 </div>
-                {/* Step 2 */}
-                <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
-                    <Network className="h-8 w-8 text-brand-teal" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">
-                    Apache AGE Graph Engine
-                  </h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Powerful graph processing with Cypher queries, enabling
-                    complex relationship analysis and traversals.
+              </div>
+
+              {/* Solution */}
+              <div className="bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 rounded-xl p-8 border border-brand-teal/20">
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Graph Makes It Simple
+                </h3>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Property graphs with built-in validation, powered by
+                    PostgreSQL you already trust.
                   </p>
-                </div>
-                {/* Step 3 */}
-                <div className="text-center">
-                  <div className="relative flex items-center justify-center h-20 w-20 rounded-full bg-brand-dark border-2 border-brand-teal mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-brand-teal" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">
-                    Enterprise Security
-                  </h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Row-level security, encryption at rest and in transit, audit
-                    logging, and compliance-ready features.
-                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                      <span>
+                        <strong className="text-white">
+                          Natural relationships
+                        </strong>{" "}
+                        - model how you think
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                      <span>
+                        <strong className="text-white">
+                          Schema validation
+                        </strong>{" "}
+                        - prevent breaking changes
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                      <span>
+                        <strong className="text-white">
+                          PostgreSQL foundation
+                        </strong>{" "}
+                        - audit & trust
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                      <span>
+                        <strong className="text-white">Open source</strong> - no
+                        vendor lock-in
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Real-World Use Cases Section */}
+        <section className="py-20 md:py-28" aria-label="Graph Use Cases">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Real-World Use Cases
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                See how Graph enables digital twins that bring value to the
+                physical world.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Use Case 1: Water Distribution Systems */}
+              <Card className="p-8 bg-white/3 border border-white/10">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
+                    <Network className="h-6 w-6 text-brand-teal" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      Water Distribution Systems
+                    </h3>
+                    <p className="text-sm text-brand-teal font-medium">
+                      Utilities • Infrastructure • Smart Cities
+                    </p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  <strong className="text-white">The Challenge:</strong> Water
+                  networks have complex pipe connections, pressure dependencies,
+                  and sensor relationships. Leaks cascade through the system
+                  unpredictably.
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  <strong className="text-white">With Graph:</strong> Model
+                  pipes, valves, sensors, and pressure zones as connected
+                  assets. Detect leak impact zones and optimize meter
+                  commissioning workflows.
+                </p>
+                <div className="text-sm text-brand-teal">
+                  "When leak detected at Pipe-A47, which downstream meters and
+                  pressure zones are affected?"
+                </div>
+              </Card>
+
+              {/* Use Case 2: Traffic Infrastructure */}
+              <Card className="p-8 bg-white/3 border border-white/10">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
+                    <DatabaseZap className="h-6 w-6 text-brand-teal" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      Traffic Infrastructure
+                    </h3>
+                    <p className="text-sm text-brand-teal font-medium">
+                      Transportation • Smart Cities • Asset Management
+                    </p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  <strong className="text-white">The Challenge:</strong> Traffic
+                  lights, bridges, signs, and sensors form an interconnected
+                  system. Asset failures create cascading traffic impacts.
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  <strong className="text-white">With Graph:</strong> Model
+                  traffic infrastructure as connected assets. Predict failure
+                  impacts and assess traffic flow consequences before they
+                  happen.
+                </p>
+                <div className="text-sm text-brand-teal">
+                  "If Bridge-B12 needs maintenance, which traffic routes and
+                  zones will be impacted?"
+                </div>
+              </Card>
+
+              {/* Use Case 3: Railway Operations */}
+              <Card className="p-8 bg-white/3 border border-white/10">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
+                    <Shield className="h-6 w-6 text-brand-teal" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      Railway Operations
+                    </h3>
+                    <p className="text-sm text-brand-teal font-medium">
+                      Rail Transport • Energy Management • Operations
+                    </p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  <strong className="text-white">The Challenge:</strong> Train
+                  schedules, track sections, power grids, and energy consumption
+                  are deeply interconnected. Optimization requires understanding
+                  complex dependencies.
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  <strong className="text-white">With Graph:</strong> Connect
+                  trains, tracks, power systems, and schedules in one model.
+                  Optimize energy usage and detect conflicts before they impact
+                  service.
+                </p>
+                <div className="text-sm text-brand-teal">
+                  "Which trains will be affected if PowerGrid-7 reaches 90%
+                  capacity during peak hours?"
+                </div>
+              </Card>
+
+              {/* Use Case 4: Infrastructure Monitoring */}
+              <Card className="p-8 bg-white/3 border border-white/10">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
+                    <Zap className="h-6 w-6 text-brand-teal" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      Infrastructure Monitoring
+                    </h3>
+                    <p className="text-sm text-brand-teal font-medium">
+                      Civil Engineering • Asset Health • Environmental
+                    </p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  <strong className="text-white">The Challenge:</strong>{" "}
+                  Structural sensors, environmental conditions, and asset health
+                  create complex monitoring networks. Anomalies need contextual
+                  analysis.
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  <strong className="text-white">With Graph:</strong> Model
+                  sensors, structures, and environmental factors as connected
+                  entities. Correlate deformation, temperature, and groundwater
+                  data intelligently.
+                </p>
+                <div className="text-sm text-brand-teal">
+                  "Correlate Bridge-C3 deformation sensors with temperature and
+                  groundwater level changes"
+                </div>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Graph vs Alternatives */}
+        <section
+          className="py-20 md:py-28 bg-black/10"
+          aria-label="Graph Advantages"
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Why Choose Graph Over Alternatives?
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Compare Graph with other solutions and see why growing companies
+                choose us.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* vs SQL Databases */}
+              <Card className="p-6 bg-white/3 border border-white/10">
+                <div className="text-center mb-6">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    vs SQL Databases
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Traditional relational databases
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium text-white">
+                        Complex JOINs for relationships
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Multiple table joins get expensive fast
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium text-white">
+                        Schema migrations are painful
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Adding relationships breaks existing code
+                      </p>
+                    </div>
+                  </div>
+                  <div className="border-t border-white/10 pt-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                      <div>
+                        <p className="text-sm font-medium text-white">
+                          Graph: Natural relationships
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          Query relationships as you think about them
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* vs Graph Databases */}
+              <Card className="p-6 bg-white/3 border border-white/10">
+                <div className="text-center mb-6">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    vs Proprietary Graphs
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Neo4j, Amazon Neptune, etc.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium text-white">
+                        Expensive licensing costs
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Enterprise pricing that hurts growth
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium text-white">
+                        Vendor lock-in risks
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Hard to migrate away when you grow
+                      </p>
+                    </div>
+                  </div>
+                  <div className="border-t border-white/10 pt-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                      <div>
+                        <p className="text-sm font-medium text-white">
+                          Graph: Open source & PostgreSQL
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          No lock-in, audit the code, trust the foundation
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* vs Document Databases */}
+              <Card className="p-6 bg-white/3 border border-white/10">
+                <div className="text-center mb-6">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    vs Document Databases
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    MongoDB, CouchDB, etc.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium text-white">
+                        No relationship enforcement
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        References can break without validation
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium text-white">
+                        Complex queries for connected data
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Multiple queries needed for relationship traversal
+                      </p>
+                    </div>
+                  </div>
+                  <div className="border-t border-white/10 pt-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                      <div>
+                        <p className="text-sm font-medium text-white">
+                          Graph: Relationships as first-class citizens
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          Validate connections, traverse efficiently
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-brand-teal/10 px-4 py-2 text-sm border border-brand-teal/20">
+                <Shield className="h-4 w-4 text-brand-teal" />
+                <span className="text-brand-teal font-medium">
+                  Built on PostgreSQL
+                </span>
+              </div>
+              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                Get the best of both worlds: graph power with SQL reliability.
+                Battle-tested foundation that your team can audit, trust, and
+                extend.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Pricing Section - Coming Soon */}
         <section className="py-20 md:py-28" aria-label="Graph Pricing">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -375,17 +576,17 @@ export default function Page() {
         <section className="py-12 md:py-20" aria-label="Graph Call to Action">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-brand-blue to-brand-teal text-center">
-              <DatabaseZap className="mx-auto h-10 w-10 mb-4 text-white" />
+              <Network className="mx-auto h-10 w-10 mb-4 text-white" />
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Ready to Scale Your Digital Twin Platform?
+                Ready to Build with Semantic Context?
               </h2>
               <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                Open source, flexible, and built for the modern enterprise. Get
-                started with Konnektr Graph today.
+                Skip RDF complexity. Get meaningful data relationships with
+                validation, built on PostgreSQL you can trust.
                 <br />
                 <span className="block mt-2 text-brand-light text-base font-semibold">
-                  Future managed cloud plans will include a free tier for
-                  everyone.
+                  Open source and free to self-host. Future managed plans start
+                  with a free tier.
                 </span>
               </p>
               <div className="mt-8">

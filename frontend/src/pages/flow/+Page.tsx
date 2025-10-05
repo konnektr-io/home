@@ -3,8 +3,6 @@ import { Button } from "../../components/ui/button.js";
 import { Card } from "../../components/ui/card.js";
 import { Badge } from "../../components/ui/badge.js";
 import { WaitingListSection } from "../../components/WaitingList.js";
-import { PricingSection } from "../../components/PricingSection.js";
-import { flowProduct } from "../../data/products.js";
 import KonnektrLogo from "../../assets/konnektr.svg";
 
 export default function Page() {
@@ -22,43 +20,24 @@ export default function Page() {
         >
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
             <Workflow className="h-4 w-4" />
-            Real-Time Event Processing
+            In Ideation • Coming Soon
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white">
-            <span className="gradient-text">Flow</span>: The Real-Time Data &
-            Event Orchestrator
+            <span className="gradient-text">Flow</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            {flowProduct.description}
+            We're designing the automation layer that will connect your digital
+            twins to the real world.{" "}
+            <strong className="text-white">Join our waiting list</strong> to
+            help shape how digital twins drive real-world actions.
           </p>
 
           {/* Waiting List Section */}
           <div className="mt-8 max-w-2xl mx-auto">
             <WaitingListSection
               productName="Konnektr Flow"
-              description="Be the first to experience real-time event orchestration. Join our waiting list for early access."
+              description="We're exploring how digital twins can trigger real-world actions. Be the first to know when Flow is ready."
             />
-          </div>
-        </div>
-        {/* Hero Image/Visualization */}
-        <div
-          className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16"
-          role="region"
-          aria-label="Flow Visualization"
-        >
-          <div className="relative rounded-xl shadow-2xl shadow-brand-teal/10 border border-white/10 bg-brand-dark/50 p-4 md:p-6 backdrop-blur-sm">
-            {/* Placeholder for Flow Pipeline visualization */}
-            <div className="rounded-lg bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 aspect-video flex items-center justify-center">
-              <div className="text-center">
-                <Workflow className="h-16 w-16 text-brand-teal mx-auto mb-4" />
-                <p className="text-lg font-medium text-white">
-                  Visual Flow Designer
-                </p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Drag-and-drop pipeline builder
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -71,11 +50,11 @@ export default function Page() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Why Konnektr Flow?
+                The Vision for Flow
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Connect, automate, and orchestrate. Your digital twin's nervous
-                system.
+                Digital twins should drive real-world actions. We're designing
+                Flow to bridge that gap with intelligent automation.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -117,10 +96,11 @@ export default function Page() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Flow Capabilities
+                What We're Building
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Everything you need for intelligent data orchestration.
+                Flow will be the automation layer that turns digital twin
+                insights into real-world actions.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -221,7 +201,22 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Pricing Section */}
+        {/* Pricing Section - Coming Soon */}
+        <section className="py-20 md:py-28" aria-label="Flow Pricing">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Pricing Coming Soon
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Konnektr Flow is coming soon. Pricing will be announced when we
+                launch.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Commented out pricing section
         <section className="py-12 md:py-20" aria-label="Flow Pricing">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <PricingSection
@@ -235,6 +230,7 @@ export default function Page() {
             />
           </div>
         </section>
+        */}
 
         {/* Final CTA Section */}
         <section className="py-12 md:py-20" aria-label="Flow Call to Action">

@@ -106,20 +106,20 @@ export function createProductSEO(product: Product): ProductSEOData {
   // Product-specific keywords and descriptions
   const productSEOData: Record<string, Partial<ProductSEOData>> = {
     "Konnektr Graph": {
-      title: `${baseTitle} | High-Performance Digital Twin Graph Database`,
+      title: `${baseTitle} | Semantic Property Graph with Built-in Validation`,
       description:
-        "Enterprise-grade digital twin runtime with ADT-compatible APIs. Built on PostgreSQL & Apache AGE. Self-host or fully managed. Open source.",
+        "Semantic property graph database with model validation. Rich data relationships without RDF complexity. Built on PostgreSQL & Apache AGE. Self-host or managed.",
       keywords: [
-        "digital twin database",
-        "graph database",
-        "ADT compatible API",
+        "semantic property graph",
+        "graph database validation",
+        "RDF alternative",
+        "semantic database",
+        "property graph database",
         "PostgreSQL graph",
         "Apache AGE",
-        "open source graph database",
-        "digital twin runtime",
-        "twin graph database",
-        "enterprise graph database",
-        "real-time graph queries",
+        "startup graph database",
+        "semantic context database",
+        "validated graph database",
       ],
       productType: "Database Software",
       price: "$25/month",

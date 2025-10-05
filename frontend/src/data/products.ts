@@ -28,27 +28,27 @@ export const assemblerProduct: Product = {
   icon: Bot,
   title: "Konnektr Assembler",
   description:
-    "The AI-powered digital twin builder. Automate the creation of DTDL models and graph relationships from any data source with an intuitive, low-code visual interface.",
+    "AI agents that analyze your data sources (MQTT, files, databases) and automatically generate DTDL schemas, twin graphs, and data mappings. No manual modeling required.",
   features: [
     {
-      title: "AI-Powered Ontology Generation",
+      title: "Multi-Agent Data Analysis",
       description:
-        "Let our AI analyze your data and propose a complete, valid DTDL model in seconds.",
+        "Specialized AI agents analyze MQTT streams, uploaded files, and database schemas to understand your data patterns and relationships.",
     },
     {
-      title: "Visual Graph Editor",
+      title: "Automatic DTDL Generation",
       description:
-        "Refine and approve your model in an intuitive node-based editor. No DTDL expertise required.",
+        "AI agents create valid DTDL models and twin graph structures automatically, eliminating the need for manual schema design.",
     },
     {
-      title: "Multi-Source Contextualization",
+      title: "Intelligent Data Mapping",
       description:
-        "Connect to multiple data sources and let the AI infer relationships between them.",
+        "Our agents infer relationships between data sources and create the mappings needed to populate your digital twins.",
     },
     {
-      title: "One-Click Deployment",
+      title: "Seamless Integration",
       description:
-        "Deploy your model and the necessary data connectors directly to Konnektr Graph or your own cloud.",
+        "Generated twins deploy directly to Konnektr Graph for storage and Flow for analytics, creating a complete digital twin pipeline.",
     },
   ],
   pricingTiers: [
@@ -99,27 +99,27 @@ export const graphProduct: Product = {
   icon: DatabaseZap,
   title: "Konnektr Graph",
   description:
-    "The scalable digital twin runtime. A high-performance, fully managed graph database and API layer, built on open standards and fully compatible with ADT.",
+    "The semantic property graph database with data model validation. Rich semantic context made simple - no RDF complexity, just powerful relationships with built-in validation for growing companies.",
   features: [
     {
-      title: "ADT Compatible API",
+      title: "Semantic Context Made Simple",
       description:
-        "Use the same APIs and SDKs you know. Migrate existing applications with zero code changes.",
+        "Rich semantic relationships without RDF complexity. Build meaningful connections between your data with intuitive property graphs.",
     },
     {
-      title: "Built on Open Source",
+      title: "Built-in Model Validation",
       description:
-        "Powered by PostgreSQL and Apache AGE for a robust, flexible, and lock-in free foundation.",
+        "Prevent data corruption with schema validation. Ensure data integrity as your startup scales and evolves.",
     },
     {
-      title: "Real-time Eventing",
+      title: "Self-Hosted Trust",
       description:
-        "Subscribe to changes in your twin graph and trigger downstream actions in Konnektr Flow or external systems.",
+        "Your data, your infrastructure, your control. PostgreSQL and Apache AGE foundation you can trust and audit.",
     },
     {
-      title: "Fully Managed & Scalable",
+      title: "Startup-Friendly Scaling",
       description:
-        "We handle the hosting, scaling, and backups, so you can focus on building your application.",
+        "Start small, scale smart. From prototype to production without vendor lock-in or enterprise complexity.",
     },
   ],
   pricingTiers: [
@@ -170,27 +170,27 @@ export const flowProduct: Product = {
   icon: Workflow,
   title: "Konnektr Flow",
   description:
-    "The real-time data and event orchestrator. The nervous system for your digital twin, enabling you to ingest data, trigger notifications, and automate complex actions.",
+    "The automation layer that will connect your digital twins to real-world actions. From factory equipment to building systems, Flow will make your digital twins drive real change.",
   features: [
     {
-      title: "Visual Flow Builder",
+      title: "Real-World Actions",
       description:
-        "Design complex data ingestion and business logic workflows with a simple drag-and-drop interface.",
+        "When your digital twin detects an issue, Flow will automatically trigger maintenance requests, adjust settings, or alert the right people.",
     },
     {
-      title: "Rich Connector Library",
+      title: "Physical World Integration",
       description:
-        "Connect to dozens of services out-of-the-box, from IoT Hubs and message brokers to databases and SaaS APIs.",
+        "Connect digital twin insights to manufacturing systems, building controls, supply chain processes, and infrastructure management.",
     },
     {
-      title: "Triggered by Graph Events",
+      title: "Intelligent Automation",
       description:
-        "Initiate flows automatically based on state changes in your Konnektr Graph instances.",
+        "Smart workflows that understand context from your digital twins and take appropriate actions in the physical world.",
     },
     {
-      title: "Serverless Execution",
+      title: "Enterprise Connectivity",
       description:
-        "All flows run on our scalable, serverless infrastructure. You only pay for what you use.",
+        "Seamless integration with your existing systems - from SCADA and PLCs to ERP and maintenance management platforms.",
     },
   ],
   pricingTiers: [
@@ -241,27 +241,27 @@ export const compassProduct: Product = {
   icon: Compass,
   title: "Konnektr Compass",
   description:
-    "The analytics and insights platform. Transform complex digital twin data into actionable insights with powerful visualization and analytics capabilities.",
+    "The infrastructure monitoring and analytics platform we're designing. Turn complex infrastructure data into clear insights about your physical world operations.",
   features: [
     {
-      title: "Advanced Analytics",
+      title: "Infrastructure Monitoring",
       description:
-        "Get deep insights from your digital twin data with AI-powered analytics and pattern recognition.",
+        "Monitor the health and performance of your physical infrastructure - from manufacturing equipment to building systems.",
     },
     {
-      title: "Interactive Dashboards",
+      title: "Predictive Maintenance",
       description:
-        "Create beautiful, interactive dashboards to visualize your digital twin ecosystem.",
+        "Use digital twin data to predict when equipment needs maintenance before it fails, reducing downtime and costs.",
     },
     {
-      title: "Predictive Insights",
+      title: "Operational Insights",
       description:
-        "Leverage machine learning to predict trends and optimize your digital twin operations.",
+        "Understand patterns in your infrastructure performance and identify opportunities for optimization.",
     },
     {
-      title: "Real-time Monitoring",
+      title: "Clear Visualizations",
       description:
-        "Monitor your digital twins in real-time with alerts and notifications for critical events.",
+        "Turn complex data into simple, actionable dashboards that anyone can understand and use to make decisions.",
     },
   ],
   pricingTiers: [

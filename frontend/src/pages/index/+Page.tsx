@@ -25,16 +25,18 @@ export default function Page() {
           aria-label="Home Hero Content"
         >
           <div className="inline-block rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
-            The Intelligent Twin Platform
+            The Intelligent Digital Twin Platform
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white">
-            Go from Raw Data to Digital Twin in{" "}
-            <span className="gradient-text">Minutes</span>
+            Go from Raw Data to{" "}
+            <span className="gradient-text">Intelligent Digital Twin</span> in
+            Minutes
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
             Konnektr automates digital twin creation, deployment, and
             orchestration. We solve for complexity, cost, and context, turning
-            your disconnected data into a competitive advantage.
+            your disconnected data into intelligent systems that bring value to
+            the physical world.
             <br />
             <span className="block mt-4 text-brand-teal font-semibold text-lg">
               <span className="bg-brand-teal/10 px-2 py-1 rounded">
@@ -69,15 +71,21 @@ export default function Page() {
               Complete Digital Twin Platform
             </h2>
             <p className="mt-4 text-lg text-brand-teal font-semibold">
-              100% Open Source. From intelligent modeling to scalable deployment
-              and real-time orchestration, our integrated platform covers the
-              entire digital twin lifecycle.
+              100% Open Source. Build semantic property graphs, process
+              real-time data, and monitor physical infrastructure with tools
+              designed for growing companies.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            onClick={() => navigate("/assembler")}
+          >
             {/* Assembler Product Card */}
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20">
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-orange-500/20 text-orange-400 rounded-full border border-orange-500/30">
+                Early Access
+              </span>
               <div className="relative">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
                   <Bot className="h-6 w-6 text-brand-teal" />
@@ -111,20 +119,26 @@ export default function Page() {
                   Konnektr Graph
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Scalable digital twin runtime with high-performance graph
-                  database and API layer, fully compatible with ADT and built on
-                  open standards.
+                  Semantic property graph with built-in validation. Rich data
+                  relationships made simple - no complexity, just meaningful
+                  connections that scale.
                 </p>
                 <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
-                  Start Twinning{" "}
+                  Build Semantic Context{" "}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </div>
 
             {/* Flow Product Card */}
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20">
+            <div
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
+              onClick={() => navigate("/flow")}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+                Coming Soon
+              </span>
               <div className="relative">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
                   <Workflow className="h-6 w-6 text-brand-teal" />
@@ -145,8 +159,14 @@ export default function Page() {
             </div>
 
             {/* Compass Product Card */}
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20">
+            <div
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
+              onClick={() => navigate("/compass")}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+                Coming Soon
+              </span>
               <div className="relative">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
                   <Compass className="h-6 w-6 text-brand-teal" />
@@ -230,7 +250,7 @@ export default function Page() {
                   Graph
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Scalable digital twin runtime
+                  Semantic property graph with validation
                 </p>
                 <div className="mb-4">
                   {/*

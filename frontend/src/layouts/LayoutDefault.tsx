@@ -85,9 +85,14 @@ export default function LayoutDefault({
                       onClick={() => handleProductClick("/assembler")}
                       className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer"
                     >
-                      <span className="font-semibold text-foreground">
-                        Konnektr Assembler
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-foreground">
+                          Konnektr Assembler
+                        </span>
+                        <span className="px-2 py-0.5 text-xs bg-orange-500/20 text-orange-400 rounded-full border border-orange-500/30">
+                          Early Access
+                        </span>
+                      </div>
                       <span className="text-xs text-muted-foreground">
                         AI-powered digital twin builder
                       </span>
@@ -107,9 +112,14 @@ export default function LayoutDefault({
                       onClick={() => handleProductClick("/flow")}
                       className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer"
                     >
-                      <span className="font-semibold text-foreground">
-                        Konnektr Flow
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-foreground">
+                          Konnektr Flow
+                        </span>
+                        <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+                          Coming Soon
+                        </span>
+                      </div>
                       <span className="text-xs text-muted-foreground">
                         Real-time data & event orchestrator
                       </span>
@@ -118,9 +128,14 @@ export default function LayoutDefault({
                       onClick={() => handleProductClick("/compass")}
                       className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer"
                     >
-                      <span className="font-semibold text-foreground">
-                        Konnektr Compass
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-foreground">
+                          Konnektr Compass
+                        </span>
+                        <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+                          Coming Soon
+                        </span>
+                      </div>
                       <span className="text-xs text-muted-foreground">
                         Analytics & insights platform
                       </span>
