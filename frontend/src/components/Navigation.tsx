@@ -16,39 +16,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-
-interface Product {
-  name: string;
-  path: string;
-  description: string;
-  status?: "early-access" | "coming-soon";
-}
-
-const products: Product[] = [
-  {
-    name: "Konnektr Assembler",
-    path: "/assembler",
-    description: "AI-powered digital twin builder",
-    status: "early-access",
-  },
-  {
-    name: "Konnektr Graph",
-    path: "/graph",
-    description: "Scalable graph database & API",
-  },
-  {
-    name: "Konnektr Flow",
-    path: "/flow",
-    description: "Real-time data & event orchestrator",
-    status: "coming-soon",
-  },
-  {
-    name: "Konnektr Compass",
-    path: "/compass",
-    description: "Analytics & insights platform",
-    status: "coming-soon",
-  },
-];
+import { navigationProducts } from "@/data/products";
 
 interface NavigationProps {
   className?: string;
@@ -69,7 +37,7 @@ export function DesktopNavigation({ className }: NavigationProps) {
           <NavigationMenuContent>
             <div className="bg-brand-dark border-white/20 text-foreground w-80 p-4 rounded-xl shadow-xl">
               <div className="space-y-4">
-                {products.map((product) => (
+                {navigationProducts.map((product) => (
                   <button
                     key={product.path}
                     onClick={() => handleProductClick(product.path)}
@@ -91,7 +59,7 @@ export function DesktopNavigation({ className }: NavigationProps) {
                       )}
                     </div>
                     <span className="text-xs text-muted-foreground">
-                      {product.description}
+                      {product.navDescription}
                     </span>
                   </button>
                 ))}
@@ -132,7 +100,7 @@ export function MobileNavigation({ className }: NavigationProps) {
               Products
             </h3>
             <div className="space-y-2">
-              {products.map((product) => (
+              {navigationProducts.map((product) => (
                 <button
                   key={product.path}
                   onClick={() => handleProductClick(product.path)}
@@ -158,7 +126,7 @@ export function MobileNavigation({ className }: NavigationProps) {
                     )}
                   </div>
                   <span className="text-xs text-muted-foreground">
-                    {product.description}
+                    {product.navDescription}
                   </span>
                 </button>
               ))}

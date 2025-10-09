@@ -19,16 +19,22 @@ export interface Product {
   icon: any;
   title: string;
   description: string;
+  navDescription: string; // Short description for navigation
   features: ProductFeature[];
   pricingTiers: PricingTier[];
   ready?: boolean; // For products not yet ready
+  status?: "early-access" | "coming-soon";
+  path: string;
 }
 
 export const assemblerProduct: Product = {
   icon: Bot,
   title: "Konnektr Assembler",
+  path: "/assembler",
+  status: "coming-soon",
   description:
     "AI agents that analyze your data sources (MQTT, files, databases) and automatically generate DTDL schemas, twin graphs, and data mappings. No manual modeling required.",
+  navDescription: "AI-powered digital twin builder",
   features: [
     {
       title: "Multi-Agent Data Analysis",
@@ -98,8 +104,10 @@ export const assemblerProduct: Product = {
 export const graphProduct: Product = {
   icon: DatabaseZap,
   title: "Konnektr Graph",
+  path: "/graph",
   description:
     "The semantic property graph database with data model validation. Rich semantic context made simple - no RDF complexity, just powerful relationships with built-in validation for growing companies.",
+  navDescription: "Scalable graph database & API",
   features: [
     {
       title: "Semantic Context Made Simple",
@@ -169,8 +177,11 @@ export const graphProduct: Product = {
 export const flowProduct: Product = {
   icon: Workflow,
   title: "Konnektr Flow",
+  path: "/flow",
+  status: "coming-soon",
   description:
     "The automation layer that will connect your digital twins to real-world actions. From factory equipment to building systems, Flow will make your digital twins drive real change.",
+  navDescription: "Real-time data & event orchestrator",
   features: [
     {
       title: "Real-World Actions",
@@ -240,8 +251,11 @@ export const flowProduct: Product = {
 export const compassProduct: Product = {
   icon: Compass,
   title: "Konnektr Compass",
+  path: "/compass",
+  status: "coming-soon",
   description:
     "The infrastructure monitoring and analytics platform we're designing. Turn complex infrastructure data into clear insights about your physical world operations.",
+  navDescription: "Analytics & insights platform",
   features: [
     {
       title: "Infrastructure Monitoring",
@@ -287,3 +301,11 @@ export const products = [
   flowProduct,
   compassProduct,
 ];
+
+// For navigation: only pick the fields needed for navigation
+export const navigationProducts = products.map((p) => ({
+  name: p.title,
+  path: p.path,
+  status: p.status,
+  navDescription: p.navDescription,
+}));
