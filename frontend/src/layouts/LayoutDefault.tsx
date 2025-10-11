@@ -3,6 +3,7 @@ import KonnektrLogo from "../assets/konnektr.svg";
 import { MailingListDialog } from "../components/MailingListDialog.js";
 import { Link } from "../components/Link.js";
 import { CookieConsent } from "../components/cookie-consent.js";
+import { Footer } from "../components/Footer.js";
 import {
   DesktopNavigation,
   MobileNavigation,
@@ -88,6 +89,7 @@ export default function LayoutDefault({
         </div>
       </header>
       <main className="pt-16">{children}</main>
+      <Footer />
       {/* Render CookieConsent outside main/header for debugging */}
       <CookieConsent
         variant="minimal"

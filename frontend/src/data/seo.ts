@@ -85,6 +85,91 @@ export const homepageSEO: SEOData = {
   },
 };
 
+// About page SEO
+export const aboutSEO: SEOData = {
+  title: "About Konnektr - Building the Future of Digital Twins",
+  description:
+    "Learn about Konnektr's mission to democratize digital twin technology through open-source solutions. Our values, technology, and commitment to the community.",
+  keywords: [
+    "about konnektr",
+    "digital twin company",
+    "open source mission",
+    "digital transformation",
+    "technology values",
+    "community driven",
+    "accessibility",
+    "innovation",
+  ],
+  ogType: "website",
+  ogImage: "/og-images/about-og.png",
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About Konnektr",
+    description: "Learn about Konnektr's mission to democratize digital twin technology through open-source solutions.",
+    url: "https://konnektr.io/about",
+    mainEntity: {
+      "@type": "Organization",
+      name: "Konnektr",
+      url: "https://konnektr.io",
+      foundingDate: "2024",
+      description: "Open-source digital twin platform provider",
+      sameAs: ["https://github.com/konnektr-io"],
+    },
+  },
+};
+
+// Privacy page SEO
+export const privacySEO: SEOData = {
+  title: "Privacy Policy - Konnektr",
+  description:
+    "Learn how Konnektr protects your privacy and handles your data. Our comprehensive privacy policy explains data collection, usage, and your rights.",
+  keywords: [
+    "privacy policy",
+    "data protection",
+    "user privacy",
+    "data rights",
+    "GDPR compliance",
+    "data security",
+    "personal information",
+  ],
+  ogType: "website",
+  ogImage: "/og-images/privacy-og.png",
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Privacy Policy",
+    description: "Konnektr's privacy policy explaining how we handle and protect user data.",
+    url: "https://konnektr.io/privacy",
+  },
+};
+
+// Terms of Service page SEO
+export const termsSEO: SEOData = {
+  title: "Terms of Service - Konnektr",
+  description:
+    "Terms of Service for Konnektr's open-source digital twin platform. Learn about user rights, service usage, and legal obligations.",
+  keywords: [
+    "terms of service",
+    "user agreement",
+    "service terms",
+    "legal terms",
+    "platform usage",
+    "user rights",
+    "open source license",
+    "service agreement",
+  ],
+  ogType: "website",
+  ogImage: "/og-images/terms-og.png",
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Terms of Service",
+    description: "Terms of Service for Konnektr's open-source digital twin platform.",
+    url: "https://konnektr.io/terms",
+  },
+};
+
 // Product page SEO factory
 export function createProductSEO(product: Product): ProductSEOData {
   const productName = product.title;
