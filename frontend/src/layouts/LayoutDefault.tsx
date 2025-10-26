@@ -90,7 +90,6 @@ export default function LayoutDefault({
       </header>
       <main className="pt-16">{children}</main>
       <Footer />
-      {/* Render CookieConsent outside main/header for debugging */}
       <CookieConsent
         variant="minimal"
         onAcceptCallback={handleAccept}

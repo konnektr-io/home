@@ -68,7 +68,7 @@ export const homepageSEO: SEOData = {
     "@type": "Organization",
     name: "Konnektr",
     url: "https://konnektr.io",
-    logo: "https://konnektr.io/logo.png",
+    logo: "https://konnektr.io/konnektr.svg",
     description: SITE_CONFIG.description,
     foundingDate: "2024",
     sameAs: ["https://github.com/konnektr-io"],
@@ -80,7 +80,7 @@ export const homepageSEO: SEOData = {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
-      email: "hello@konnektr.io",
+      email: "info@konnektr.io",
     },
   },
 };
