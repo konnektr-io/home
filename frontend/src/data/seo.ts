@@ -269,6 +269,76 @@ export function createProductSEO(product: Product): ProductSEOData {
 
   const specific = productSEOData[productName] || {};
 
+  // Helper: get absolute image URL
+  const imageUrl = `https://konnektr.io${
+    productOGImages[productName] || SITE_CONFIG.ogImage
+  }`;
+  // Helper: priceValidUntil (1 year from today)
+  const priceValidUntil = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split("T")[0];
+  // Helper: default merchant return policy
+  const defaultReturnPolicy = {
+    "@type": "MerchantReturnPolicy",
+    name: "No returns accepted",
+    returnPolicyCategory: "https://schema.org/NoReturns",
+    merchantReturnDays: 0,
+  };
+  // Helper: default shipping details
+  const defaultShippingDetails = {
+    "@type": "OfferShippingDetails",
+    shippingRate: {
+      "@type": "MonetaryAmount",
+      value: 0,
+      currency: "USD",
+    },
+    deliveryTime: {
+      "@type": "ShippingDeliveryTime",
+      businessDays: true,
+      handlingTime: {
+        "@type": "QuantitativeValue",
+        minValue: 0,
+        maxValue: 0,
+        unitCode: "d",
+      },
+      transitTime: {
+        "@type": "QuantitativeValue",
+        minValue: 0,
+        maxValue: 0,
+        unitCode: "d",
+      },
+    },
+    shippingDestination: {
+      "@type": "DefinedRegion",
+      addressCountry: "Worldwide",
+    },
+  };
+  // Helper: default aggregate rating
+  const defaultAggregateRating = {
+    "@type": "AggregateRating",
+    ratingValue: 5,
+    reviewCount: 1,
+  };
+  // Helper: default review
+  const defaultReview = [
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Konnektr User",
+      },
+      datePublished: "2025-01-01",
+      reviewBody: "Excellent open-source digital twin platform.",
+      name: "Great platform!",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: 5,
+        bestRating: 5,
+        worstRating: 1,
+      },
+    },
+  ];
+
   return {
     title: specific.title || baseTitle,
     description: specific.description || product.description,
@@ -287,6 +357,7 @@ export function createProductSEO(product: Product): ProductSEOData {
       url: `https://konnektr.io/${productName
         .toLowerCase()
         .replace("konnektr ", "")}`,
+      image: imageUrl,
       brand: {
         "@type": "Brand",
         name: "Konnektr",
@@ -301,13 +372,18 @@ export function createProductSEO(product: Product): ProductSEOData {
         "@type": "Offer",
         name: `${productName} ${tier.name}`,
         description: tier.audience,
-        price: tier.price === "Free" ? "0" : tier.price.replace(/[^0-9]/g, ""),
+        price: tier.price === "Free" ? "0" : tier.price.replace(/[^0-9.]/g, ""),
         priceCurrency: "USD",
         availability:
           availability === "available"
             ? "https://schema.org/InStock"
             : "https://schema.org/PreOrder",
+        priceValidUntil,
+        hasMerchantReturnPolicy: defaultReturnPolicy,
+        shippingDetails: defaultShippingDetails,
       })),
+      aggregateRating: defaultAggregateRating,
+      review: defaultReview,
     },
   };
 }

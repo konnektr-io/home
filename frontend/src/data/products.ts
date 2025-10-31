@@ -134,10 +134,10 @@ export const graphProduct: Product = {
     {
       name: "Developer",
       audience: "For hobbyists & early POCs",
-      price: "$25",
+      price: "Free",
       priceDescription: "per month / resource",
       features: [
-        "Up to 1,000 Twin Instances",
+        "Up to 500 Twin Instances",
         "1M API Calls/month",
         "Community Support",
       ],
@@ -146,7 +146,7 @@ export const graphProduct: Product = {
     {
       name: "Growth",
       audience: "For production applications",
-      price: "$299",
+      price: "$99",
       priceDescription: "per month / resource",
       features: [
         "Up to 25,000 Twin Instances",
