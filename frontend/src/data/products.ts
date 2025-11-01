@@ -25,6 +25,14 @@ export interface Product {
   ready?: boolean; // For products not yet ready
   status?: "early-access" | "coming-soon";
   path: string;
+  // SEO-specific fields
+  seo: {
+    title: string;
+    description: string;
+    keywords: string[];
+    productType: string;
+    ogImage: string;
+  };
 }
 
 export const assemblerProduct: Product = {
@@ -35,6 +43,25 @@ export const assemblerProduct: Product = {
   description:
     "AI agents that analyze your data sources (MQTT, files, databases) and automatically generate DTDL schemas, twin graphs, and data mappings. No manual modeling required.",
   navDescription: "AI-powered digital twin builder",
+  seo: {
+    title: "Konnektr Assembler - Konnektr | AI-Powered Digital Twin Builder",
+    description:
+      "AI-powered digital twin builder that automates DTDL model creation from any data source. Visual interface, no-code required.",
+    keywords: [
+      "AI digital twin builder",
+      "DTDL model generator",
+      "digital twin automation",
+      "AI twin ontology",
+      "no-code digital twin",
+      "visual twin builder",
+      "digital twin modeling",
+      "AI DTDL generator",
+      "digital twin AI tools",
+      "automated twin creation",
+    ],
+    productType: "AI Software",
+    ogImage: "/og-images/assembler-og.png",
+  },
   features: [
     {
       title: "Multi-Agent Data Analysis",
@@ -108,6 +135,26 @@ export const graphProduct: Product = {
   description:
     "The semantic property graph database with data model validation. Rich semantic context made simple - no RDF complexity, just powerful relationships with built-in validation for growing companies.",
   navDescription: "Scalable graph database & API",
+  seo: {
+    title:
+      "Konnektr Graph - Konnektr | Semantic Property Graph with Built-in Validation",
+    description:
+      "Semantic property graph database with model validation. Rich data relationships without RDF complexity. Built on PostgreSQL & Apache AGE. Self-host or managed.",
+    keywords: [
+      "semantic property graph",
+      "graph database validation",
+      "RDF alternative",
+      "semantic database",
+      "property graph database",
+      "PostgreSQL graph",
+      "Apache AGE",
+      "startup graph database",
+      "semantic context database",
+      "validated graph database",
+    ],
+    productType: "Database Software",
+    ogImage: "/og-images/graph-og.png",
+  },
   features: [
     {
       title: "Semantic Context Made Simple",
@@ -182,6 +229,25 @@ export const flowProduct: Product = {
   description:
     "The automation layer that will connect your digital twins to real-world actions. From factory equipment to building systems, Flow will make your digital twins drive real change.",
   navDescription: "Real-time data & event orchestrator",
+  seo: {
+    title: "Konnektr Flow - Konnektr | Real-Time Data & Event Orchestrator",
+    description:
+      "Real-time data and event orchestrator for digital twins. Visual flow builder, rich connectors, serverless execution.",
+    keywords: [
+      "digital twin data processing",
+      "real-time event orchestration",
+      "IoT data pipeline",
+      "digital twin automation",
+      "visual flow builder",
+      "serverless data processing",
+      "event-driven architecture",
+      "digital twin integration",
+      "real-time twin updates",
+      "IoT event processing",
+    ],
+    productType: "Integration Software",
+    ogImage: "/og-images/flow-og.png",
+  },
   features: [
     {
       title: "Real-World Actions",
@@ -256,6 +322,25 @@ export const compassProduct: Product = {
   description:
     "The infrastructure monitoring and analytics platform we're designing. Turn complex infrastructure data into clear insights about your physical world operations.",
   navDescription: "Analytics & insights platform",
+  seo: {
+    title: "Konnektr Compass - Konnektr | Digital Twin Analytics & Insights",
+    description:
+      "Advanced analytics and insights platform for digital twins. Interactive dashboards, predictive analytics, real-time monitoring.",
+    keywords: [
+      "digital twin analytics",
+      "twin data visualization",
+      "predictive twin analytics",
+      "digital twin insights",
+      "twin monitoring dashboard",
+      "IoT analytics platform",
+      "digital twin intelligence",
+      "twin performance analytics",
+      "real-time twin monitoring",
+      "digital twin reporting",
+    ],
+    productType: "Analytics Software",
+    ogImage: "/og-images/compass-og.png",
+  },
   features: [
     {
       title: "Infrastructure Monitoring",

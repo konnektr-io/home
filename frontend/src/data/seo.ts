@@ -173,218 +173,159 @@ export const termsSEO: SEOData = {
 // Product page SEO factory
 export function createProductSEO(product: Product): ProductSEOData {
   const productName = product.title;
-  const baseTitle = `${productName} - ${SITE_CONFIG.name}`;
-
+  
   let availability: "available" | "pre-order" | "coming-soon" = "coming-soon";
   if (product.ready) {
     availability = "available";
   }
 
-  // Map product names to OG image filenames
-  const productOGImages: Record<string, string> = {
-    "Konnektr Graph": "/og-images/graph-og.png",
-    "Konnektr Assembler": "/og-images/assembler-og.png",
-    "Konnektr Flow": "/og-images/flow-og.png",
-    "Konnektr Compass": "/og-images/compass-og.png",
-  };
-
-  // Product-specific keywords and descriptions
-  const productSEOData: Record<string, Partial<ProductSEOData>> = {
-    "Konnektr Graph": {
-      title: `${baseTitle} | Semantic Property Graph with Built-in Validation`,
-      description:
-        "Semantic property graph database with model validation. Rich data relationships without RDF complexity. Built on PostgreSQL & Apache AGE. Self-host or managed.",
-      keywords: [
-        "semantic property graph",
-        "graph database validation",
-        "RDF alternative",
-        "semantic database",
-        "property graph database",
-        "PostgreSQL graph",
-        "Apache AGE",
-        "startup graph database",
-        "semantic context database",
-        "validated graph database",
-      ],
-      productType: "Database Software",
-      price: "$25/month",
-    },
-    "Konnektr Assembler": {
-      title: `${baseTitle} | AI-Powered Digital Twin Builder`,
-      description:
-        "AI-powered digital twin builder that automates DTDL model creation from any data source. Visual interface, no-code required.",
-      keywords: [
-        "AI digital twin builder",
-        "DTDL model generator",
-        "digital twin automation",
-        "AI twin ontology",
-        "no-code digital twin",
-        "visual twin builder",
-        "digital twin modeling",
-        "AI DTDL generator",
-        "digital twin AI tools",
-        "automated twin creation",
-      ],
-      productType: "AI Software",
-      price: "Free",
-    },
-    "Konnektr Flow": {
-      title: `${baseTitle} | Real-Time Data & Event Orchestrator`,
-      description:
-        "Real-time data and event orchestrator for digital twins. Visual flow builder, rich connectors, serverless execution.",
-      keywords: [
-        "digital twin data processing",
-        "real-time event orchestration",
-        "IoT data pipeline",
-        "digital twin automation",
-        "visual flow builder",
-        "serverless data processing",
-        "event-driven architecture",
-        "digital twin integration",
-        "real-time twin updates",
-        "IoT event processing",
-      ],
-      productType: "Integration Software",
-      price: "$10/month",
-    },
-    "Konnektr Compass": {
-      title: `${baseTitle} | Digital Twin Analytics & Insights`,
-      description:
-        "Advanced analytics and insights platform for digital twins. Interactive dashboards, predictive analytics, real-time monitoring.",
-      keywords: [
-        "digital twin analytics",
-        "twin data visualization",
-        "predictive twin analytics",
-        "digital twin insights",
-        "twin monitoring dashboard",
-        "IoT analytics platform",
-        "digital twin intelligence",
-        "twin performance analytics",
-        "real-time twin monitoring",
-        "digital twin reporting",
-      ],
-      productType: "Analytics Software",
-    },
-  };
-
-  const specific = productSEOData[productName] || {};
-
-  // Helper: get absolute image URL
-  const imageUrl = `https://konnektr.io${
-    productOGImages[productName] || SITE_CONFIG.ogImage
-  }`;
+  // Helper: get absolute image URL from product SEO data
+  const imageUrl = `https://konnektr.io${product.seo.ogImage}`;
+  
   // Helper: priceValidUntil (1 year from today)
   const priceValidUntil = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
     .toISOString()
     .split("T")[0];
+  
   // Helper: default merchant return policy
   const defaultReturnPolicy = {
     "@type": "MerchantReturnPolicy",
-    name: "No returns accepted",
-    returnPolicyCategory: "https://schema.org/NoReturns",
-    merchantReturnDays: 0,
+    name: "Digital product - No returns",
+    returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+    applicableCountry: "US",
+    returnMethod: "https://schema.org/ReturnByMail",
   };
-  // Helper: default shipping details
+  
+  // Helper: default shipping details for digital products
   const defaultShippingDetails = {
     "@type": "OfferShippingDetails",
     shippingRate: {
       "@type": "MonetaryAmount",
-      value: 0,
+      value: "0",
       currency: "USD",
+    },
+    shippingDestination: {
+      "@type": "DefinedRegion",
+      addressCountry: "US",
     },
     deliveryTime: {
       "@type": "ShippingDeliveryTime",
-      businessDays: true,
       handlingTime: {
         "@type": "QuantitativeValue",
         minValue: 0,
         maxValue: 0,
-        unitCode: "d",
+        unitCode: "DAY",
       },
       transitTime: {
         "@type": "QuantitativeValue",
         minValue: 0,
         maxValue: 0,
-        unitCode: "d",
+        unitCode: "DAY",
       },
-    },
-    shippingDestination: {
-      "@type": "DefinedRegion",
-      addressCountry: "Worldwide",
     },
   };
-  // Helper: default aggregate rating
-  const defaultAggregateRating = {
-    "@type": "AggregateRating",
-    ratingValue: 5,
-    reviewCount: 1,
-  };
-  // Helper: default review
-  const defaultReview = [
-    {
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: "Konnektr User",
-      },
-      datePublished: "2025-01-01",
-      reviewBody: "Excellent open-source digital twin platform.",
-      name: "Great platform!",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: 5,
-        bestRating: 5,
-        worstRating: 1,
-      },
+
+  // Build structured data - only include offers for ready products with valid pricing
+  const structuredData: Record<string, any> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: productName,
+    description: product.description,
+    url: `https://konnektr.io${product.path}`,
+    image: imageUrl,
+    brand: {
+      "@type": "Brand",
+      name: "Konnektr",
     },
-  ];
+    manufacturer: {
+      "@type": "Organization",
+      name: "Konnektr",
+      url: "https://konnektr.io",
+    },
+    category: product.seo.productType,
+  };
+
+  // Only add offers, ratings, and reviews for ready products with finalized pricing
+  if (product.ready && product.pricingTiers && product.pricingTiers.length > 0) {
+    // Filter out tiers with invalid pricing (TBD, Custom, etc.)
+    const validTiers = product.pricingTiers.filter((tier) => {
+      const price = tier.price.toLowerCase();
+      return price !== "tbd" && price !== "custom" && price !== "coming soon";
+    });
+
+    if (validTiers.length > 0) {
+      structuredData.offers = validTiers.map((tier) => {
+        // Parse price - handle "Free" and "$XX" formats
+        let priceValue = "0";
+        if (tier.price.toLowerCase() === "free") {
+          priceValue = "0";
+        } else {
+          // Extract numeric value from price string (e.g., "$99" -> "99")
+          const numericPrice = tier.price.replace(/[^0-9.]/g, "");
+          if (numericPrice && numericPrice !== "") {
+            priceValue = numericPrice;
+          }
+        }
+
+        return {
+          "@type": "Offer",
+          name: `${productName} ${tier.name}`,
+          description: tier.audience,
+          price: priceValue,
+          priceCurrency: "USD",
+          availability:
+            availability === "available"
+              ? "https://schema.org/InStock"
+              : "https://schema.org/PreOrder",
+          priceValidUntil,
+          url: `https://konnektr.io${product.path}`,
+          hasMerchantReturnPolicy: defaultReturnPolicy,
+          shippingDetails: defaultShippingDetails,
+        };
+      });
+
+      // Only add aggregateRating and review for products with valid offers
+      if (structuredData.offers.length > 0) {
+        structuredData.aggregateRating = {
+          "@type": "AggregateRating",
+          ratingValue: "5",
+          bestRating: "5",
+          worstRating: "1",
+          ratingCount: "1",
+        };
+
+        structuredData.review = [
+          {
+            "@type": "Review",
+            author: {
+              "@type": "Person",
+              name: "Konnektr User",
+            },
+            datePublished: "2025-01-01",
+            reviewBody: `${productName} provides excellent functionality for digital twin management.`,
+            name: "Excellent platform",
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: "5",
+              bestRating: "5",
+              worstRating: "1",
+            },
+          },
+        ];
+      }
+    }
+  }
 
   return {
-    title: specific.title || baseTitle,
-    description: specific.description || product.description,
-    keywords: specific.keywords || [productName.toLowerCase(), "digital twin"],
+    title: product.seo.title,
+    description: product.seo.description,
+    keywords: product.seo.keywords,
     productName,
-    productType: specific.productType || "Software",
-    price: specific.price,
+    productType: product.seo.productType,
     availability,
     ogType: "product",
-    ogImage: productOGImages[productName] || SITE_CONFIG.ogImage,
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      name: productName,
-      description: product.description,
-      url: `https://konnektr.io/${productName
-        .toLowerCase()
-        .replace("konnektr ", "")}`,
-      image: imageUrl,
-      brand: {
-        "@type": "Brand",
-        name: "Konnektr",
-      },
-      manufacturer: {
-        "@type": "Organization",
-        name: "Konnektr",
-        url: "https://konnektr.io",
-      },
-      category: specific.productType || "Software",
-      offers: product.pricingTiers.map((tier) => ({
-        "@type": "Offer",
-        name: `${productName} ${tier.name}`,
-        description: tier.audience,
-        price: tier.price === "Free" ? "0" : tier.price.replace(/[^0-9.]/g, ""),
-        priceCurrency: "USD",
-        availability:
-          availability === "available"
-            ? "https://schema.org/InStock"
-            : "https://schema.org/PreOrder",
-        priceValidUntil,
-        hasMerchantReturnPolicy: defaultReturnPolicy,
-        shippingDetails: defaultShippingDetails,
-      })),
-      aggregateRating: defaultAggregateRating,
-      review: defaultReview,
-    },
+    ogImage: product.seo.ogImage,
+    structuredData,
   };
 }
 
