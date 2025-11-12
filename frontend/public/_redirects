@@ -1,2 +1,5 @@
+# Force www to non-www redirect
+https://www.konnektr.io/*  https://konnektr.io/:splat  301!
+
 # Client-side routing fallback for static hosting
 /*    /index.html   200
