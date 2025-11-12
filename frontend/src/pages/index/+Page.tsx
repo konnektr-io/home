@@ -14,10 +14,6 @@ import { MailingListDialog } from "../../components/MailingListDialog.js";
 
 export default function Page() {
 
-  const handleProductClick = (path: string) => {
-    navigate(path);
-  };
-
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       <section
@@ -81,12 +77,12 @@ export default function Page() {
               designed for growing companies.
             </p>
           </div>
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            onClick={() => handleProductClick("/assembler")}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Assembler Product Card */}
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer">
+            <div
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
+              onClick={() => navigate("/assembler")}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-orange-500/20 text-orange-400 rounded-full border border-orange-500/30">
                 Early Access
@@ -113,7 +109,7 @@ export default function Page() {
             {/* Graph Product Card */}
             <div
               className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => handleProductClick("/graph")}
+              onClick={() => navigate("/graph")}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
@@ -138,7 +134,7 @@ export default function Page() {
             {/* Flow Product Card */}
             <div
               className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => handleProductClick("/flow")}
+              onClick={() => navigate("/flow")}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
@@ -166,7 +162,7 @@ export default function Page() {
             {/* Compass Product Card */}
             <div
               className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => handleProductClick("/compass")}
+              onClick={() => navigate("/compass")}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
