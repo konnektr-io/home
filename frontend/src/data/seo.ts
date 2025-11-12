@@ -187,13 +187,14 @@ export function createProductSEO(product: Product): ProductSEOData {
     .toISOString()
     .split("T")[0];
   
-  // Helper: default merchant return policy
-  const defaultReturnPolicy = {
+  // Helper: merchant return policy (14-day money-back guarantee worldwide)
+  const returnPolicy = {
     "@type": "MerchantReturnPolicy",
-    name: "Digital product - No returns",
-    returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
-    applicableCountry: "US",
+    returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+    merchantReturnDays: 14,
     returnMethod: "https://schema.org/ReturnByMail",
+    returnFees: "https://schema.org/FreeReturn",
+    refundType: "https://schema.org/FullRefund",
   };
   
   // Helper: default shipping details for digital products
@@ -267,7 +268,7 @@ export function createProductSEO(product: Product): ProductSEOData {
           }
         }
 
-        return {
+        const offer: Record<string, any> = {
           "@type": "Offer",
           name: `${productName} ${tier.name}`,
           description: tier.audience,
@@ -279,9 +280,11 @@ export function createProductSEO(product: Product): ProductSEOData {
               : "https://schema.org/PreOrder",
           priceValidUntil,
           url: `https://konnektr.io${product.path}`,
-          hasMerchantReturnPolicy: defaultReturnPolicy,
+          hasMerchantReturnPolicy: returnPolicy,
           shippingDetails: defaultShippingDetails,
         };
+
+        return offer;
       });
 
       // Only add aggregateRating and review for products with valid offers
