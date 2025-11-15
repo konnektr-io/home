@@ -173,7 +173,7 @@ export const termsSEO: SEOData = {
 // Product page SEO factory
 export function createProductSEO(product: Product): ProductSEOData {
   const productName = product.title;
-  
+
   let availability: "available" | "pre-order" | "coming-soon" = "coming-soon";
   if (product.ready) {
     availability = "available";
@@ -181,12 +181,12 @@ export function createProductSEO(product: Product): ProductSEOData {
 
   // Helper: get absolute image URL from product SEO data
   const imageUrl = `https://konnektr.io${product.seo.ogImage}`;
-  
+
   // Helper: priceValidUntil (1 year from today)
   const priceValidUntil = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
     .toISOString()
     .split("T")[0];
-  
+
   // Helper: merchant return policy (14-day money-back guarantee worldwide)
   const returnPolicy = {
     "@type": "MerchantReturnPolicy",
@@ -196,7 +196,7 @@ export function createProductSEO(product: Product): ProductSEOData {
     returnFees: "https://schema.org/FreeReturn",
     refundType: "https://schema.org/FullRefund",
   };
-  
+
   // Helper: default shipping details for digital products
   const defaultShippingDetails = {
     "@type": "OfferShippingDetails",
@@ -226,28 +226,29 @@ export function createProductSEO(product: Product): ProductSEOData {
     },
   };
 
-  // Build structured data - only include offers for ready products with valid pricing
+  // Build structured data - use SoftwareApplication for all products (more semantically correct for SaaS)
   const structuredData: Record<string, any> = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "SoftwareApplication",
     name: productName,
     description: product.description,
     url: `https://konnektr.io${product.path}`,
     image: imageUrl,
-    brand: {
-      "@type": "Brand",
-      name: "Konnektr",
-    },
-    manufacturer: {
+    applicationCategory: product.seo.productType,
+    operatingSystem: "Web",
+    author: {
       "@type": "Organization",
       name: "Konnektr",
       url: "https://konnektr.io",
     },
-    category: product.seo.productType,
   };
 
   // Only add offers, ratings, and reviews for ready products with finalized pricing
-  if (product.ready && product.pricingTiers && product.pricingTiers.length > 0) {
+  if (
+    product.ready &&
+    product.pricingTiers &&
+    product.pricingTiers.length > 0
+  ) {
     // Filter out tiers with invalid pricing (TBD, Custom, etc.)
     const validTiers = product.pricingTiers.filter((tier) => {
       const price = tier.price.toLowerCase();
