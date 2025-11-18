@@ -79,7 +79,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://docs.konnektr.com"
+                  href="https://docs.konnektr.io"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
