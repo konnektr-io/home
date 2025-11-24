@@ -51,6 +51,11 @@ export const homepageSEO: SEOData = {
     "Build, deploy, and scale digital twin solutions with Konnektr's open-source platform. Graph database, AI builder, real-time processing, and analytics.",
   keywords: [
     "digital twin platform",
+    "semantic property graph",
+    "semantic digital twins",
+    "ontology digital twins",
+    "ontologies",
+    "DTDL",
     "graph database",
     "IoT platform",
     "real-time analytics",
