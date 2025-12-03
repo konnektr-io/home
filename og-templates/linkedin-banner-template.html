@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konnektr LinkedIn Banner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Konnektr Brand Colors */
+        --brand-dark: oklch(0.12 0.02 240); /* #0B111D equivalent */
+        --brand-blue: oklch(0.35 0.08 240); /* #2D4263 equivalent */
+        --brand-teal: oklch(0.55 0.12 180); /* #1E9E95 equivalent */
+        --brand-gray: oklch(0.45 0.01 240);
+        --brand-light: oklch(0.98 0.001 240);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        width: 1128px;
+        height: 191px;
+        background: linear-gradient(
+          135deg,
+          var(--brand-dark) 0%,
+          var(--brand-blue) 50%,
+          var(--brand-teal) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        padding: 0 50px;
+      }
+
+      /* Subtle pattern overlay */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle at 20% 50%,
+            rgba(30, 158, 149, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(45, 66, 99, 0.15) 0%,
+            transparent 50%
+          );
+      }
+
+      .left-section {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 4px 12px rgba(30, 158, 149, 0.4));
+      }
+
+      .logo svg {
+        width: 60px;
+        height: 60px;
+      }
+
+      .text-content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .title {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--brand-light);
+        line-height: 1;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          var(--brand-teal) 0%,
+          var(--brand-light) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.2;
+      }
+
+      .right-section {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 15px;
+      }
+
+      .product-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 8px 14px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .product-badge.graph {
+        color: var(--brand-teal);
+      }
+
+      .product-badge.assembler {
+        color: #da70d6;
+      }
+
+      .product-badge.flow {
+        color: var(--brand-teal);
+      }
+
+      .product-badge.compass {
+        color: #b19cd9;
+      }
+
+      /* Decorative elements */
+      .deco-1 {
+        position: absolute;
+        top: 30px;
+        left: 80px;
+        width: 80px;
+        height: 80px;
+        background: rgba(30, 158, 149, 0.12);
+        border-radius: 50%;
+        filter: blur(30px);
+      }
+
+      .deco-2 {
+        position: absolute;
+        bottom: 30px;
+        right: 100px;
+        width: 100px;
+        height: 100px;
+        background: rgba(45, 66, 99, 0.12);
+        border-radius: 50%;
+        filter: blur(35px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Decorative elements -->
+    <div class="deco-1"></div>
+    <div class="deco-2"></div>
+
+    <div class="left-section">
+      <div class="logo">
+        <svg
+          width="129.74384mm"
+          height="145.11189mm"
+          viewBox="0 0 129.74384 145.1119"
+          version="1.1"
+        >
+          <defs>
+            <linearGradient id="logoGrad1">
+              <stop style="stop-color: #1a3187; stop-opacity: 1" offset="0" />
+              <stop style="stop-color: #304dbd; stop-opacity: 1" offset="1" />
+            </linearGradient>
+            <linearGradient id="logoGrad2">
+              <stop style="stop-color: #0b8f8a; stop-opacity: 1" offset="0" />
+              <stop
+                style="stop-color: #108572; stop-opacity: 0.21122994"
+                offset="1"
+              />
+            </linearGradient>
+            <linearGradient id="logoGrad3">
+              <stop style="stop-color: #0a948c; stop-opacity: 1" offset="0" />
+              <stop
+                style="stop-color: #12957c; stop-opacity: 0.45721924"
+                offset="1"
+              />
+            </linearGradient>
+          </defs>
+          <g transform="translate(-41.4744,-71.928096)">
+            <g transform="translate(-283.6576)">
+              <path
+                style="fill: url(#logoGrad3)"
+                d="m 147.44343,120.71615 c 14.7955,-14.80675 27.56421,-27.754793 28.37492,-28.773439 1.55782,-1.95738 3.50642,-5.154605 4.40361,-7.225366 0.2958,-0.682715 1.34497,-3.62255 2.33149,-6.532967 0.98652,-2.910416 3.06804,-8.982603 4.6256,-13.493749 3.34259,-9.681106 4.07853,-11.943034 4.17513,-12.832291 l 0.0719,-0.661458 -18.25625,0.0019 c -18.03546,0.0019 -18.28432,0.009 -20.57727,0.594304 -4.86464,1.241658 -8.18384,2.876707 -12.23106,6.025063 -2.37142,1.844736 -54.239584,53.977533 -54.239584,54.516313 0,0.18866 1.785937,2.16689 3.968749,4.39608 2.182813,2.22918 9.041601,9.23198 15.241755,15.56179 6.20015,6.3298 12.08751,12.37193 13.08304,13.42696 0.99552,1.05503 1.88138,1.91823 1.96857,1.91823 0.0872,0 12.26395,-12.11461 27.05944,-26.92135 z"
+                transform="matrix(0.72337082,0,0,0.72512536,314.20283,34.871668)"
+              />
+              <path
+                style="fill: url(#logoGrad1)"
+                d="m 45.836469,250.69729 c 11.257313,-1.96311 19.79618,-10.51301 21.773101,-21.80122 0.323453,-1.84692 0.388348,-6.49502 0.388348,-27.81517 v -25.59769 l 5.804375,5.85322 5.804374,5.85322 L 95.895,170.92652 c 8.95858,-8.94472 16.28241,-16.32591 16.27518,-16.40264 -0.007,-0.0767 -7.61436,-7.81452 -16.904718,-17.19509 l -16.891566,-17.05559 -5.121843,5.25523 -5.121843,5.25523 -0.136121,-28.81318 C 67.858623,73.296042 67.855167,73.147405 67.276459,71.10345 63.660083,58.33068 52.840772,50.460035 39.84051,51.144824 c -4.593931,0.241985 -9.190725,1.697033 -12.722035,4.026974 -2.250262,1.484712 -6.033839,5.204325 -7.429887,7.30428 -1.541943,2.319415 -3.088654,5.645211 -3.860022,8.299967 l -0.61502,2.116667 -0.07623,76.596868 c -0.0689,69.23233 -0.03547,76.84522 0.34762,79.17988 0.898877,5.47794 3.179973,10.18396 6.866405,14.16574 5.809284,6.27472 14.980918,9.3451 23.485124,7.86209 z"
+                transform="matrix(0.72337082,0,0,0.72512536,314.20283,34.871668)"
+              />
+              <path
+                style="fill: url(#logoGrad2)"
+                d="m 179.05677,250.91992 15.41197,-0.14482 v -0.68118 c 0,-0.72331 -1.68318,-5.70533 -5.42926,-16.06997 -1.2623,-3.4925 -3.01188,-8.37406 -3.88797,-10.84791 -1.74309,-4.92204 -3.05931,-7.74416 -4.93602,-10.58334 -0.87488,-1.32355 -7.60203,-8.30769 -23.57344,-24.47395 -12.29206,-12.44203 -24.40353,-24.70491 -26.91438,-27.25083 l -4.56518,-4.62896 -5.3651,5.34591 c -2.9508,2.94025 -10.94042,10.92772 -17.7547,17.74993 l -12.389603,12.40402 12.125023,12.27652 c 6.66876,6.75208 15.57783,15.78729 19.79793,20.07822 19.50837,19.83582 20.50842,20.77227 24.73854,23.16517 2.32122,1.31307 5.19167,2.43127 7.88042,3.06984 2.50949,0.59601 6.79691,1.03255 8.39145,0.85441 0.58209,-0.065 7.99373,-0.1834 16.47032,-0.26306 z"
+                transform="matrix(0.72337082,0,0,0.72512536,314.20283,34.871668)"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="text-content">
+        <h1 class="title">
+          Konnektr <span class="gradient-text">Platform</span>
+        </h1>
+        <p class="subtitle">
+          The Intelligent Digital Twin Platform • Open Source • Cloud-Native
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
