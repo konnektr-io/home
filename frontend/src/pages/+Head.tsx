@@ -43,7 +43,7 @@ export default function HeadDefault() {
       <script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${
-          import.meta.env.PUBLIC_ENV__GOOGLE_ANALYTICS
+          import.meta.env.PUBLIC_ENV__GTAG
         }`}
       ></script>
       <script
@@ -59,7 +59,7 @@ export default function HeadDefault() {
             'analytics_storage': 'denied'
           });
 
-          gtag('config', '${import.meta.env.PUBLIC_ENV__GOOGLE_ANALYTICS}');`,
+          gtag('config', '${import.meta.env.PUBLIC_ENV__GTAG}');`,
         }}
       ></script>
     </>
