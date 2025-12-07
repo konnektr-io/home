@@ -67,6 +67,16 @@ export function DesktopNavigation({ className }: NavigationProps) {
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        <NavigationMenuItem>
+          <a
+            href="https://docs.konnektr.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Docs
+          </a>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );
@@ -131,6 +141,19 @@ export function MobileNavigation({ className }: NavigationProps) {
                 </button>
               ))}
             </div>
+          </div>
+          <div>
+            <h3 className="text-sm font-medium text-muted-foreground mb-3">
+              Resources
+            </h3>
+            <a
+              href="https://docs.konnektr.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
+            >
+              Documentation
+            </a>
           </div>
         </div>
       </SheetContent>
