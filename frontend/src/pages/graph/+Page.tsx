@@ -6,12 +6,22 @@ import {
   Zap,
   ArrowRight,
 } from "lucide-react";
+import { useEffect } from "react";
 import { MailingListDialog } from "../../components/MailingListDialog.js";
 import { Button } from "../../components/ui/button.js";
 import { Card } from "../../components/ui/card.js";
 import { graphProduct } from "../../data/products.js";
+import {
+  trackDeployClick,
+  trackProductPageView,
+  trackDocumentationClick,
+} from "../../utils/analytics.js";
 
 export default function Page() {
+  useEffect(() => {
+    trackProductPageView("graph");
+  }, []);
+
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       {/* Hero Section */}
@@ -44,9 +54,10 @@ export default function Page() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=graph_hero"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackDeployClick("all", "graph_page")}
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
             >
               Deploy Graph Now
@@ -56,6 +67,7 @@ export default function Page() {
               href="https://docs.konnektr.io/docs/graph"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackDocumentationClick("graph_hero")}
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
             >
               <Play className="mr-2 h-5 w-5" />
@@ -129,10 +141,7 @@ export default function Page() {
         </section>
 
         {/* Graph Explorer Section */}
-        <section
-          className="py-20 md:py-28"
-          aria-label="Graph Explorer"
-        >
+        <section className="py-20 md:py-28" aria-label="Graph Explorer">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Description */}
@@ -141,8 +150,8 @@ export default function Page() {
                   Visualize & Query with Graph Explorer
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Graph Explorer provides an intuitive interface to interact with
-                  your digital twin graph. Query your data, visualize
+                  Graph Explorer provides an intuitive interface to interact
+                  with your digital twin graph. Query your data, visualize
                   relationships, and explore your semantic model without writing
                   code.
                 </p>
@@ -156,8 +165,8 @@ export default function Page() {
                         Interactive Query Builder
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        Build complex queries with an intuitive visual interface.
-                        No SQL or Cypher knowledge required.
+                        Build complex queries with an intuitive visual
+                        interface. No SQL or Cypher knowledge required.
                       </p>
                     </div>
                   </div>
@@ -485,10 +494,7 @@ export default function Page() {
         </section>
 
         {/* Code Examples Section */}
-        <section
-          className="py-20 md:py-28"
-          aria-label="Graph Code Examples"
-        >
+        <section className="py-20 md:py-28" aria-label="Graph Code Examples">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -496,8 +502,8 @@ export default function Page() {
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 Integrate Graph with your existing tools or build semantic
-                knowledge bases for AI applications. Compatible with Azure Digital
-                Twins SDK and standard REST APIs.
+                knowledge bases for AI applications. Compatible with Azure
+                Digital Twins SDK and standard REST APIs.
               </p>
             </div>
 
@@ -513,9 +519,9 @@ export default function Page() {
                     Use Existing Azure Tools
                   </h3>
                   <p className="text-muted-foreground text-sm mb-6">
-                    Drop-in replacement for Azure Digital Twins. Use the official
-                    Azure SDK with your Konnektr Graph endpoint—no code changes
-                    required.
+                    Drop-in replacement for Azure Digital Twins. Use the
+                    official Azure SDK with your Konnektr Graph endpoint—no code
+                    changes required.
                   </p>
                 </div>
                 <div className="bg-black/30 rounded-lg p-4 border border-white/10 overflow-x-auto">
@@ -539,7 +545,8 @@ for twin in twins:
                   </pre>
                 </div>
                 <div className="mt-4 text-xs text-muted-foreground">
-                  Works with Azure.DigitalTwins.Core SDK (Python, .NET, JavaScript)
+                  Works with Azure.DigitalTwins.Core SDK (Python, .NET,
+                  JavaScript)
                 </div>
               </Card>
 
@@ -586,7 +593,8 @@ context = response.json()
                   </pre>
                 </div>
                 <div className="mt-4 text-xs text-muted-foreground">
-                  Standard REST API—works with any programming language or AI framework
+                  Standard REST API—works with any programming language or AI
+                  framework
                 </div>
               </Card>
             </div>
@@ -810,7 +818,9 @@ context = response.json()
                   </div>
                   <div className="space-y-4">
                     <div className="py-4 border-t border-white/10">
-                      <p className="font-medium text-foreground">Twin Instances</p>
+                      <p className="font-medium text-foreground">
+                        Twin Instances
+                      </p>
                       <p className="text-sm text-muted-foreground mt-1">
                         Maximum digital twins per resource
                       </p>
@@ -822,7 +832,9 @@ context = response.json()
                       </p>
                     </div>
                     <div className="py-4 border-t border-white/10">
-                      <p className="font-medium text-foreground">Authentication</p>
+                      <p className="font-medium text-foreground">
+                        Authentication
+                      </p>
                       <p className="text-sm text-muted-foreground mt-1">
                         Access control methods
                       </p>
@@ -870,9 +882,7 @@ context = response.json()
                   </div>
                   <div className="space-y-4">
                     <div className="py-4 border-t border-white/10 text-center">
-                      <p className="font-semibold text-foreground">
-                        Up to 500
-                      </p>
+                      <p className="font-semibold text-foreground">Up to 500</p>
                     </div>
                     <div className="py-4 border-t border-white/10 text-center">
                       <p className="font-semibold text-foreground">
@@ -902,9 +912,12 @@ context = response.json()
                   </div>
                   <div className="mt-6">
                     <a
-                      href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+                      href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&sku=free&utm_source=home&utm_medium=pricing_table&utm_campaign=launch&utm_content=graph_developer"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackDeployClick("developer", "graph_page")
+                      }
                       className="block w-full"
                     >
                       <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
@@ -939,14 +952,10 @@ context = response.json()
                   </div>
                   <div className="space-y-4">
                     <div className="py-4 border-t border-white/10 text-center">
-                      <p className="font-semibold text-foreground">
-                        Up to 1M
-                      </p>
+                      <p className="font-semibold text-foreground">Up to 1M</p>
                     </div>
                     <div className="py-4 border-t border-white/10 text-center">
-                      <p className="font-semibold text-brand-teal">
-                        Unlimited
-                      </p>
+                      <p className="font-semibold text-brand-teal">Unlimited</p>
                     </div>
                     <div className="py-4 border-t border-white/10 text-center">
                       <p className="text-foreground">M2M Authentication</p>
@@ -974,9 +983,10 @@ context = response.json()
                   </div>
                   <div className="mt-6">
                     <a
-                      href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+                      href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&sku=standard&utm_source=home&utm_medium=pricing_table&utm_campaign=launch&utm_content=graph_standard"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackDeployClick("standard", "graph_page")}
                       className="block w-full"
                     >
                       <Button className="w-full bg-brand-teal hover:bg-brand-teal/90">

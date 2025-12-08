@@ -11,9 +11,9 @@ import { navigate } from "vike/client/router";
 import { Card } from "../../components/ui/card.js";
 import { Button } from "../../components/ui/button.js";
 import { MailingListDialog } from "../../components/MailingListDialog.js";
+import { trackDeployClick } from "../../utils/analytics.js";
 
 export default function Page() {
-
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
       <section
@@ -29,15 +29,14 @@ export default function Page() {
             Now Available: Konnektr Graph
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white">
-            The{" "}
-            <span className="gradient-text">Semantic Property Graph</span> for
-            Digital Twins & AI Agents
+            The <span className="gradient-text">Semantic Property Graph</span>{" "}
+            for Digital Twins & AI Agents
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
             Build meaningful data relationships with validated property graphs.
-            Rich semantic context without RDF complexity—perfect for digital twin
-            infrastructures and AI agent knowledge bases. Built on PostgreSQL &
-            Apache AGE.
+            Rich semantic context without RDF complexity—perfect for digital
+            twin infrastructures and AI agent knowledge bases. Built on
+            PostgreSQL & Apache AGE.
             <br />
             <span className="block mt-4 text-brand-teal font-semibold text-lg">
               <span className="bg-brand-teal/10 px-2 py-1 rounded">
@@ -48,9 +47,10 @@ export default function Page() {
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <a
-              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=hero_deploy"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackDeployClick("all", "hero")}
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
             >
               Deploy Graph Now
@@ -224,7 +224,9 @@ export default function Page() {
                   For development & testing
                 </p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-foreground">Free</span>
+                  <span className="text-4xl font-bold text-foreground">
+                    Free
+                  </span>
                   <span className="text-muted-foreground ml-2 text-sm">
                     per month / resource
                   </span>
@@ -251,13 +253,16 @@ export default function Page() {
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">Community support</span>
+                  <span className="text-muted-foreground">
+                    Community support
+                  </span>
                 </li>
               </ul>
               <a
-                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&sku=free&utm_source=home&utm_medium=pricing&utm_campaign=launch&utm_content=developer_tier"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackDeployClick("developer", "homepage")}
                 className="block w-full"
               >
                 <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
@@ -283,7 +288,9 @@ export default function Page() {
                   For production applications
                 </p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-foreground">$99</span>
+                  <span className="text-4xl font-bold text-foreground">
+                    $99
+                  </span>
                   <span className="text-muted-foreground ml-2 text-sm">
                     per month / resource
                   </span>
@@ -304,9 +311,7 @@ export default function Page() {
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    No rate limits
-                  </span>
+                  <span className="text-muted-foreground">No rate limits</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
@@ -320,9 +325,10 @@ export default function Page() {
                 </li>
               </ul>
               <a
-                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&sku=standard&utm_source=home&utm_medium=pricing&utm_campaign=launch&utm_content=standard_tier"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackDeployClick("standard", "homepage")}
                 className="block w-full"
               >
                 <Button className="w-full bg-brand-teal hover:bg-brand-teal/90">
@@ -380,7 +386,9 @@ export default function Page() {
               <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 opacity-75">
                 <div className="text-center mb-4">
                   <Workflow className="h-8 w-8 text-brand-teal mx-auto mb-3" />
-                  <h4 className="text-lg font-bold text-foreground mb-2">Flow</h4>
+                  <h4 className="text-lg font-bold text-foreground mb-2">
+                    Flow
+                  </h4>
                   <p className="text-xs text-muted-foreground mb-3">
                     Real-time data orchestrator
                   </p>

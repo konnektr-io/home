@@ -8,6 +8,7 @@ import {
   DesktopNavigation,
   MobileNavigation,
 } from "../components/Navigation.js";
+import { trackSignInClick, trackDemoRequest } from "../utils/analytics.js";
 
 export default function LayoutDefault({
   children,
@@ -69,13 +70,17 @@ export default function LayoutDefault({
                 href="https://ktrlplane.konnektr.io"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackSignInClick("header")}
                 className="hidden md:inline-flex text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Sign In
               </a>
               <MailingListDialog
                 trigger={
-                  <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-black shadow hover:bg-brand-teal/90 cursor-pointer">
+                  <button
+                    onClick={() => trackDemoRequest("header")}
+                    className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-black shadow hover:bg-brand-teal/90 cursor-pointer"
+                  >
                     Request a Demo
                   </button>
                 }

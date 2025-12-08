@@ -59,7 +59,13 @@ export default function HeadDefault() {
             'analytics_storage': 'denied'
           });
 
-          gtag('config', '${import.meta.env.PUBLIC_ENV__GTAG}');`,
+          // Enable cross-domain tracking
+          gtag('config', '${import.meta.env.PUBLIC_ENV__GTAG}', {
+            'linker': {
+              'domains': ['konnektr.io', 'ktrlplane.konnektr.io', 'explorer.graph.konnektr.io']
+            },
+            'cookie_flags': 'SameSite=None;Secure'
+          });`,
         }}
       ></script>
     </>
