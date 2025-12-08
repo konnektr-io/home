@@ -1,5 +1,3 @@
-# syntax=docker/dockerfile:1
-
 # --- Build frontend ---
 FROM node:lts-alpine AS frontend-build
 WORKDIR /app/frontend

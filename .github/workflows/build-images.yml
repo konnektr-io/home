@@ -12,7 +12,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  COMBINED_IMAGE_NAME: ${{ github.repository }}-combined
+  COMBINED_IMAGE_NAME: ${{ github.repository }}
   FRONTEND_IMAGE_NAME: ${{ github.repository }}-frontend
   BACKEND_IMAGE_NAME: ${{ github.repository }}-backend
 
@@ -123,8 +123,10 @@ jobs:
       - name: Build and push backend image
         uses: docker/build-push-action@v5
         with:
-          context: ./backend
-          file: ./backend/Dockerfile
+          context: .
+          file: ./Dockerfile
+          build-args: |
+            GTM_ID=${{ secrets.GTM_ID }}
           push: true
           tags: ${{ steps.meta_backend.outputs.tags }}
           labels: ${{ steps.meta_backend.outputs.labels }}
