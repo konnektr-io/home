@@ -5,12 +5,14 @@ WORKDIR /
 ARG GTM_ID
 ENV PUBLIC_ENV__GTM_ID=$GTM_ID
 
-# Install pnpm globally
-RUN npm install -g pnpm
 
 # Copy package files and install dependencies
-COPY package*.json ./
-RUN pnpm install
+COPY package*.json ./ pnpm-lock.yaml ./
+RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
+COPY frontend .
+RUN chmod +x node_modules/.bin/*
+ENV NODE_OPTIONS=--max-old-space-size=4096
+RUN pnpm run build
 
 
 # Copy the rest of the frontend code and build it
