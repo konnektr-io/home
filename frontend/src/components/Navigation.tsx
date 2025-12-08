@@ -154,6 +154,14 @@ export function MobileNavigation({ className }: NavigationProps) {
             >
               Documentation
             </a>
+            <a
+              href="https://ktrlplane.konnektr.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
+            >
+              Sign In
+            </a>
           </div>
         </div>
       </SheetContent>

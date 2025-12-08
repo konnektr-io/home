@@ -64,13 +64,15 @@ export default function LayoutDefault({
               <span className="text-foreground">Konnektr</span>
             </Link>
             <DesktopNavigation className="hidden md:flex" />
-            <div className="flex items-center gap-4">
-              {/* <a
-                href="#"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            <div className="flex items-center gap-3">
+              <a
+                href="https://ktrlplane.konnektr.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden md:inline-flex text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Sign In
-              </a> */}
+              </a>
               <MailingListDialog
                 trigger={
                   <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-black shadow hover:bg-brand-teal/90 cursor-pointer">

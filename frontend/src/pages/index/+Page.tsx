@@ -26,37 +26,42 @@ export default function Page() {
           aria-label="Home Hero Content"
         >
           <div className="inline-block rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
-            The Intelligent Digital Twin Platform
+            Now Available: Konnektr Graph
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white">
-            Go from Raw Data to{" "}
-            <span className="gradient-text">Intelligent Digital Twin</span> in
-            Minutes
+            The{" "}
+            <span className="gradient-text">Semantic Property Graph</span> for
+            Digital Twins & AI Agents
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Konnektr automates digital twin creation, deployment, and
-            orchestration. We solve for complexity, cost, and context, turning
-            your disconnected data into intelligent systems that bring value to
-            the physical world.
+            Build meaningful data relationships with validated property graphs.
+            Rich semantic context without RDF complexity—perfect for digital twin
+            infrastructures and AI agent knowledge bases. Built on PostgreSQL &
+            Apache AGE.
             <br />
             <span className="block mt-4 text-brand-teal font-semibold text-lg">
               <span className="bg-brand-teal/10 px-2 py-1 rounded">
                 Open Source
               </span>{" "}
-              &mdash; All Konnektr products are open-source and available for
-              self-hosting.
+              &mdash; Free to self-host. Deploy managed instances in minutes.
             </span>
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            {/*
-                <button
-                  onClick={() => navigate("/assembler")}
-                  className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
-                >
-                  Explore Our Products
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
-                */}
+            <a
+              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
+            >
+              Deploy Graph Now
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+            <button
+              onClick={() => navigate("/graph")}
+              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
+            >
+              Learn More
+            </button>
           </div>
         </div>
       </section>
@@ -189,7 +194,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section - Graph Focus */}
       <section
         id="pricing"
         className="py-20 md:py-28 bg-gradient-to-b from-transparent to-brand-dark/50"
@@ -198,158 +203,241 @@ export default function Page() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Choose Your Plan
+              Get Started with Konnektr Graph
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Start with our ready-to-deploy Graph platform, or join the waiting
-              list for our upcoming AI-powered tools.
+              Deploy your semantic property graph database now. Start free and
+              scale to production.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {/* Assembler Pricing - Coming Soon */}
-            <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10">
+          {/* Graph Pricing - Featured */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+            {/* Developer Tier */}
+            <Card className="relative p-8 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10">
               <div className="text-center mb-6">
-                <Bot className="h-8 w-8 text-brand-teal mx-auto mb-3" />
-                <h3 className="text-lg font-bold text-foreground mb-2">
-                  Assembler
+                <DatabaseZap className="h-10 w-10 text-brand-teal mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-foreground mb-2">
+                  Developer
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  AI-powered digital twin builder
+                  For development & testing
                 </p>
-                <div className="mb-4">
-                  <span className="text-2xl font-bold text-foreground">
-                    Coming Soon
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-foreground">Free</span>
+                  <span className="text-muted-foreground ml-2 text-sm">
+                    per month / resource
                   </span>
                 </div>
               </div>
-              <MailingListDialog
-                trigger={
-                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 cursor-pointer">
-                    Join Waiting List
-                  </Button>
-                }
-                title="Join the Assembler Waiting List"
-                description="Be the first to know when Assembler launches."
-                ctaText="Join List"
-                product="Assembler"
-                successMessage="You're on the list! We'll notify you as soon as Assembler is available."
-              />
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">
+                    Up to 500 twin instances
+                  </span>
+                </li>
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">
+                    User authentication (Device Code Flow)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">
+                    Rate limits: 1000 QU/min
+                  </span>
+                </li>
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">Community support</span>
+                </li>
+              </ul>
+              <a
+                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full"
+              >
+                <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
+                  Start Deploying
+                </Button>
+              </a>
             </Card>
 
-            {/* Graph Pricing - Ready */}
-            <Card className="relative p-6 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border-brand-teal">
+            {/* Standard Tier */}
+            <Card className="relative p-8 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border-brand-teal">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <div className="bg-brand-teal text-black px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
                   <Star className="h-3 w-3" />
-                  Ready Now
+                  Most Popular
                 </div>
               </div>
               <div className="text-center mb-6">
-                <DatabaseZap className="h-8 w-8 text-brand-teal mx-auto mb-3" />
-                <h3 className="text-lg font-bold text-foreground mb-2">
-                  Graph
+                <DatabaseZap className="h-10 w-10 text-brand-teal mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-foreground mb-2">
+                  Standard
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Semantic property graph with validation
+                  For production applications
                 </p>
-                <div className="mb-4">
-                  {/*
-                  <span className="text-2xl font-bold text-foreground">
-                    $25
-                  </span>
-                  <span className="text-muted-foreground ml-2">/month</span>
-                  */}
-                  <span className="text-2xl font-bold text-foreground">
-                    Coming Soon
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-foreground">$99</span>
+                  <span className="text-muted-foreground ml-2 text-sm">
+                    per month / resource
                   </span>
                 </div>
               </div>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-center gap-2 text-sm">
-                  <Check className="h-4 w-4 text-brand-teal flex-shrink-0" />
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">
-                    1,000 Twin Instances
+                    Up to 1M twin instances
                   </span>
                 </li>
-                <li className="flex items-center gap-2 text-sm">
-                  <Check className="h-4 w-4 text-brand-teal flex-shrink-0" />
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">
-                    1M API Calls/month
+                    M2M Authentication with Client ID & Secret
                   </span>
+                </li>
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">
+                    No rate limits
+                  </span>
+                </li>
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">
+                    Events & data history (coming soon)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">Email support</span>
                 </li>
               </ul>
-              <MailingListDialog
-                trigger={
-                  <Button className="w-full bg-brand-teal hover:bg-brand-teal/90 cursor-pointer">
-                    Join Waiting List
-                  </Button>
-                }
-                title="Join the Graph Waiting List"
-                description="Get notified about updates and new features for Graph."
-                ctaText="Join List"
-                product="Graph"
-                successMessage="You're on the list! We'll notify you about Graph updates."
-              />
+              <a
+                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full"
+              >
+                <Button className="w-full bg-brand-teal hover:bg-brand-teal/90">
+                  Choose Standard
+                </Button>
+              </a>
             </Card>
+          </div>
 
-            {/* Flow Pricing - Coming Soon */}
-            <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10">
-              <div className="text-center mb-6">
-                <Workflow className="h-8 w-8 text-brand-teal mx-auto mb-3" />
-                <h3 className="text-lg font-bold text-foreground mb-2">Flow</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Real-time data orchestrator
-                </p>
-                <div className="mb-4">
-                  <span className="text-2xl font-bold text-foreground">
+          {/* Future Products Section */}
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold text-foreground mb-3">
+                Coming Soon
+              </h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Join the waiting list for our upcoming AI-powered tools that
+                complete the digital twin platform.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {/* Assembler - Coming Soon */}
+              <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 opacity-75">
+                <div className="text-center mb-4">
+                  <Bot className="h-8 w-8 text-brand-teal mx-auto mb-3" />
+                  <h4 className="text-lg font-bold text-foreground mb-2">
+                    Assembler
+                  </h4>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    AI-powered digital twin builder
+                  </p>
+                  <span className="text-sm text-muted-foreground">
                     Coming Soon
                   </span>
                 </div>
-              </div>
-              <MailingListDialog
-                trigger={
-                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 cursor-pointer">
-                    Join Waiting List
-                  </Button>
-                }
-                title="Join the Flow Waiting List"
-                description="Be the first to know when Flow launches."
-                ctaText="Join List"
-                product="Flow"
-                successMessage="You're on the list! We'll notify you as soon as Flow is available."
-              />
-            </Card>
+                <MailingListDialog
+                  trigger={
+                    <Button
+                      variant="outline"
+                      className="w-full border-white/20 text-foreground hover:bg-white/10 cursor-pointer"
+                      size="sm"
+                    >
+                      Join Waiting List
+                    </Button>
+                  }
+                  title="Join the Assembler Waiting List"
+                  description="Be the first to know when Assembler launches."
+                  ctaText="Join List"
+                  product="Assembler"
+                  successMessage="You're on the list! We'll notify you as soon as Assembler is available."
+                />
+              </Card>
 
-            {/* Compass Pricing - Coming Soon */}
-            <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10">
-              <div className="text-center mb-6">
-                <Compass className="h-8 w-8 text-brand-teal mx-auto mb-3" />
-                <h3 className="text-lg font-bold text-foreground mb-2">
-                  Compass
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Analytics & insights platform
-                </p>
-                <div className="mb-4">
-                  <span className="text-2xl font-bold text-foreground">
+              {/* Flow - Coming Soon */}
+              <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 opacity-75">
+                <div className="text-center mb-4">
+                  <Workflow className="h-8 w-8 text-brand-teal mx-auto mb-3" />
+                  <h4 className="text-lg font-bold text-foreground mb-2">Flow</h4>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Real-time data orchestrator
+                  </p>
+                  <span className="text-sm text-muted-foreground">
                     Coming Soon
                   </span>
                 </div>
-              </div>
-              <MailingListDialog
-                trigger={
-                  <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 cursor-pointer">
-                    Join Waiting List
-                  </Button>
-                }
-                title="Join the Compass Waiting List"
-                description="Be the first to know when Compass launches."
-                ctaText="Join List"
-                product="Compass"
-                successMessage="You're on the list! We'll notify you as soon as Compass is available."
-              />
-            </Card>
+                <MailingListDialog
+                  trigger={
+                    <Button
+                      variant="outline"
+                      className="w-full border-white/20 text-foreground hover:bg-white/10 cursor-pointer"
+                      size="sm"
+                    >
+                      Join Waiting List
+                    </Button>
+                  }
+                  title="Join the Flow Waiting List"
+                  description="Be the first to know when Flow launches."
+                  ctaText="Join List"
+                  product="Flow"
+                  successMessage="You're on the list! We'll notify you as soon as Flow is available."
+                />
+              </Card>
+
+              {/* Compass - Coming Soon */}
+              <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 opacity-75">
+                <div className="text-center mb-4">
+                  <Compass className="h-8 w-8 text-brand-teal mx-auto mb-3" />
+                  <h4 className="text-lg font-bold text-foreground mb-2">
+                    Compass
+                  </h4>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Analytics & insights platform
+                  </p>
+                  <span className="text-sm text-muted-foreground">
+                    Coming Soon
+                  </span>
+                </div>
+                <MailingListDialog
+                  trigger={
+                    <Button
+                      variant="outline"
+                      className="w-full border-white/20 text-foreground hover:bg-white/10 cursor-pointer"
+                      size="sm"
+                    >
+                      Join Waiting List
+                    </Button>
+                  }
+                  title="Join the Compass Waiting List"
+                  description="Be the first to know when Compass launches."
+                  ctaText="Join List"
+                  product="Compass"
+                  successMessage="You're on the list! We'll notify you as soon as Compass is available."
+                />
+              </Card>
+            </div>
           </div>
         </div>
       </section>
