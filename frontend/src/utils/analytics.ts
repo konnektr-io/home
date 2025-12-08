@@ -45,7 +45,6 @@ export const trackConversion = (
   trackEvent("conversion", {
     conversion_type: conversionType,
     value,
-    currency: "USD",
     ...params,
   });
 };

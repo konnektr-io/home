@@ -2,8 +2,8 @@ FROM node:lts-alpine AS build-stage
 WORKDIR /
 
 # Set environment variables for the frontend build
-ARG GTAG
-ENV VITE_GTAG=$GTAG
+ARG GTM_ID
+ENV PUBLIC_ENV__GTM_ID=$GTM_ID
 
 # Install pnpm globally
 RUN npm install -g pnpm

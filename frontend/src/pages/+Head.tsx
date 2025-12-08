@@ -39,33 +39,17 @@ export default function HeadDefault() {
       <meta name="theme-color" content="#1E9E95" />
       <meta name="color-scheme" content="dark" />
 
-      {/* Google Analytics with Consent */}
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${
-          import.meta.env.PUBLIC_ENV__GTAG
-        }`}
-      ></script>
+      {/* Google Tag Manager */}
       <script
         // biome-ignore lint/security/noDangerouslySetInnerHtml: GTM
         dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          
-          // Set default consent
-          gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied'
-          });
-
-          // Enable cross-domain tracking
-          gtag('config', '${import.meta.env.PUBLIC_ENV__GTAG}', {
-            'linker': {
-              'domains': ['konnektr.io', 'ktrlplane.konnektr.io', 'explorer.graph.konnektr.io']
-            },
-            'cookie_flags': 'SameSite=None;Secure'
-          });`,
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${
+            import.meta.env.PUBLIC_ENV__GTM_ID
+          }');`,
         }}
       ></script>
     </>
