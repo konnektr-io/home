@@ -12,8 +12,10 @@ RUN npm install -g pnpm
 COPY package*.json ./
 RUN pnpm install
 
+
 # Copy the rest of the frontend code and build it
 COPY / ./
+ENV NODE_OPTIONS=--max-old-space-size=4096
 RUN pnpm run build
 
 FROM nginxinc/nginx-unprivileged:alpine-slim
