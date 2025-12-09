@@ -1034,28 +1034,22 @@ context = response.json()
                 validation, built on PostgreSQL you can trust.
                 <br />
                 <span className="block mt-2 text-brand-light text-base font-semibold">
-                  Open source and free to self-host. Future managed plans start
-                  with a free tier.
+                  Open source and free to self-host. Managed plans start with a
+                  free tier.
                 </span>
               </p>
               <div className="mt-8">
-                {/*
-                <Button className="h-11 px-6 py-3 bg-white text-black shadow hover:bg-gray-200 text-base font-medium">
-                  Start for Free
-                </Button>
-                */}
-                <MailingListDialog
-                  trigger={
-                    <Button className="h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90 text-base font-medium  cursor-pointer">
-                      Join Waiting List
-                    </Button>
-                  }
-                  title="Join the Graph Waiting List"
-                  description="Get notified when Konnektr Graph launches its managed cloud plans."
-                  ctaText="Join List"
-                  product="Graph"
-                  successMessage="You're on the list! We'll notify you about Graph updates."
-                />
+                <a
+                  href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=graph_page&utm_medium=cta&utm_campaign=launch&utm_content=final_cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackDeployClick("all", "graph_page")}
+                  className="inline-block"
+                >
+                  <Button className="h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90 text-base font-medium cursor-pointer">
+                    Deploy Graph Now
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
