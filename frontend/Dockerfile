@@ -2,7 +2,7 @@ FROM node:lts-alpine AS build-stage
 WORKDIR /
 
 # Set environment variables for the frontend build
-ARG GTM_ID=GTM-PLACEHOLDER
+ARG GTM_ID="GTM-PLACEHOLDER"
 ENV PUBLIC_ENV__GTM_ID=$GTM_ID
 
 
