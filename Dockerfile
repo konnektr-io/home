@@ -8,7 +8,7 @@ RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
 COPY frontend/ .
 RUN chmod +x node_modules/.bin/*
 ENV NODE_OPTIONS=--max-old-space-size=8192
-RUN echo "Building with VITE_GTM_ID: $GTM_ID"
+RUN echo "Building with PUBLIC_ENV__GTM_ID: $PUBLIC_ENV__GTM_ID"
 RUN pnpm run build
 
 # --- Build backend ---
