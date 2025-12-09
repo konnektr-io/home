@@ -596,7 +596,7 @@ context = response.json()
 
             <div className="text-center mt-12">
               <a
-                href="https://docs.konnektr.io/docs/graph/quickstart"
+                href="https://docs.konnektr.io/docs/graph"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-brand-teal hover:text-brand-teal/80 font-medium"
