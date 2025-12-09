@@ -2,7 +2,7 @@
 FROM node:lts-alpine AS frontend-build
 WORKDIR /app/frontend
 ARG GTM_ID
-ENV PUBLIC_ENV__GTM_ID=${GTM_ID}
+ENV PUBLIC_ENV__GTM_ID=$GTM_ID
 COPY frontend/package.json frontend/pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
 COPY frontend/ .
