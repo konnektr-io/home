@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useEffect } from "react";
 import { MailingListDialog } from "../../components/MailingListDialog.js";
+import explorerScreenshot from "../../assets/explorer-screenshot.png";
 import { Button } from "../../components/ui/button.js";
 import { Card } from "../../components/ui/card.js";
 import { graphProduct } from "../../data/products.js";
@@ -213,20 +214,14 @@ export default function Page() {
                 </div>
               </div>
 
-              {/* Screenshot Placeholder */}
+              {/* Screenshot */}
               <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 rounded-xl border border-brand-teal/30 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
-                  <div className="relative z-10 text-center p-8">
-                    <DatabaseZap className="h-16 w-16 text-brand-teal mx-auto mb-4 opacity-50" />
-                    <p className="text-white font-semibold text-lg mb-2">
-                      Graph Explorer Screenshot
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      Interactive interface for querying and visualizing your
-                      digital twin graph
-                    </p>
-                  </div>
+                <div className="aspect-video rounded-xl border border-brand-teal/30 overflow-hidden">
+                  <img
+                    src={explorerScreenshot}
+                    alt="Graph Explorer interface showing query builder and relationship visualization"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-brand-teal/10 rounded-full blur-3xl"></div>
                 <div className="absolute -top-4 -left-4 w-32 h-32 bg-brand-blue/10 rounded-full blur-3xl"></div>
