@@ -7,7 +7,7 @@ ENV PUBLIC_ENV__GTM_ID=$GTM_ID
 
 
 # Copy package files and install dependencies
-COPY package*.json ./ pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
 COPY . .
 RUN chmod +x node_modules/.bin/*
