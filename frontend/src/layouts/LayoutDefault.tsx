@@ -58,7 +58,7 @@ export default function LayoutDefault({
           <div className="flex items-center justify-between h-16">
             <Link
               href="/"
-              className="flex items-center gap-2 font-semibold text-lg"
+              className="flex items-center gap-2 font-semibold text-lg hover:opacity-80 transition-opacity"
             >
               <img src={KonnektrLogo} alt="Konnektr Logo" className="h-7 w-7" />
               <span className="text-foreground">Konnektr</span>
