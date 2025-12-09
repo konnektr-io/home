@@ -534,7 +534,8 @@ credential = DefaultAzureCredential()
 client = DigitalTwinsClient(endpoint, credential)
 
 # Query your digital twins
-query = "SELECT * FROM digitaltwins"
+query = "SELECT twin, rel, sensor FROM DIGITALTWINS MATCH (twin:Twin)-[rel:isObservedBy]->(sensor:Twin)
+WHERE sensor.$dtId = 'sensor-001'
 twins = client.query_twins(query)
 
 for twin in twins:
@@ -572,11 +573,8 @@ headers = {"Authorization": "Bearer <token>"}
 
 # Get related entities for RAG context
 query = """
-SELECT twin, rel, related
-FROM DIGITALTWINS twin
-JOIN rel ON twin.$dtId = rel.$sourceId
-JOIN related ON rel.$targetId = related.$dtId
-WHERE twin.$dtId = 'sensor-001'
+MATCH (twin:Twin)-[rel:isObservedBy]->(sensor:Twin {\`$dtId\`: 'sensor-001'})
+RETURN twin, rel, sensor
 """
 
 response = requests.post(
