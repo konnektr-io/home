@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { navigationProducts } from "@/data/products";
+import { trackSignInClick } from "@/utils/analytics";
 
 interface NavigationProps {
   className?: string;
@@ -153,6 +154,15 @@ export function MobileNavigation({ className }: NavigationProps) {
               className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
             >
               Documentation
+            </a>
+            <a
+              href="https://ktrlplane.konnektr.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackSignInClick("mobile_menu")}
+              className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
+            >
+              Sign In
             </a>
           </div>
         </div>

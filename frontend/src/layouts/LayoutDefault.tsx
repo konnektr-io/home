@@ -8,6 +8,7 @@ import {
   DesktopNavigation,
   MobileNavigation,
 } from "../components/Navigation.js";
+import { trackSignInClick, trackDemoRequest } from "../utils/analytics.js";
 
 export default function LayoutDefault({
   children,
@@ -52,28 +53,33 @@ export default function LayoutDefault({
 
   return (
     <>
-      {/* Restored original header with logo, popover, and buttons */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-sm border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link
               href="/"
-              className="flex items-center gap-2 font-semibold text-lg"
+              className="flex items-center gap-2 font-semibold text-lg hover:opacity-80 transition-opacity"
             >
               <img src={KonnektrLogo} alt="Konnektr Logo" className="h-7 w-7" />
               <span className="text-foreground">Konnektr</span>
             </Link>
             <DesktopNavigation className="hidden md:flex" />
-            <div className="flex items-center gap-4">
-              {/* <a
-                href="#"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            <div className="flex items-center gap-3">
+              <a
+                href="https://ktrlplane.konnektr.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackSignInClick("header")}
+                className="hidden md:inline-flex text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Sign In
-              </a> */}
+              </a>
               <MailingListDialog
                 trigger={
-                  <button className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-black shadow hover:bg-brand-teal/90 cursor-pointer">
+                  <button
+                    onClick={() => trackDemoRequest("header")}
+                    className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 bg-brand-teal text-black shadow hover:bg-brand-teal/90 cursor-pointer"
+                  >
                     Request a Demo
                   </button>
                 }

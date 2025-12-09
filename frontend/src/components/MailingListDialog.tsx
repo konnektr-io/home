@@ -9,6 +9,7 @@ import {
   DialogFooter,
 } from "./ui/dialog";
 import { Button } from "./ui/button";
+import { trackWaitingListSubmit } from "../utils/analytics.js";
 
 interface MailingListDialogProps {
   trigger: React.ReactNode;
@@ -47,6 +48,11 @@ export function MailingListDialog({
       });
       if (!res.ok) throw new Error("Failed to submit. Please try again.");
       setSuccess(true);
+
+      // Track successful waiting list submission
+      if (product) {
+        trackWaitingListSubmit(product);
+      }
     } catch (err: any) {
       setError(err.message || "Unknown error");
     } finally {

@@ -1,14 +1,13 @@
-# syntax=docker/dockerfile:1
-
 # --- Build frontend ---
 FROM node:lts-alpine AS frontend-build
 WORKDIR /app/frontend
-ARG GTAG
-ENV PUBLIC_ENV__GTAG=${GTAG}
+ARG GTM_ID
+ENV PUBLIC_ENV__GTM_ID=${GTM_ID}
 COPY frontend/package.json frontend/pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
-COPY frontend .
+COPY frontend/ .
 RUN chmod +x node_modules/.bin/*
+ENV NODE_OPTIONS=--max-old-space-size=4096
 RUN pnpm run build
 
 # --- Build backend ---
