@@ -66,135 +66,203 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Products Overview Section */}
+      {/* Why Graph Now Section */}
       <section
         className="py-20 md:py-28 bg-black/10"
-        aria-label="Products Overview"
+        aria-label="Why Graph Now"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Complete Digital Twin Platform
+              Ready to Deploy Today
             </h2>
-            <p className="mt-4 text-lg text-brand-teal font-semibold">
-              100% Open Source. Build semantic property graphs, process
-              real-time data, and monitor physical infrastructure with tools
-              designed for growing companies.
+            <p className="mt-4 text-lg text-muted-foreground">
+              Konnektr Graph is production-ready and available now. Start building semantic property graphs for digital twins, AI agents, and complex data relationships without the complexity of traditional solutions.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Assembler Product Card */}
-            <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => navigate("/assembler")}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-orange-500/20 text-orange-400 rounded-full border border-orange-500/30">
-                Early Access
-              </span>
-              <div className="relative">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
-                  <Bot className="h-6 w-6 text-brand-teal" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Konnektr Assembler
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  AI-powered digital twin builder that automates DTDL model
-                  creation from any data source with a low-code visual
-                  interface.
-                </p>
-                {/* <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
-                  Start Building{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div> */}
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Benefit 1 */}
+            <div className="feature-card rounded-xl p-8">
+              <DatabaseZap className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Deploy in Minutes
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Click deploy and get a fully managed Graph instance. No complex setup, no infrastructure headaches. Start building immediately.
+              </p>
             </div>
-
-            {/* Graph Product Card */}
-            <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => navigate("/graph")}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
-                  <DatabaseZap className="h-6 w-6 text-brand-teal" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Konnektr Graph
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Semantic property graph with built-in validation. Rich data
-                  relationships made simple - no complexity, just meaningful
-                  connections that scale.
-                </p>
-                <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
-                  Build Semantic Context{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
+            {/* Benefit 2 */}
+            <div className="feature-card rounded-xl p-8">
+              <Check className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Built-in Validation
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Schema validation prevents data corruption as you scale. Rich semantic relationships with the safety of structured data.
+              </p>
             </div>
-
-            {/* Flow Product Card */}
-            <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => navigate("/flow")}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
-                Coming Soon
-              </span>
-              <div className="relative">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
-                  <Workflow className="h-6 w-6 text-brand-teal" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Konnektr Flow
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Real-time data and event orchestrator that serves as the
-                  nervous system for your digital twin, enabling intelligent
-                  automation.
-                </p>
-                {/* <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
-                  Start Flowing{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div> */}
-              </div>
+            {/* Benefit 3 */}
+            <div className="feature-card rounded-xl p-8">
+              <Star className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Open Source Foundation
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Built on PostgreSQL & Apache AGE. Fully auditable, self-hostable, and free from vendor lock-in. Your data, your control.
+              </p>
             </div>
-
-            {/* Compass Product Card */}
-            <div
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-teal/20 cursor-pointer"
-              onClick={() => navigate("/compass")}
+          </div>
+          <div className="mt-12 text-center">
+            <a
+              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=why_graph_section"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackDeployClick("all", "why_graph_section")}
+              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
-                Coming Soon
-              </span>
-              <div className="relative">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-teal/20 border border-brand-teal/30 mb-6">
-                  <Compass className="h-6 w-6 text-brand-teal" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Konnektr Compass
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Analytics and insights platform that transforms complex
-                  digital twin data into actionable intelligence.
-                </p>
-                {/* <div className="flex items-center text-brand-teal font-medium text-sm group-hover:text-white transition-colors">
-                  Join Waiting List{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div> */}
-              </div>
-            </div>
+              Deploy Your Graph Instance
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section - Graph Focus */}
+      {/* Graph Key Features Section */}
+      <section
+        className="py-20 md:py-28"
+        aria-label="Graph Key Features"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              What You Can Build with Graph
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              From digital twin infrastructures to AI agent knowledge bases—Graph powers meaningful data relationships at any scale.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Use Case 1: Digital Twin Infrastructure */}
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Digital Twin Infrastructures
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Model complex physical systems—water networks, traffic infrastructure, railway operations—with validated semantic relationships.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Track asset dependencies and cascading impacts</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Optimize maintenance and resource allocation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Visualize infrastructure relationships in real-time</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Use Case 2: AI Agent Knowledge Bases */}
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  AI Agent Knowledge Bases
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Give your AI agents rich semantic context. Graph provides the structured knowledge they need to reason and act intelligently.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Semantic context without RDF complexity</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Compatible with Azure Digital Twins SDK</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Query relationships via standard REST APIs</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Use Case 3: IoT & Sensor Networks */}
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  IoT & Sensor Networks
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Connect devices, sensors, and infrastructure. Model complex relationships between physical assets and their telemetry.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Model device hierarchies and dependencies</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Correlate sensor data with physical context</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Trace impact zones for maintenance and failures</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Use Case 4: Enterprise Data Relationships */}
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Complex Business Relationships
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Model intricate business entities, dependencies, and workflows. Replace fragmented SQL joins with intuitive graph queries.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Navigate multi-level organizational structures</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Track project dependencies and resource allocation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Prevent data corruption with schema validation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => navigate("/graph")}
+              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
+            >
+              Explore Graph Features
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section - Graph Only */}
       <section
         id="pricing"
         className="py-20 md:py-28 bg-gradient-to-b from-transparent to-brand-dark/50"
@@ -203,11 +271,10 @@ export default function Page() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Get Started with Konnektr Graph
+              Simple, Transparent Pricing
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Deploy your semantic property graph database now. Start free and
-              scale to production.
+              Start building with Graph today. Free for development, affordable for production. No hidden costs, no surprises.
             </p>
           </div>
 
@@ -338,32 +405,109 @@ export default function Page() {
             </Card>
           </div>
 
-          {/* Future Products Section */}
-          <div className="mt-20">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold text-foreground mb-3">
-                Coming Soon
+        </div>
+      </section>
+
+      {/* Why Konnektr Graph Section */}
+      <section
+        id="features"
+        className="py-20 md:py-28"
+        aria-label="Why Konnektr Graph"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Why Choose Konnektr Graph?
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              <span className="block mb-2">
+                Graph is production-ready, 100% open source, and built on the trusted PostgreSQL foundation. No vendor lock-in, no hidden costs.
+              </span>
+              <span className="block mb-2">
+                Self-host for complete control, or deploy managed instances in minutes. You choose how to run Graph—we provide the tools.
+              </span>
+              <span className="block mb-2">
+                Need custom integrations or enterprise support? Our team delivers bespoke IoT and digital twin solutions tailored to your infrastructure.
+              </span>
+            </p>
+          </div>
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Feature 1: Open Source Foundation */}
+            <div className="feature-card rounded-xl p-8">
+              <Star className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                100% Open Source
               </h3>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Join the waiting list for our upcoming AI-powered tools that
-                complete the digital twin platform.
+              <p className="mt-2 text-muted-foreground">
+                Graph is fully open source and available on GitHub. Audit the code, contribute improvements, or self-host on your infrastructure with complete transparency.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {/* Assembler - Coming Soon */}
-              <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 opacity-75">
-                <div className="text-center mb-4">
-                  <Bot className="h-8 w-8 text-brand-teal mx-auto mb-3" />
-                  <h4 className="text-lg font-bold text-foreground mb-2">
-                    Assembler
-                  </h4>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    AI-powered digital twin builder
-                  </p>
-                  <span className="text-sm text-muted-foreground">
-                    Coming Soon
-                  </span>
-                </div>
+            {/* Feature 2: Production Ready Now */}
+            <div className="feature-card rounded-xl p-8">
+              <DatabaseZap className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Production Ready Today
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Graph is available now—not in beta, not "coming soon." Deploy semantic property graphs to production with confidence, backed by PostgreSQL's reliability.
+              </p>
+            </div>
+            {/* Feature 3: Built on PostgreSQL */}
+            <div className="feature-card rounded-xl p-8">
+              <Check className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                PostgreSQL Foundation
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Leverage PostgreSQL's battle-tested reliability with graph capabilities. Your team already knows SQL—no need to learn exotic query languages or proprietary systems.
+              </p>
+            </div>
+            {/* Feature 4: Enterprise Support */}
+            <div className="feature-card rounded-xl p-8">
+              <Compass className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Custom Solutions Available
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Need more than Graph? Our team builds complete IoT and digital twin platforms for enterprises, customizing every layer to fit your business needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What's Next Section - Future Products */}
+      <section
+        className="py-20 md:py-28 bg-black/10"
+        aria-label="What's Next"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              What's Next for Konnektr?
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Graph is just the beginning. We're building a complete digital twin platform with AI-powered tools for modeling, orchestration, and analytics.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Assembler Product Card */}
+            <div
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 cursor-pointer"
+              onClick={() => navigate("/assembler")}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-orange-500/20 text-orange-400 rounded-full border border-orange-500/30">
+                Early Access
+              </span>
+              <div className="relative text-center">
+                <Bot className="h-10 w-10 text-brand-teal mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Konnektr Assembler
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  AI-powered digital twin builder that automates DTDL model creation from any data source with a low-code visual interface.
+                </p>
                 <MailingListDialog
                   trigger={
                     <Button
@@ -380,22 +524,26 @@ export default function Page() {
                   product="Assembler"
                   successMessage="You're on the list! We'll notify you as soon as Assembler is available."
                 />
-              </Card>
+              </div>
+            </div>
 
-              {/* Flow - Coming Soon */}
-              <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 opacity-75">
-                <div className="text-center mb-4">
-                  <Workflow className="h-8 w-8 text-brand-teal mx-auto mb-3" />
-                  <h4 className="text-lg font-bold text-foreground mb-2">
-                    Flow
-                  </h4>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    Real-time data orchestrator
-                  </p>
-                  <span className="text-sm text-muted-foreground">
-                    Coming Soon
-                  </span>
-                </div>
+            {/* Flow Product Card */}
+            <div
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 cursor-pointer"
+              onClick={() => navigate("/flow")}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+                Coming Soon
+              </span>
+              <div className="relative text-center">
+                <Workflow className="h-10 w-10 text-brand-teal mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Konnektr Flow
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Real-time data and event orchestrator that serves as the nervous system for your digital twin, enabling intelligent automation.
+                </p>
                 <MailingListDialog
                   trigger={
                     <Button
@@ -412,22 +560,26 @@ export default function Page() {
                   product="Flow"
                   successMessage="You're on the list! We'll notify you as soon as Flow is available."
                 />
-              </Card>
+              </div>
+            </div>
 
-              {/* Compass - Coming Soon */}
-              <Card className="relative p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 opacity-75">
-                <div className="text-center mb-4">
-                  <Compass className="h-8 w-8 text-brand-teal mx-auto mb-3" />
-                  <h4 className="text-lg font-bold text-foreground mb-2">
-                    Compass
-                  </h4>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    Analytics & insights platform
-                  </p>
-                  <span className="text-sm text-muted-foreground">
-                    Coming Soon
-                  </span>
-                </div>
+            {/* Compass Product Card */}
+            <div
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300 cursor-pointer"
+              onClick={() => navigate("/compass")}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="absolute top-3 right-3 px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
+                Coming Soon
+              </span>
+              <div className="relative text-center">
+                <Compass className="h-10 w-10 text-brand-teal mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Konnektr Compass
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Analytics and insights platform that transforms complex digital twin data into actionable intelligence.
+                </p>
                 <MailingListDialog
                   trigger={
                     <Button
@@ -444,88 +596,7 @@ export default function Page() {
                   product="Compass"
                   successMessage="You're on the list! We'll notify you as soon as Compass is available."
                 />
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Konnektr Section */}
-
-      <section
-        id="features"
-        className="py-20 md:py-28"
-        aria-label="Why Konnektr"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Why Konnektr?
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              <span className="block mb-2">
-                Konnektr is 100% open source—no vendor lock-in, no hidden costs.
-                Our platform is built for transparency, flexibility, and
-                community-driven innovation.
-              </span>
-              <span className="block mb-2">
-                We don't just build products—we build solutions. Our team
-                delivers bespoke IoT and digital twin platforms for enterprises,
-                customizing every layer to your needs.
-              </span>
-              <span className="block mb-2">
-                Whether you want to self-host, use our managed cloud, or need
-                expert help building your next digital twin solution, Konnektr
-                is your partner for success.
-              </span>
-            </p>
-          </div>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Feature 3: Open Source & Customization */}
-            <div className="feature-card rounded-xl p-8">
-              <Star className="h-10 w-10 text-brand-teal" />
-              <h3 className="mt-6 text-xl font-bold text-white">
-                100% Open Source
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                All Konnektr products are open source and available for
-                self-hosting. We also offer managed cloud and enterprise
-                support.
-              </p>
-            </div>
-            {/* Feature 4: Enterprise Customization */}
-            <div className="feature-card rounded-xl p-8">
-              <Compass className="h-10 w-10 text-brand-teal" />
-              <h3 className="mt-6 text-xl font-bold text-white">
-                Bespoke Solutions for Enterprises
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Need a custom IoT or digital twin platform? Our team builds
-                tailored solutions for enterprises, from architecture to
-                deployment.
-              </p>
-            </div>
-            {/* Feature 1: Fast Modeling */}
-            <div className="feature-card rounded-xl p-8">
-              <Bot className="h-10 w-10 text-brand-teal" />
-              <h3 className="mt-6 text-xl font-bold text-white">
-                Speed to Value
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Go from raw data to deployed digital twin in minutes, not
-                months. Our AI eliminates the complexity of manual modeling.
-              </p>
-            </div>
-            {/* Feature 2: Scalable Graph */}
-            <div className="feature-card rounded-xl p-8">
-              <DatabaseZap className="h-10 w-10 text-brand-teal" />
-              <h3 className="mt-6 text-xl font-bold text-white">
-                Enterprise-Grade Scale
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Built for the demands of enterprise workloads with open
-                standards, flexible deployment, and no vendor lock-in.
-              </p>
+              </div>
             </div>
           </div>
         </div>

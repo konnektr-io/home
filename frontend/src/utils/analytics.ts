@@ -54,7 +54,7 @@ export const trackConversion = (
  */
 export const trackDeployClick = (
   tier: string,
-  source: "homepage" | "graph_page" | "hero"
+  source: "homepage" | "graph_page" | "hero" | "why_graph_section"
 ) => {
   trackEvent("deploy_graph_click", {
     tier,
