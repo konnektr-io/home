@@ -7,7 +7,7 @@ COPY frontend/package.json frontend/pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
 COPY frontend/ .
 RUN chmod +x node_modules/.bin/*
-ENV NODE_OPTIONS=--max-old-space-size=4096
+ENV NODE_OPTIONS=--max-old-space-size=8192
 RUN pnpm run build
 
 # --- Build backend ---
