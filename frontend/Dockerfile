@@ -12,6 +12,8 @@ RUN npm install -g pnpm && pnpm install --dangerously-allow-all-builds
 COPY . .
 RUN chmod +x node_modules/.bin/*
 ENV NODE_OPTIONS=--max-old-space-size=8192
+# Verify GTM_ID is set (for debugging)
+RUN echo "Building with VITE_GTM_ID: $VITE_GTM_ID"
 RUN pnpm run build
 
 
