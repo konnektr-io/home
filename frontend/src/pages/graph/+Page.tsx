@@ -163,11 +163,12 @@ export default function Page() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">
-                        Interactive Query Builder
+                        Full Model & Data Management
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        Build complex queries with an intuitive visual
-                        interface. No SQL or Cypher knowledge required.
+                        Load and inspect DTDL models, create twin and
+                        relationship instances, update properties, and run
+                        Cypher queries with an integrated code editor.
                       </p>
                     </div>
                   </div>
@@ -186,7 +187,8 @@ export default function Page() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
+                  {/* Future */}
+                  {/* <div className="flex items-start gap-3">
                     <div className="mt-1">
                       <Zap className="h-5 w-5 text-brand-teal" />
                     </div>
@@ -199,7 +201,7 @@ export default function Page() {
                         they happen with live data refresh.
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="mt-8">
                   <a
