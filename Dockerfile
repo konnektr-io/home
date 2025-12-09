@@ -27,7 +27,6 @@ COPY --from=backend-build /app/backend ./backend
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 
 
-
 # Install backend dependencies in final image
 RUN pip install --no-cache-dir -r backend/requirements.txt
 
