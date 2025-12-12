@@ -46,22 +46,21 @@ export default function Page() {
             </span>
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <a
-              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=hero_deploy"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackDeployClick("all", "hero")}
-              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
-            >
-              Deploy Graph Now
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
             <button
               onClick={() => navigate("/graph")}
+              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
+            >
+              Explore Graph
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </button>
+            <a
+              href="https://docs.konnektr.io/docs/graph"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
             >
-              Learn More
-            </button>
+              View Docs
+            </a>
           </div>
         </div>
       </section>
@@ -77,7 +76,10 @@ export default function Page() {
               Ready to Deploy Today
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Konnektr Graph is production-ready and available now. Start building semantic property graphs for digital twins, AI agents, and complex data relationships without the complexity of traditional solutions.
+              Konnektr Graph is production-ready and available now. Start
+              building semantic property graphs for digital twins, AI agents,
+              and complex data relationships without the complexity of
+              traditional solutions.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -88,7 +90,8 @@ export default function Page() {
                 Deploy in Minutes
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Click deploy and get a fully managed Graph instance. No complex setup, no infrastructure headaches. Start building immediately.
+                Click deploy and get a fully managed Graph instance. No complex
+                setup, no infrastructure headaches. Start building immediately.
               </p>
             </div>
             {/* Benefit 2 */}
@@ -98,7 +101,8 @@ export default function Page() {
                 Built-in Validation
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Schema validation prevents data corruption as you scale. Rich semantic relationships with the safety of structured data.
+                Schema validation prevents data corruption as you scale. Rich
+                semantic relationships with the safety of structured data.
               </p>
             </div>
             {/* Benefit 3 */}
@@ -108,37 +112,34 @@ export default function Page() {
                 Open Source Foundation
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Built on PostgreSQL & Apache AGE. Fully auditable, self-hostable, and free from vendor lock-in. Your data, your control.
+                Built on PostgreSQL & Apache AGE. Fully auditable,
+                self-hostable, and free from vendor lock-in. Your data, your
+                control.
               </p>
             </div>
           </div>
           <div className="mt-12 text-center">
-            <a
-              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=why_graph_section"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackDeployClick("all", "why_graph_section")}
+            <button
+              onClick={() => navigate("/graph")}
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
             >
-              Deploy Your Graph Instance
+              Explore Graph
               <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
+            </button>
           </div>
         </div>
       </section>
 
       {/* Graph Key Features Section */}
-      <section
-        className="py-20 md:py-28"
-        aria-label="Graph Key Features"
-      >
+      <section className="py-20 md:py-28" aria-label="Graph Key Features">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               What You Can Build with Graph
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              From digital twin infrastructures to AI agent knowledge bases—Graph powers meaningful data relationships at any scale.
+              From digital twin infrastructures to AI agent knowledge
+              bases—Graph powers meaningful data relationships at any scale.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -150,7 +151,9 @@ export default function Page() {
                   Digital Twin Infrastructures
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Model complex physical systems—water networks, traffic infrastructure, railway operations—with validated semantic relationships.
+                  Model complex physical systems—water networks, traffic
+                  infrastructure, railway operations—with validated semantic
+                  relationships.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -163,7 +166,9 @@ export default function Page() {
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
-                    <span>Visualize infrastructure relationships in real-time</span>
+                    <span>
+                      Visualize infrastructure relationships in real-time
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -177,7 +182,9 @@ export default function Page() {
                   AI Agent Knowledge Bases
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Give your AI agents rich semantic context. Graph provides the structured knowledge they need to reason and act intelligently.
+                  Give your AI agents rich semantic context. Graph provides the
+                  structured knowledge they need to reason and act
+                  intelligently.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -204,7 +211,8 @@ export default function Page() {
                   IoT & Sensor Networks
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Connect devices, sensors, and infrastructure. Model complex relationships between physical assets and their telemetry.
+                  Connect devices, sensors, and infrastructure. Model complex
+                  relationships between physical assets and their telemetry.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -231,7 +239,9 @@ export default function Page() {
                   Complex Business Relationships
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Model intricate business entities, dependencies, and workflows. Replace fragmented SQL joins with intuitive graph queries.
+                  Model intricate business entities, dependencies, and
+                  workflows. Replace fragmented SQL joins with intuitive graph
+                  queries.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -240,7 +250,9 @@ export default function Page() {
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
-                    <span>Track project dependencies and resource allocation</span>
+                    <span>
+                      Track project dependencies and resource allocation
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
@@ -274,7 +286,8 @@ export default function Page() {
               Simple, Transparent Pricing
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Start building with Graph today. Free for development, affordable for production. No hidden costs, no surprises.
+              Start building with Graph today. Free for development, affordable
+              for production. No hidden costs, no surprises.
             </p>
           </div>
 
@@ -336,6 +349,11 @@ export default function Page() {
                   Start Deploying
                 </Button>
               </a>
+              <p className="text-sm text-muted-foreground mt-2 text-center">
+                Free tier • No credit card
+                <br />
+                Sign up required
+              </p>
             </Card>
 
             {/* Standard Tier */}
@@ -402,9 +420,11 @@ export default function Page() {
                   Choose Standard
                 </Button>
               </a>
+              <p className="text-sm text-muted-foreground mt-2 text-center">
+                Sign up and credit card required
+              </p>
             </Card>
           </div>
-
         </div>
       </section>
 
@@ -421,13 +441,18 @@ export default function Page() {
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               <span className="block mb-2">
-                Graph is production-ready, 100% open source, and built on the trusted PostgreSQL foundation. No vendor lock-in, no hidden costs.
+                Graph is production-ready, 100% open source, and built on the
+                trusted PostgreSQL foundation. No vendor lock-in, no hidden
+                costs.
               </span>
               <span className="block mb-2">
-                Self-host for complete control, or deploy managed instances in minutes. You choose how to run Graph—we provide the tools.
+                Self-host for complete control, or deploy managed instances in
+                minutes. You choose how to run Graph—we provide the tools.
               </span>
               <span className="block mb-2">
-                Need custom integrations or enterprise support? Our team delivers bespoke IoT and digital twin solutions tailored to your infrastructure.
+                Need custom integrations or enterprise support? Our team
+                delivers bespoke IoT and digital twin solutions tailored to your
+                infrastructure.
               </span>
             </p>
           </div>
@@ -439,7 +464,9 @@ export default function Page() {
                 100% Open Source
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Graph is fully open source and available on GitHub. Audit the code, contribute improvements, or self-host on your infrastructure with complete transparency.
+                Graph is fully open source and available on GitHub. Audit the
+                code, contribute improvements, or self-host on your
+                infrastructure with complete transparency.
               </p>
             </div>
             {/* Feature 2: Production Ready Now */}
@@ -449,7 +476,9 @@ export default function Page() {
                 Production Ready Today
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Graph is available now—not in beta, not "coming soon." Deploy semantic property graphs to production with confidence, backed by PostgreSQL's reliability.
+                Graph is available now—not in beta, not "coming soon." Deploy
+                semantic property graphs to production with confidence, backed
+                by PostgreSQL's reliability.
               </p>
             </div>
             {/* Feature 3: Built on PostgreSQL */}
@@ -459,7 +488,9 @@ export default function Page() {
                 PostgreSQL Foundation
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Leverage PostgreSQL's battle-tested reliability with graph capabilities. Your team already knows SQL—no need to learn exotic query languages or proprietary systems.
+                Leverage PostgreSQL's battle-tested reliability with graph
+                capabilities. Your team already knows SQL—no need to learn
+                exotic query languages or proprietary systems.
               </p>
             </div>
             {/* Feature 4: Enterprise Support */}
@@ -469,7 +500,9 @@ export default function Page() {
                 Custom Solutions Available
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Need more than Graph? Our team builds complete IoT and digital twin platforms for enterprises, customizing every layer to fit your business needs.
+                Need more than Graph? Our team builds complete IoT and digital
+                twin platforms for enterprises, customizing every layer to fit
+                your business needs.
               </p>
             </div>
           </div>
@@ -477,17 +510,16 @@ export default function Page() {
       </section>
 
       {/* What's Next Section - Future Products */}
-      <section
-        className="py-20 md:py-28 bg-black/10"
-        aria-label="What's Next"
-      >
+      <section className="py-20 md:py-28 bg-black/10" aria-label="What's Next">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               What's Next for Konnektr?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Graph is just the beginning. We're building a complete digital twin platform with AI-powered tools for modeling, orchestration, and analytics.
+              Graph is just the beginning. We're building a complete digital
+              twin platform with AI-powered tools for modeling, orchestration,
+              and analytics.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -506,7 +538,9 @@ export default function Page() {
                   Konnektr Assembler
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  AI-powered digital twin builder that automates DTDL model creation from any data source with a low-code visual interface.
+                  AI-powered digital twin builder that automates DTDL model
+                  creation from any data source with a low-code visual
+                  interface.
                 </p>
                 <MailingListDialog
                   trigger={
@@ -542,7 +576,9 @@ export default function Page() {
                   Konnektr Flow
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Real-time data and event orchestrator that serves as the nervous system for your digital twin, enabling intelligent automation.
+                  Real-time data and event orchestrator that serves as the
+                  nervous system for your digital twin, enabling intelligent
+                  automation.
                 </p>
                 <MailingListDialog
                   trigger={
@@ -578,7 +614,8 @@ export default function Page() {
                   Konnektr Compass
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Analytics and insights platform that transforms complex digital twin data into actionable intelligence.
+                  Analytics and insights platform that transforms complex
+                  digital twin data into actionable intelligence.
                 </p>
                 <MailingListDialog
                   trigger={

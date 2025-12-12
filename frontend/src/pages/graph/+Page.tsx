@@ -54,16 +54,23 @@ export default function Page() {
             </span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=graph_hero"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackDeployClick("all", "graph_page")}
-              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
-            >
-              Deploy Graph Now
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
+            <div className="flex flex-col items-center">
+              <a
+                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=graph_hero"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackDeployClick("all", "graph_page")}
+                className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
+              >
+                Deploy Graph Now
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+              <p className="text-sm text-muted-foreground mt-2 text-center">
+                Free tier • No credit card
+                <br />
+                One click signup
+              </p>
+            </div>
             <a
               href="https://docs.konnektr.io/docs/graph"
               target="_blank"
@@ -808,11 +815,14 @@ context = response.json()
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
                 {/* Features Column */}
                 <div className="lg:col-span-1">
+                  {/* Header Spacer Row */}
+                  <div className="min-h-20 py-4"></div>
                   <div className="h-32 flex items-end pb-6">
                     <h3 className="text-xl font-bold text-white">Features</h3>
                   </div>
-                  <div className="space-y-4">
-                    <div className="py-4 border-t border-white/10">
+                  <div className="space-y-0 divide-y divide-white/10">
+                    {/* Row 1: Twin Instances */}
+                    <div className="flex flex-col justify-center min-h-20 py-4">
                       <p className="font-medium text-foreground">
                         Twin Instances
                       </p>
@@ -820,13 +830,15 @@ context = response.json()
                         Maximum digital twins per resource
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10">
+                    {/* Row 2: Rate Limits */}
+                    <div className="flex flex-col justify-center min-h-20 py-4">
                       <p className="font-medium text-foreground">Rate Limits</p>
                       <p className="text-sm text-muted-foreground mt-1">
                         Query units per minute
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10">
+                    {/* Row 3: Authentication */}
+                    <div className="flex flex-col justify-center min-h-20 py-4">
                       <p className="font-medium text-foreground">
                         Authentication
                       </p>
@@ -834,7 +846,8 @@ context = response.json()
                         Access control methods
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10">
+                    {/* Row 4: Events & History */}
+                    <div className="flex flex-col justify-center min-h-20 py-4">
                       <p className="font-medium text-foreground">
                         Events & History
                       </p>
@@ -842,13 +855,15 @@ context = response.json()
                         Real-time notifications and audit logs
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10">
+                    {/* Row 5: Support */}
+                    <div className="flex flex-col justify-center min-h-20 py-4">
                       <p className="font-medium text-foreground">Support</p>
                       <p className="text-sm text-muted-foreground mt-1">
                         Help and assistance level
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10">
+                    {/* Row 6: Use Case */}
+                    <div className="flex flex-col justify-center min-h-20 py-4">
                       <p className="font-medium text-foreground">Use Case</p>
                       <p className="text-sm text-muted-foreground mt-1">
                         Best suited for
@@ -858,7 +873,7 @@ context = response.json()
                 </div>
 
                 {/* Developer Tier Column */}
-                <Card className="lg:col-span-1 p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10">
+                <Card className="lg:col-span-1 p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 flex flex-col">
                   <div className="text-center pb-6">
                     <h3 className="text-2xl font-bold text-white mb-2">
                       Developer
@@ -875,31 +890,37 @@ context = response.json()
                       </p>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="py-4 border-t border-white/10 text-center">
+                  <div className="divide-y divide-white/10">
+                    {/* Row 1: Twin Instances */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="font-semibold text-foreground">Up to 500</p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 2: Rate Limits */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="font-semibold text-foreground">
                         1,000 QU/min
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 3: Authentication */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="text-foreground">User Authentication</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         Device Code Flow only
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 4: Events & History */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="text-muted-foreground">Not available</p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 5: Support */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="text-foreground">Community</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         GitHub Issues
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 6: Use Case */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="text-muted-foreground text-sm">
                         Development & Testing
                       </p>
@@ -919,11 +940,16 @@ context = response.json()
                         Start Deploying
                       </Button>
                     </a>
+                    <p className="text-sm text-muted-foreground mt-2 text-center">
+                      Free tier • No credit card
+                      <br />
+                      Sign up required
+                    </p>
                   </div>
                 </Card>
 
                 {/* Standard Tier Column */}
-                <Card className="lg:col-span-1 p-6 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border-brand-teal relative">
+                <Card className="lg:col-span-1 p-6 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border-brand-teal relative flex flex-col">
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <div className="bg-brand-teal text-black px-4 py-1 rounded-full text-xs font-medium">
                       Most Popular
@@ -945,32 +971,38 @@ context = response.json()
                       </p>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="py-4 border-t border-white/10 text-center">
+                  <div className="divide-y divide-white/10">
+                    {/* Row 1: Twin Instances */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="font-semibold text-foreground">Up to 1M</p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 2: Rate Limits */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="font-semibold text-brand-teal">Unlimited</p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 3: Authentication */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="text-foreground">M2M Authentication</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         Client ID & Secret
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 4: Events & History */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="text-brand-teal">Coming Soon</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         After launch
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 5: Support */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="text-foreground">Email Support</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         Business hours
                       </p>
                     </div>
-                    <div className="py-4 border-t border-white/10 text-center">
+                    {/* Row 6: Use Case */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="text-muted-foreground text-sm">
                         Production Applications
                       </p>
@@ -988,6 +1020,9 @@ context = response.json()
                         Choose Standard
                       </Button>
                     </a>
+                    <p className="text-sm text-muted-foreground mt-2 text-center">
+                      Sign up and credit card required
+                    </p>
                   </div>
                 </Card>
               </div>
@@ -1038,7 +1073,7 @@ context = response.json()
                   free tier.
                 </span>
               </p>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-col items-center">
                 <a
                   href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=graph_page&utm_medium=cta&utm_campaign=launch&utm_content=final_cta"
                   target="_blank"
@@ -1050,6 +1085,9 @@ context = response.json()
                     Deploy Graph Now
                   </Button>
                 </a>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Free tier available • One-click signup with Google or GitHub
+                </p>
               </div>
             </div>
           </div>
