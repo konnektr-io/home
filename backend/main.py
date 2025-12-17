@@ -10,15 +10,6 @@ import requests
 app = FastAPI()
 
 
-# Allow CORS for local dev and static frontend
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 MAILERLITE_API_TOKEN = os.getenv("MAILERLITE_API_TOKEN")
 MAILERLITE_GROUPS = {
     "graph": os.getenv("MAILERLITE_GROUP_WAITINGLIST_GRAPH", ""),
@@ -56,6 +47,13 @@ async def waiting_list_signup(data: WaitingListSignup):
     if resp.status_code not in (200, 201):
         raise HTTPException(status_code=502, detail=f"MailerLite error: {resp.text}")
     return {"success": True}
+
+
+# Health check endpoint
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok", "message": "home API running"}
+
 
 # Serve static frontend files
 frontend_dist_path = os.path.join(
