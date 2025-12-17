@@ -71,16 +71,18 @@ export default function Page() {
                 One click signup
               </p>
             </div>
-            <a
-              href="https://docs.konnektr.io/docs/graph"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackDocumentationClick("graph_hero")}
-              className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
-            >
-              <Play className="mr-2 h-5 w-5" />
-              View Docs
-            </a>
+            <div className="flex flex-col items-center">
+              <a
+                href="https://docs.konnektr.io/docs/graph"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackDocumentationClick("graph_hero")}
+                className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                View Docs
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -814,7 +816,7 @@ context = response.json()
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
                 {/* Features Column */}
-                <div className="lg:col-span-1">
+                <div className="hidden lg:block lg:col-span-1">
                   {/* Header Spacer Row */}
                   <div className="min-h-20 py-4"></div>
                   <div className="h-32 flex items-end pb-6">
@@ -855,7 +857,16 @@ context = response.json()
                         Real-time notifications and audit logs
                       </p>
                     </div>
-                    {/* Row 5: Support */}
+                    {/* Row 5: MCP Server */}
+                    <div className="flex flex-col justify-center min-h-20 py-4">
+                      <p className="font-medium text-foreground">
+                        MCP Server
+                      </p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        AI Context Protocol
+                      </p>
+                    </div>
+                    {/* Row 6: Support */}
                     <div className="flex flex-col justify-center min-h-20 py-4">
                       <p className="font-medium text-foreground">Support</p>
                       <p className="text-sm text-muted-foreground mt-1">
@@ -893,16 +904,25 @@ context = response.json()
                   <div className="divide-y divide-white/10">
                     {/* Row 1: Twin Instances */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Twin Instances
+                      </p>
                       <p className="font-semibold text-foreground">Up to 500</p>
                     </div>
                     {/* Row 2: Rate Limits */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Rate Limits
+                      </p>
                       <p className="font-semibold text-foreground">
                         1,000 QU/min
                       </p>
                     </div>
                     {/* Row 3: Authentication */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Authentication
+                      </p>
                       <p className="text-foreground">User Authentication</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         Device Code Flow only
@@ -910,17 +930,33 @@ context = response.json()
                     </div>
                     {/* Row 4: Events & History */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Events & History
+                      </p>
                       <p className="text-muted-foreground">Not available</p>
                     </div>
-                    {/* Row 5: Support */}
+                    {/* Row 5: MCP Server */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        MCP Server
+                      </p>
+                      <p className="text-muted-foreground">Not available</p>
+                    </div>
+                    {/* Row 6: Support */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Support
+                      </p>
                       <p className="text-foreground">Community</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         GitHub Issues
                       </p>
                     </div>
-                    {/* Row 6: Use Case */}
+                    {/* Row 7: Use Case */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Use Case
+                      </p>
                       <p className="text-muted-foreground text-sm">
                         Development & Testing
                       </p>
@@ -974,14 +1010,23 @@ context = response.json()
                   <div className="divide-y divide-white/10">
                     {/* Row 1: Twin Instances */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Twin Instances
+                      </p>
                       <p className="font-semibold text-foreground">Up to 1M</p>
                     </div>
                     {/* Row 2: Rate Limits */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Rate Limits
+                      </p>
                       <p className="font-semibold text-brand-teal">Unlimited</p>
                     </div>
                     {/* Row 3: Authentication */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Authentication
+                      </p>
                       <p className="text-foreground">M2M Authentication</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         Client ID & Secret
@@ -989,20 +1034,33 @@ context = response.json()
                     </div>
                     {/* Row 4: Events & History */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="text-brand-teal">Coming Soon</p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        After launch
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Events & History
                       </p>
+                      <p className="text-foreground">Included</p>
                     </div>
-                    {/* Row 5: Support */}
+                    {/* Row 5: MCP Server */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        MCP Server
+                      </p>
+                      <p className="text-foreground">Included</p>
+                    </div>
+                    {/* Row 6: Support */}
+                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Support
+                      </p>
                       <p className="text-foreground">Email Support</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         Business hours
                       </p>
                     </div>
-                    {/* Row 6: Use Case */}
+                    {/* Row 7: Use Case */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
+                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
+                        Use Case
+                      </p>
                       <p className="text-muted-foreground text-sm">
                         Production Applications
                       </p>
