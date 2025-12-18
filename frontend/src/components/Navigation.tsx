@@ -75,7 +75,7 @@ export function DesktopNavigation({ className }: NavigationProps) {
             rel="noopener noreferrer"
             className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Docs
+            Documentation
           </a>
         </NavigationMenuItem>
       </NavigationMenuList>
