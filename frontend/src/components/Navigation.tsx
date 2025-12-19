@@ -70,12 +70,22 @@ export function DesktopNavigation({ className }: NavigationProps) {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <a
-            href="https://docs.konnektr.io"
+            href="https://docs.konnektr.io/docs"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             Documentation
+          </a>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <a
+            href="https://docs.konnektr.io/blog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Blog
           </a>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -148,12 +158,20 @@ export function MobileNavigation({ className }: NavigationProps) {
               Resources
             </h3>
             <a
-              href="https://docs.konnektr.io"
+              href="https://docs.konnektr.io/docs"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
             >
               Documentation
+            </a>
+            <a
+              href="https://docs.konnektr.io/blog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
+            >
+              Blog
             </a>
             <a
               href="https://ktrlplane.konnektr.io"
