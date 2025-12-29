@@ -37,10 +37,10 @@ export default function Page() {
         >
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
             <DatabaseZap className="h-4 w-4" />
-            Semantic Property Graph with Validation
+            Semantic Memory for AI Agents
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="gradient-text">Graph</span>
+            <span className="gradient-text">Semantic Memory</span> for AI Agents
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto">
             {graphProduct.description}
@@ -49,8 +49,7 @@ export default function Page() {
               <span className="bg-brand-teal/10 px-2 py-1 rounded">
                 Open Source
               </span>{" "}
-              &mdash; All Konnektr products are open-source and available for
-              self-hosting.
+              &mdash; Built on PostgreSQL & Apache AGE. Free to self-host.
             </span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -95,30 +94,16 @@ export default function Page() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Rich Semantic Context Made Simple
+                Structured Context AI Agents Can Trust
               </h2>
               <p className="mt-4 text-lg text-brand-teal font-semibold">
-                Skip the RDF complexity. Property graphs with built-in
-                validation for startups and growing companies who need
-                meaningful data relationships.
+                Validated property graphs with vector embeddings. Give AI agents
+                semantic context with guaranteed integrity—not just floating
+                embeddings.
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Feature 1: Semantic Relationships */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
-                  <Network className="h-6 w-6" />
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-white">
-                  Meaningful Relationships
-                </h3>
-                <p className="mt-2 text-muted-foreground">
-                  Connect your data with rich semantic relationships. No RDF
-                  complexity, just intuitive property graphs that grow with your
-                  business.
-                </p>
-              </Card>
-              {/* Feature 2: Built-in Validation */}
+              {/* Feature 1: Schema Validation */}
               <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
                   <Shield className="h-6 w-6" />
@@ -127,23 +112,37 @@ export default function Page() {
                   Schema Validation
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Prevent data corruption with built-in model validation. Ensure
-                  data integrity as your startup scales without breaking
-                  changes.
+                  Schema validation prevents data corruption. Relationships,
+                  properties, and models are validated on write—agents always
+                  get structurally correct context.
                 </p>
               </Card>
-              {/* Feature 3: Self-Hosted Trust */}
+              {/* Feature 2: Hybrid Intelligence */}
+              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
+                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
+                  <Network className="h-6 w-6" />
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-white">
+                  Hybrid Intelligence
+                </h3>
+                <p className="mt-2 text-muted-foreground">
+                  Store vector embeddings as properties. Query by similarity AND
+                  traverse relationships—no separate vector database needed.
+                  Semantic search with structural guarantees.
+                </p>
+              </Card>
+              {/* Feature 3: No Vendor Lock-In */}
               <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
                 <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
                   <Zap className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-xl font-bold text-white">
-                  Your Data, Your Control
+                  No Vendor Lock-In
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Built on PostgreSQL foundation you can audit and trust. Start
-                  small, scale smart, without vendor lock-in or enterprise
-                  complexity.
+                  100% open source, Apache 2.0 licensed. Built on PostgreSQL
+                  foundation you can audit and trust. Self-host or use our
+                  managed service.
                 </p>
               </Card>
             </div>
@@ -241,112 +240,97 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Problem & Solution Section */}
+        {/* Why AI Agents Need Semantic Graphs Section */}
         <section
           className="py-20 md:py-28 bg-black/10"
-          aria-label="Graph Problems and Solutions"
+          aria-label="Why AI Agents Need Semantic Graphs"
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Problem Statement */}
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
-                  Stop Fighting Your Database
-                </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p className="text-lg">
-                    Your growing company has complex data that traditional
-                    databases can't handle. You have:
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                      <span>
-                        <strong className="text-white">
-                          Complex relationships
-                        </strong>{" "}
-                        that SQL makes painful to query
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                      <span>
-                        <strong className="text-white">
-                          Data validation nightmares
-                        </strong>{" "}
-                        when your schema evolves
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                      <span>
-                        <strong className="text-white">
-                          Semantic context loss
-                        </strong>{" "}
-                        in rigid database schemas
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                      <span>
-                        <strong className="text-white">
-                          Vendor lock-in fears
-                        </strong>{" "}
-                        with proprietary graph databases
-                      </span>
-                    </li>
-                  </ul>
-                </div>
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Why AI Agents Need Semantic Graphs
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Vector databases give you similarity search. But AI agents need
+                more than embeddings—they need relationships they can trust.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Problem Side */}
+              <div className="rounded-xl p-8 bg-red-950/20 border border-red-500/20">
+                <h3 className="text-xl font-bold text-white mb-4">
+                  The Problem with Vector-Only RAG
+                </h3>
+                <ul className="space-y-4 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <span>
+                      No guaranteed relationships between retrieved chunks
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <span>
+                      Embeddings can contradict without schema enforcement
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <span>No way to traverse connections between entities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                    <span>Context degrades as knowledge base scales</span>
+                  </li>
+                </ul>
               </div>
 
-              {/* Solution */}
-              <div className="bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 rounded-xl p-8 border border-brand-teal/20">
+              {/* Solution Side */}
+              <div className="rounded-xl p-8 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border border-brand-teal/30">
                 <h3 className="text-xl font-bold text-white mb-4">
-                  Graph Makes It Simple
+                  Graph + Vector = Agent Intelligence
                 </h3>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Property graphs with built-in validation, powered by
-                    PostgreSQL you already trust.
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                      <span>
-                        <strong className="text-white">
-                          Natural relationships
-                        </strong>{" "}
-                        - model how you think
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                      <span>
-                        <strong className="text-white">
-                          Schema validation
-                        </strong>{" "}
-                        - prevent breaking changes
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                      <span>
-                        <strong className="text-white">
-                          PostgreSQL foundation
-                        </strong>{" "}
-                        - audit & trust
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                      <span>
-                        <strong className="text-white">Open source</strong> - no
-                        vendor lock-in
-                      </span>
-                    </li>
-                  </ul>
-                </div>
+                <ul className="space-y-4 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="text-white">Similarity search</strong>{" "}
+                      (vector) + relationship traversal (graph)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="text-white">Schema validation</strong>{" "}
+                      prevents contradictory information
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="text-white">
+                        Traverse entity connections
+                      </strong>{" "}
+                      for richer context
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
+                    <span>
+                      <strong className="text-white">Hybrid query:</strong>{" "}
+                      "Find similar sensors AND their upstream assets"
+                    </span>
+                  </li>
+                </ul>
               </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-lg text-brand-teal font-medium max-w-2xl mx-auto">
+                Purpose-built for AI agents that need more than embeddings—they
+                need relationships they can trust.
+              </p>
             </div>
           </div>
         </section>
@@ -848,20 +832,18 @@ context = response.json()
                         Access control methods
                       </p>
                     </div>
-                    {/* Row 4: Events & History */}
+                    {/* Row 4: Event Notifications */}
                     <div className="flex flex-col justify-center min-h-20 py-4">
                       <p className="font-medium text-foreground">
-                        Events & History
+                        Event Notifications
                       </p>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Real-time notifications and audit logs
+                        Stream changes to external systems
                       </p>
                     </div>
                     {/* Row 5: MCP Server */}
                     <div className="flex flex-col justify-center min-h-20 py-4">
-                      <p className="font-medium text-foreground">
-                        MCP Server
-                      </p>
+                      <p className="font-medium text-foreground">MCP Server</p>
                       <p className="text-sm text-muted-foreground mt-1">
                         AI Context Protocol
                       </p>
@@ -928,10 +910,10 @@ context = response.json()
                         Device Code Flow only
                       </p>
                     </div>
-                    {/* Row 4: Events & History */}
+                    {/* Row 4: Event Notifications */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Events & History
+                        Event Notifications
                       </p>
                       <p className="text-muted-foreground">Not available</p>
                     </div>
@@ -1032,12 +1014,15 @@ context = response.json()
                         Client ID & Secret
                       </p>
                     </div>
-                    {/* Row 4: Events & History */}
+                    {/* Row 4: Event Notifications */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">
                       <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Events & History
+                        Event Notifications
                       </p>
                       <p className="text-foreground">Included</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Kafka, MQTT, webhooks, ADX
+                      </p>
                     </div>
                     {/* Row 5: MCP Server */}
                     <div className="flex flex-col justify-center min-h-20 py-4 text-center">

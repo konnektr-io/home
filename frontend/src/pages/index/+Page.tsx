@@ -29,57 +29,135 @@ export default function Page() {
             Now Available: Konnektr Graph
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white">
-            The <span className="gradient-text">Semantic Property Graph</span>{" "}
-            for Digital Twins & AI Agents
+            <span className="gradient-text">Semantic Memory</span> for AI Agents
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Build meaningful data relationships with validated property graphs.
-            Rich semantic context without RDF complexity—perfect for digital
-            twin infrastructures and AI agent knowledge bases. Built on
-            PostgreSQL & Apache AGE.
+            Validated property graphs with vector embeddings. Give your AI
+            agents structured semantic context they can trust—not just
+            embeddings, but relationships with guaranteed integrity.
             <br />
             <span className="block mt-4 text-brand-teal font-semibold text-lg">
               <span className="bg-brand-teal/10 px-2 py-1 rounded">
                 Open Source
               </span>{" "}
-              &mdash; Free to self-host. Deploy managed instances in minutes.
+              &mdash; Built on PostgreSQL & Apache AGE. Free to self-host.
             </span>
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <button
-              onClick={() => navigate("/graph")}
+            <a
+              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=hero"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
             >
-              Explore Graph
+              Deploy Graph Now
               <ArrowRight className="ml-2 h-4 w-4" />
-            </button>
+            </a>
             <a
               href="https://docs.konnektr.io/docs/graph"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
             >
-              View Docs
+              See Documentation
             </a>
           </div>
         </div>
       </section>
 
-      {/* Why Graph Now Section */}
+      {/* Why RAG Isn't Enough Section */}
       <section
         className="py-20 md:py-28 bg-black/10"
-        aria-label="Why Graph Now"
+        aria-label="Why RAG Isn't Enough"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Ready to Deploy Today
+              Why RAG Isn't Enough for AI Agents
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Konnektr Graph is production-ready and available now. Start
-              building semantic property graphs for digital twins, AI agents,
-              and complex data relationships without the complexity of
-              traditional solutions.
+              Vector databases give you similarity search. But AI agents need
+              more than embeddings—they need relationships they can trust.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Problem Side */}
+            <div className="rounded-xl p-8 bg-red-950/20 border border-red-500/20">
+              <h3 className="text-xl font-bold text-white mb-4">
+                The Problem with Vector-Only RAG
+              </h3>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                  <span>No guaranteed relationships between entities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                  <span>Embeddings can drift without schema validation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                  <span>
+                    No structural integrity as your knowledge base grows
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+                  <span>
+                    Agents get confused when context lacks clear connections
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Solution Side */}
+            <div className="rounded-xl p-8 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border border-brand-teal/30">
+              <h3 className="text-xl font-bold text-white mb-4">
+                Graph + Vector = Agent Intelligence
+              </h3>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span>Validated relationships prevent data corruption</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span>
+                    Vector embeddings as properties, not a separate database
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span>Query by similarity AND traverse relationships</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span>Schema evolution without breaking agent context</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-brand-teal font-medium max-w-2xl mx-auto">
+              The only platform combining validated semantic graphs with vector
+              embeddings—purpose-built for AI agent memory.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Ready to Deploy Section */}
+      <section className="py-20 md:py-28" aria-label="Ready to Deploy">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Production-Ready Today
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Deploy in minutes, not months. Konnektr Graph is available now for
+              AI agent memory, digital twins, and complex data relationships.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -98,34 +176,36 @@ export default function Page() {
             <div className="feature-card rounded-xl p-8">
               <Check className="h-10 w-10 text-brand-teal" />
               <h3 className="mt-6 text-xl font-bold text-white">
-                Built-in Validation
+                Schema Validation
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Schema validation prevents data corruption as you scale. Rich
-                semantic relationships with the safety of structured data.
+                Validation ensures data integrity as you scale. Your AI agents
+                get guaranteed structural consistency—relationships that won't
+                break.
               </p>
             </div>
             {/* Benefit 3 */}
             <div className="feature-card rounded-xl p-8">
               <Star className="h-10 w-10 text-brand-teal" />
               <h3 className="mt-6 text-xl font-bold text-white">
-                Open Source Foundation
+                100% Open Source
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Built on PostgreSQL & Apache AGE. Fully auditable,
-                self-hostable, and free from vendor lock-in. Your data, your
-                control.
+                Apache 2.0 licensed. Built on PostgreSQL & Apache AGE. Audit the
+                code, self-host on your infrastructure. No vendor lock-in.
               </p>
             </div>
           </div>
           <div className="mt-12 text-center">
-            <button
-              onClick={() => navigate("/graph")}
+            <a
+              href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=ready_to_deploy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
             >
-              Explore Graph
+              Deploy Graph Now
               <ArrowRight className="ml-2 h-4 w-4" />
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -143,7 +223,38 @@ export default function Page() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Use Case 1: Digital Twin Infrastructure */}
+            {/* Use Case 1: AI Agent Semantic Memory */}
+            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border border-brand-teal/30 p-8 hover:border-brand-teal/50 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  AI Agent Semantic Memory
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Give your AI agents structured context they can trust.
+                  Validated knowledge graphs with vector embeddings for
+                  intelligent reasoning and decision-making.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>Validated relationships agents can trust</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>
+                      Vector embeddings + relationship traversal in one query
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <span>MCP server for direct agent integration</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Use Case 2: Digital Twin Infrastructure */}
             <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative">
@@ -169,35 +280,6 @@ export default function Page() {
                     <span>
                       Visualize infrastructure relationships in real-time
                     </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Use Case 2: AI Agent Knowledge Bases */}
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 p-8 hover:border-brand-teal/50 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative">
-                <h3 className="text-xl font-bold text-white mb-3">
-                  AI Agent Knowledge Bases
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Give your AI agents rich semantic context. Graph provides the
-                  structured knowledge they need to reason and act
-                  intelligently.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
-                    <span>Semantic context without RDF complexity</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
-                    <span>Compatible with Azure Digital Twins SDK</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 text-brand-teal flex-shrink-0 mt-0.5" />
-                    <span>Query relationships via standard REST APIs</span>
                   </li>
                 </ul>
               </div>
@@ -401,7 +483,7 @@ export default function Page() {
                 <li className="flex items-start gap-3 text-sm">
                   <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">
-                    Events & data history (coming soon)
+                    Event notifications (stream to external systems)
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
@@ -440,69 +522,58 @@ export default function Page() {
               Why Choose Konnektr Graph?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              <span className="block mb-2">
-                Graph is production-ready, 100% open source, and built on the
-                trusted PostgreSQL foundation. No vendor lock-in, no hidden
-                costs.
-              </span>
-              <span className="block mb-2">
-                Self-host for complete control, or deploy managed instances in
-                minutes. You choose how to run Graph—we provide the tools.
-              </span>
-              <span className="block mb-2">
-                Need custom integrations or enterprise support? Our team
-                delivers bespoke IoT and digital twin solutions tailored to your
-                infrastructure.
-              </span>
+              The only semantic graph built specifically for AI agent memory.
+              Validated relationships + vector embeddings, all on PostgreSQL.
+              100% open source.
             </p>
           </div>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Feature 1: Open Source Foundation */}
+            {/* Feature 1: Validated Semantic Graphs */}
+            <div className="feature-card rounded-xl p-8">
+              <Check className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Validated Semantic Context
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Schema validation ensures data integrity. Your AI agents get
+                guaranteed structural consistency—relationships that won't
+                break, properties that match expectations.
+              </p>
+            </div>
+            {/* Feature 2: Vector + Graph Hybrid */}
+            <div className="feature-card rounded-xl p-8">
+              <DatabaseZap className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Vector + Graph Hybrid
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Store vector embeddings as properties in your graph. Query by
+                similarity AND traverse relationships—hybrid intelligence
+                without a separate vector database.
+              </p>
+            </div>
+            {/* Feature 3: PostgreSQL Foundation */}
+            <div className="feature-card rounded-xl p-8">
+              <Compass className="h-10 w-10 text-brand-teal" />
+              <h3 className="mt-6 text-xl font-bold text-white">
+                PostgreSQL Foundation
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Built on PostgreSQL + Apache AGE. Your team already knows it,
+                your ops already trust it. Battle-tested reliability without
+                learning exotic query languages.
+              </p>
+            </div>
+            {/* Feature 4: 100% Open Source */}
             <div className="feature-card rounded-xl p-8">
               <Star className="h-10 w-10 text-brand-teal" />
               <h3 className="mt-6 text-xl font-bold text-white">
                 100% Open Source
               </h3>
               <p className="mt-2 text-muted-foreground">
-                Graph is fully open source and available on GitHub. Audit the
-                code, contribute improvements, or self-host on your
-                infrastructure with complete transparency.
-              </p>
-            </div>
-            {/* Feature 2: Production Ready Now */}
-            <div className="feature-card rounded-xl p-8">
-              <DatabaseZap className="h-10 w-10 text-brand-teal" />
-              <h3 className="mt-6 text-xl font-bold text-white">
-                Production Ready Today
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Graph is available now—not in beta, not "coming soon." Deploy
-                semantic property graphs to production with confidence, backed
-                by PostgreSQL's reliability.
-              </p>
-            </div>
-            {/* Feature 3: Built on PostgreSQL */}
-            <div className="feature-card rounded-xl p-8">
-              <Check className="h-10 w-10 text-brand-teal" />
-              <h3 className="mt-6 text-xl font-bold text-white">
-                PostgreSQL Foundation
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Leverage PostgreSQL's battle-tested reliability with graph
-                capabilities. Your team already knows SQL—no need to learn
-                exotic query languages or proprietary systems.
-              </p>
-            </div>
-            {/* Feature 4: Enterprise Support */}
-            <div className="feature-card rounded-xl p-8">
-              <Compass className="h-10 w-10 text-brand-teal" />
-              <h3 className="mt-6 text-xl font-bold text-white">
-                Custom Solutions Available
-              </h3>
-              <p className="mt-2 text-muted-foreground">
-                Need more than Graph? Our team builds complete IoT and digital
-                twin platforms for enterprises, customizing every layer to fit
-                your business needs.
+                Apache 2.0 licensed. Audit the code, contribute improvements,
+                self-host on your infrastructure. No black boxes, no vendor
+                lock-in.
               </p>
             </div>
           </div>
