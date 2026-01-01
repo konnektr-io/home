@@ -403,15 +403,7 @@ export default function Page() {
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    User authentication (Device Code Flow)
-                  </span>
-                </li>
-                <li className="flex items-start gap-3 text-sm">
-                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Rate limits: 1000 QU/min
-                  </span>
+                  <span className="text-muted-foreground">Rate limits</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
@@ -466,24 +458,16 @@ export default function Page() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3 text-sm">
                   <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    Up to 1M twin instances
-                  </span>
-                </li>
-                <li className="flex items-start gap-3 text-sm">
-                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    M2M Authentication with Client ID & Secret
-                  </span>
-                </li>
-                <li className="flex items-start gap-3 text-sm">
-                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">No rate limits</span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
                   <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">Data History</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm">
+                  <Check className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">
-                    Event notifications (stream to external systems)
+                    Event notifications
                   </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
