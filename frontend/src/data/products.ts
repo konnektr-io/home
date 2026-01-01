@@ -133,48 +133,50 @@ export const graphProduct: Product = {
   title: "Konnektr Graph",
   path: "/graph",
   description:
-    "The semantic property graph database with data model validation. Rich semantic context made simple - no RDF complexity, just powerful relationships with built-in validation for growing companies.",
-  navDescription: "Scalable graph database & API",
+    "Semantic memory for AI agents. Validated property graphs with vector embeddings—give your agents structured context they can trust, not just embeddings.",
+  navDescription: "Semantic graph for AI agents",
   seo: {
     title:
-      "Konnektr Graph - Konnektr | Semantic Property Graph with Built-in Validation",
+      "Konnektr Graph - Semantic Memory for AI Agents | Graph + Vector Database",
     description:
-      "Semantic property graph database with model validation. Rich data relationships without RDF complexity. Built on PostgreSQL & Apache AGE. Self-host or managed.",
+      "Validated property graphs with vector embeddings for AI agents. Schema validation + hybrid vector-graph queries. Open source, built on PostgreSQL.",
     keywords: [
-      "semantic property graph",
-      "graph database validation",
-      "RDF alternative",
-      "semantic database",
-      "property graph database",
+      "AI agent memory",
+      "semantic graph database",
+      "vector database",
+      "property graph",
+      "LLM knowledge base",
+      "RAG database",
+      "graph embeddings",
       "PostgreSQL graph",
       "Apache AGE",
-      "startup graph database",
-      "semantic context database",
+      "AI context database",
       "validated graph database",
+      "MCP server",
     ],
     productType: "Database Software",
     ogImage: "/og-images/graph-og.png",
   },
   features: [
     {
-      title: "Semantic Context Made Simple",
+      title: "Validated Semantic Context",
       description:
-        "Rich semantic relationships without RDF complexity. Build meaningful connections between your data with intuitive property graphs.",
+        "Schema validation ensures data integrity. Your AI agents get guaranteed structural consistency—relationships that won't break, properties that match expectations.",
     },
     {
-      title: "Built-in Model Validation",
+      title: "Vector + Graph Hybrid",
       description:
-        "Prevent data corruption with schema validation. Ensure data integrity as your startup scales and evolves.",
+        "Store vector embeddings as properties in your graph. Query by similarity AND traverse relationships—hybrid intelligence without a separate vector database.",
     },
     {
-      title: "Self-Hosted Trust",
+      title: "PostgreSQL Foundation",
       description:
-        "Your data, your infrastructure, your control. PostgreSQL and Apache AGE foundation you can trust and audit.",
+        "Built on PostgreSQL and Apache AGE. Your team already knows it, your ops already trust it. Battle-tested reliability.",
     },
     {
-      title: "Startup-Friendly Scaling",
+      title: "100% Open Source",
       description:
-        "Start small, scale smart. From prototype to production without vendor lock-in or enterprise complexity.",
+        "Apache 2.0 licensed. Audit the code, contribute improvements, self-host on your infrastructure. No black boxes, no vendor lock-in.",
     },
   ],
   pricingTiers: [
@@ -200,7 +202,7 @@ export const graphProduct: Product = {
         "Up to 1M twin instances",
         "M2M Authentication (Client ID & Secret)",
         "No rate limits",
-        "Events & data history (coming soon)",
+        "Event notifications & data history",
         "Email support",
       ],
       cta: "Choose Standard",
