@@ -25,29 +25,29 @@ interface NavigationProps {
 const features = [
   {
     name: "Graph Database",
-    description: "Postgres + Apache AGE Engine",
-    href: "/features/graph",
+    description: "PostgreSQL + AGE + pgvector",
+    href: "/graph",
     icon: DatabaseZap,
     type: "internal",
   },
   {
-    name: "Events & Streaming",
-    description: "Kafka, MQTT & Webhooks",
-    href: "/features/events",
-    icon: Radio,
-    type: "internal",
-  },
-  {
     name: "MCP Server",
-    description: "Connect AI Agents directly",
-    href: "/features/mcp",
+    description: "Direct AI agent integration",
+    href: "/mcp",
     icon: Network,
     type: "internal",
   },
   {
+    name: "Events & Streaming",
+    description: "Kafka, MQTT & webhooks",
+    href: "/events",
+    icon: Radio,
+    type: "internal",
+  },
+  {
     name: "Graph Explorer",
-    description: "Visual Interface & Debugger",
-    href: "/features/explorer",
+    description: "Visual debugger for agents",
+    href: "/explorer",
     icon: MonitorPlay,
     type: "internal",
   },
@@ -92,6 +92,14 @@ export function DesktopNavigation({ className }: NavigationProps) {
               </div>
             </div>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <button
+            onClick={() => navigate("/pricing")}
+            className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Pricing
+          </button>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <a
@@ -173,6 +181,15 @@ export function MobileNavigation({ className }: NavigationProps) {
             <h3 className="text-sm font-medium text-muted-foreground mb-3">
               Resources
             </h3>
+            <button
+              onClick={() => {
+                navigate("/pricing");
+                setIsOpen(false);
+              }}
+              className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
+            >
+              Pricing
+            </button>
             <a
               href="https://docs.konnektr.io/docs"
               target="_blank"

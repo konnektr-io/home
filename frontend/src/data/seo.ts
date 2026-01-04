@@ -361,6 +361,111 @@ export function generateMetaTags(seoData: SEOData): string {
   `.trim();
 }
 
+// Feature Pages SEO
+
+// Graph Feature Page SEO
+export const graphFeatureSEO: SEOData = {
+  title: "Konnektr Graph - Semantic Property Graph Database for AI",
+  description:
+    "PostgreSQL + Apache AGE + pgvector. Build validated knowledge graphs with schema enforcement and vector search. Perfect for AI agents needing structured semantic memory.",
+  keywords: [
+    "graph database",
+    "property graph",
+    "semantic graph",
+    "PostgreSQL graph",
+    "Apache AGE",
+    "pgvector",
+    "vector embeddings",
+    "graph validation",
+    "DTDL models",
+    "Cypher queries",
+    "knowledge graph",
+    "AI memory",
+  ],
+  ogType: "website",
+  ogImage: "/og-images/features-graph-og.png",
+};
+
+// MCP Feature Page SEO
+export const mcpFeatureSEO: SEOData = {
+  title: "Konnektr MCP Server - Connect AI Agents to Your Graph",
+  description:
+    "Model Context Protocol server for seamless AI agent integration. 16 tools for semantic search, graph queries, entity creation, and schema management. Works with Claude, Cursor, and custom agents.",
+  keywords: [
+    "MCP server",
+    "Model Context Protocol",
+    "AI agent tools",
+    "Claude integration",
+    "AI agents",
+    "tool calling",
+    "semantic search",
+    "Cypher queries",
+    "graph mutations",
+    "agent integration",
+  ],
+  ogType: "website",
+  ogImage: "/og-images/features-mcp-og.png",
+};
+
+// Events Feature Page SEO
+export const eventsFeatureSEO: SEOData = {
+  title: "Konnektr Events - Real-Time Graph Change Streaming",
+  description:
+    "Stream every graph change to Kafka, webhooks, MQTT, or Azure Data Explorer. CloudEvents 1.0 standard format. Keep downstream systems and agent memory in sync.",
+  keywords: [
+    "event streaming",
+    "graph events",
+    "Kafka",
+    "webhooks",
+    "MQTT",
+    "CloudEvents",
+    "real-time updates",
+    "event notifications",
+    "data streaming",
+    "Azure Data Explorer",
+  ],
+  ogType: "website",
+  ogImage: "/og-images/features-events-og.png",
+};
+
+// Explorer Feature Page SEO
+export const explorerFeatureSEO: SEOData = {
+  title: "Konnektr Graph Explorer - Visual Graph Debugger",
+  description:
+    "Interactive visual debugger for Konnektr graphs. Browse ontology, execute Cypher queries, visualize relationships, edit nodes inline, test semantic search. See what your agents see.",
+  keywords: [
+    "graph visualizer",
+    "graph debugger",
+    "Cypher console",
+    "graph explorer",
+    "ontology browser",
+    "relationship visualizer",
+    "query debugger",
+    "graph UI",
+    "agent debugging",
+  ],
+  ogType: "website",
+  ogImage: "/og-images/features-explorer-og.png",
+};
+
+// Pricing Page SEO
+export const pricingSEO: SEOData = {
+  title: "Konnektr Pricing - Transparent Graph Database Pricing",
+  description:
+    "Start free with 500 entities. Standard tier at $49/mo. Enterprise with custom pricing. Pay for capacity as you grow. No hidden fees.",
+  keywords: [
+    "pricing",
+    "database pricing",
+    "graph database cost",
+    "subscription plans",
+    "SaaS pricing",
+    "transparent pricing",
+    "enterprise plans",
+  ],
+  ogType: "website",
+  ogImage: "/og-images/pricing-og.png",
+};
+
 // Generate JSON-LD structured data
 export function generateStructuredData(data: Record<string, any>): string {
   return JSON.stringify(data, null, 2);
