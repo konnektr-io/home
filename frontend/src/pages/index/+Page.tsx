@@ -450,14 +450,14 @@ export default function Page() {
               <div className="p-6 rounded-lg bg-white/[0.02] border border-white/10 hover:border-brand-teal/30 transition-colors">
                 <Layers className="h-8 w-8 text-brand-teal mb-4" />
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Industrial Systems
+                  Real-Time Context
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Model physical assets, sensor networks, and control systems.
-                  Agents reason about topology and propagate changes correctly.
+                  Allow agents to read real-time device states. Sync sensor
+                  networks to the graph for live situational awareness.
                 </p>
                 <code className="text-xs text-brand-teal font-mono">
-                  "What downstream equipment is affected by pump failure?"
+                  "Get current temperature of Pump-A"
                 </code>
               </div>
 

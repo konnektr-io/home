@@ -36,7 +36,7 @@ export function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Products</h3>
+            <h3 className="font-semibold text-foreground mb-4">Features</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -48,26 +48,26 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/assembler"
+                  href="/features/mcp"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Konnektr Assembler
+                  MCP Server
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/flow"
+                  href="/features/events"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Konnektr Flow
+                  Events & Streaming
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/compass"
+                  href="/features/explorer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Konnektr Compass
+                  Graph Explorer
                 </Link>
               </li>
             </ul>
