@@ -1,4 +1,4 @@
-import { explorerFeatureSEO } from "../../../data/seo.js";
+import { explorerFeatureSEO } from "../../data/seo.js";
 
 export default function Head() {
   return (
