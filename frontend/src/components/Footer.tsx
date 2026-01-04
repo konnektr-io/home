@@ -48,7 +48,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/features/mcp"
+                  href="mcp"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   MCP Server
@@ -56,7 +56,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/features/events"
+                  href="events"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Events & Streaming
@@ -64,7 +64,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/features/explorer"
+                  href="explorer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Graph Explorer

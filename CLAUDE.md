@@ -53,11 +53,10 @@ pnpm exec playwright test   # Run Playwright tests
 /frontend/src/
   /pages/           # Vike file-based routing (+Page.tsx, +Head.tsx)
     /index/         # Homepage
-    /graph/         # Product: Konnektr Graph
-    /assembler/     # Product: Konnektr Assembler
-    /flow/          # Product: Konnektr Flow
-    /compass/       # Product: Konnektr Compass
-    /features/      # Feature-specific pages
+    /graph/         # Feature: Graph Database
+    /events/        # Feature: Events & Streaming
+    /explorer/      # Feature: Graph Explorer
+    /mcp/           # Feature: MCP Server
   /components/      # React components (Navigation, Footer, etc.)
     /ui/            # shadcn/ui components
   /layouts/         # Layout components (LayoutDefault.tsx)
