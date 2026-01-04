@@ -15,10 +15,10 @@ export default function Head() {
       <meta property="og:title" content={termsSEO.title} />
       <meta property="og:description" content={termsSEO.description} />
       <meta property="og:url" content="https://konnektr.io/terms" />
-      <meta
+      {/* <meta
         property="og:image"
         content={`https://konnektr.io${termsSEO.ogImage}`}
-      />
+      /> */}
       <meta property="og:site_name" content="Konnektr" />
 
       {/* Twitter Card */}
@@ -26,10 +26,10 @@ export default function Head() {
       <meta name="twitter:site" content="@konnektr" />
       <meta name="twitter:title" content={termsSEO.title} />
       <meta name="twitter:description" content={termsSEO.description} />
-      <meta
+      {/* <meta
         name="twitter:image"
         content={`https://konnektr.io${termsSEO.ogImage}`}
-      />
+      /> */}
 
       {/* Additional SEO */}
       <meta name="robots" content="index, follow" />

@@ -17,10 +17,10 @@ export default function Head() {
         content={explorerFeatureSEO.description}
       />
       <meta property="og:url" content="https://konnektr.io/explorer" />
-      <meta
+      {/* <meta
         property="og:image"
         content={`https://konnektr.io${explorerFeatureSEO.ogImage}`}
-      />
+      /> */}
       <meta property="og:site_name" content="Konnektr" />
 
       {/* Twitter Card */}
@@ -31,10 +31,10 @@ export default function Head() {
         name="twitter:description"
         content={explorerFeatureSEO.description}
       />
-      <meta
+      {/* <meta
         name="twitter:image"
         content={`https://konnektr.io${explorerFeatureSEO.ogImage}`}
-      />
+      /> */}
 
       {/* Additional SEO */}
       <meta name="robots" content="index, follow" />
