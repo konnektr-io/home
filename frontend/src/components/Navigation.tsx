@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, DatabaseZap, Radio, Network, MonitorPlay } from "lucide-react";
 import { navigate } from "vike/client/router";
 import {
   NavigationMenu,
@@ -16,16 +16,50 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { navigationProducts } from "@/data/products";
 import { trackSignInClick } from "@/utils/analytics";
 
 interface NavigationProps {
   className?: string;
 }
 
+const features = [
+  {
+    name: "Graph Database",
+    description: "PostgreSQL + AGE + pgvector",
+    href: "/graph",
+    icon: DatabaseZap,
+    type: "internal",
+  },
+  {
+    name: "MCP Server",
+    description: "Direct AI agent integration",
+    href: "/mcp",
+    icon: Network,
+    type: "internal",
+  },
+  {
+    name: "Events & Streaming",
+    description: "Kafka, MQTT & webhooks",
+    href: "/events",
+    icon: Radio,
+    type: "internal",
+  },
+  {
+    name: "Graph Explorer",
+    description: "Visual debugger for agents",
+    href: "/explorer",
+    icon: MonitorPlay,
+    type: "internal",
+  },
+];
+
 export function DesktopNavigation({ className }: NavigationProps) {
-  const handleProductClick = (path: string) => {
-    navigate(path);
+  const handleFeatureClick = (feature: (typeof features)[0]) => {
+    if (feature.type === "external") {
+      window.open(feature.href, "_blank");
+    } else {
+      navigate(feature.href);
+    }
   };
 
   return (
@@ -33,40 +67,39 @@ export function DesktopNavigation({ className }: NavigationProps) {
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:text-foreground data-[active]:bg-transparent data-[state=open]:bg-transparent">
-            Products
+            Features
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="bg-brand-dark border-white/20 text-foreground w-80 p-4 rounded-xl shadow-xl">
               <div className="space-y-4">
-                {navigationProducts.map((product) => (
+                {features.map((feature) => (
                   <button
-                    key={product.path}
-                    onClick={() => handleProductClick(product.path)}
-                    className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer"
+                    key={feature.name}
+                    onClick={() => handleFeatureClick(feature)}
+                    className="w-full text-left flex flex-col gap-1 px-3 py-2 rounded-lg hover:bg-brand-teal/10 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2">
+                      <feature.icon className="h-4 w-4 text-brand-teal group-hover:text-brand-teal/80" />
                       <span className="font-semibold text-foreground">
-                        {product.name}
+                        {feature.name}
                       </span>
-                      {product.status === "early-access" && (
-                        <span className="px-2 py-0.5 text-xs bg-orange-500/20 text-orange-400 rounded-full border border-orange-500/30">
-                          Early Access
-                        </span>
-                      )}
-                      {product.status === "coming-soon" && (
-                        <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
-                          Coming Soon
-                        </span>
-                      )}
                     </div>
-                    <span className="text-xs text-muted-foreground">
-                      {product.navDescription}
+                    <span className="text-xs text-muted-foreground pl-6">
+                      {feature.description}
                     </span>
                   </button>
                 ))}
               </div>
             </div>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <button
+            onClick={() => navigate("/pricing")}
+            className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Pricing
+          </button>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <a
@@ -96,8 +129,12 @@ export function DesktopNavigation({ className }: NavigationProps) {
 export function MobileNavigation({ className }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleProductClick = (path: string) => {
-    navigate(path);
+  const handleFeatureClick = (feature: (typeof features)[0]) => {
+    if (feature.type === "external") {
+      window.open(feature.href, "_blank");
+    } else {
+      navigate(feature.href);
+    }
     setIsOpen(false);
   };
 
@@ -118,36 +155,23 @@ export function MobileNavigation({ className }: NavigationProps) {
         <div className="mt-8 space-y-6">
           <div>
             <h3 className="text-sm font-medium text-muted-foreground mb-3">
-              Products
+              Features
             </h3>
             <div className="space-y-2">
-              {navigationProducts.map((product) => (
+              {features.map((feature) => (
                 <button
-                  key={product.path}
-                  onClick={() => handleProductClick(product.path)}
+                  key={feature.name}
+                  onClick={() => handleFeatureClick(feature)}
                   className="w-full text-left flex flex-col gap-2 p-3 rounded-lg hover:bg-brand-teal/10 transition-colors"
                 >
-                  <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    <feature.icon className="h-4 w-4 text-brand-teal" />
                     <span className="font-medium text-foreground">
-                      {product.name}
+                      {feature.name}
                     </span>
-                    {product.status && (
-                      <div className="flex">
-                        {product.status === "early-access" && (
-                          <span className="px-2 py-0.5 text-xs bg-orange-500/20 text-orange-400 rounded-full border border-orange-500/30 whitespace-nowrap">
-                            Early Access
-                          </span>
-                        )}
-                        {product.status === "coming-soon" && (
-                          <span className="px-2 py-0.5 text-xs bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30 whitespace-nowrap">
-                            Coming Soon
-                          </span>
-                        )}
-                      </div>
-                    )}
                   </div>
-                  <span className="text-xs text-muted-foreground">
-                    {product.navDescription}
+                  <span className="text-xs text-muted-foreground pl-6">
+                    {feature.description}
                   </span>
                 </button>
               ))}
@@ -157,6 +181,15 @@ export function MobileNavigation({ className }: NavigationProps) {
             <h3 className="text-sm font-medium text-muted-foreground mb-3">
               Resources
             </h3>
+            <button
+              onClick={() => {
+                navigate("/pricing");
+                setIsOpen(false);
+              }}
+              className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
+            >
+              Pricing
+            </button>
             <a
               href="https://docs.konnektr.io/docs"
               target="_blank"

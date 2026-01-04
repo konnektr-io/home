@@ -1,1141 +1,542 @@
 import {
-  DatabaseZap,
-  Play,
-  Network,
+  Database,
   Shield,
-  Zap,
+  Search,
+  Layers,
+  Network,
   ArrowRight,
+  ExternalLink,
+  Check,
+  X,
 } from "lucide-react";
 import { useEffect } from "react";
-import { MailingListDialog } from "../../components/MailingListDialog.js";
-import explorerScreenshot from "../../assets/explorer-screenshot.png";
-import { Button } from "../../components/ui/button.js";
-import { Card } from "../../components/ui/card.js";
-import { graphProduct } from "../../data/products.js";
-import {
-  trackDeployClick,
-  trackProductPageView,
-  trackDocumentationClick,
-} from "../../utils/analytics.js";
+import { trackProductPageView } from "../../utils/analytics.js";
+import { navigate } from "vike/client/router";
+
+// Code block with syntax highlighting
+function CodeBlock({
+  code,
+  language,
+  filename,
+}: {
+  code: string;
+  language: string;
+  filename?: string;
+}) {
+  return (
+    <div className="code-block rounded-lg overflow-hidden">
+      {filename && (
+        <div className="terminal-header px-4 py-2 flex items-center justify-between">
+          <span className="text-xs text-muted-foreground font-mono">
+            {filename}
+          </span>
+          <span className="text-xs text-muted-foreground">{language}</span>
+        </div>
+      )}
+      <pre className="p-4 overflow-x-auto text-sm leading-relaxed">
+        <code dangerouslySetInnerHTML={{ __html: code }} />
+      </pre>
+    </div>
+  );
+}
 
 export default function Page() {
   useEffect(() => {
-    trackProductPageView("graph");
+    trackProductPageView("features/graph");
   }, []);
+
+  const dtdlSchemaCode = `{
+  <span class="property">"@id"</span>: <span class="string">"dtmi:code:Module;1"</span>,
+  <span class="property">"@type"</span>: <span class="string">"Interface"</span>,
+  <span class="property">"displayName"</span>: { <span class="property">"en"</span>: <span class="string">"Code Module"</span> },
+  <span class="property">"contents"</span>: [
+    {
+      <span class="property">"@type"</span>: <span class="string">"Property"</span>,
+      <span class="property">"name"</span>: <span class="string">"path"</span>,
+      <span class="property">"schema"</span>: <span class="string">"string"</span>,
+      <span class="property">"description"</span>: { <span class="property">"en"</span>: <span class="string">"File path relative to repo root"</span> }
+    },
+    {
+      <span class="property">"@type"</span>: <span class="string">"Property"</span>,
+      <span class="property">"name"</span>: <span class="string">"embedding"</span>,
+      <span class="property">"schema"</span>: { <span class="property">"@type"</span>: <span class="string">"Array"</span>, <span class="property">"elementSchema"</span>: <span class="string">"double"</span> }
+    },
+    {
+      <span class="property">"@type"</span>: <span class="string">"Relationship"</span>,
+      <span class="property">"name"</span>: <span class="string">"imports"</span>,
+      <span class="property">"target"</span>: <span class="string">"dtmi:code:Module;1"</span>,
+      <span class="property">"description"</span>: { <span class="property">"en"</span>: <span class="string">"Module import dependency"</span> }
+    }
+  ],
+  <span class="property">"@context"</span>: <span class="string">"dtmi:dtdl:context;4"</span>
+}`;
+
+  const validationErrorCode = `<span class="comment">// Agent attempts to write invalid data</span>
+<span class="keyword">await</span> session.call_tool(<span class="string">"create_or_replace_digital_twin"</span>, {
+  <span class="property">"twin_id"</span>: <span class="string">"module-auth"</span>,
+  <span class="property">"model_id"</span>: <span class="string">"dtmi:code:Module;1"</span>,
+  <span class="property">"properties"</span>: {
+    <span class="property">"path"</span>: <span class="string">"src/auth.ts"</span>,
+    <span class="property">"temprature"</span>: <span class="number">72.5</span>  <span class="comment">// Typo + wrong property</span>
+  }
+});
+
+<span class="comment">// Error: Property 'temprature' is not defined in model</span>
+<span class="comment">//        'dtmi:code:Module;1'. Did you mean 'path' or 'embedding'?</span>
+<span class="comment">// Transaction rolled back.</span>`;
+
+  const hybridQueryCode = `<span class="keyword">MATCH</span> (m:<span class="function">Twin</span>)-[:<span class="property">imports</span>]->(dep:<span class="function">Twin</span>)
+<span class="keyword">WHERE</span> dep.name = <span class="string">'auth-service'</span>
+  <span class="keyword">AND</span> m.\`$metadata\`.\`$model\` = <span class="string">'dtmi:code:Module;1'</span>
+<span class="keyword">RETURN</span> m.path, m.description
+<span class="keyword">ORDER BY</span> <span class="function">l2_distance</span>(m.embedding, $query_vector)
+<span class="keyword">LIMIT</span> <span class="number">10</span>
+
+<span class="comment">-- Find modules that import auth-service</span>
+<span class="comment">-- Ranked by semantic similarity to query</span>`;
+
+  const spatialQueryCode = `<span class="keyword">MATCH</span> (sensor:<span class="function">Twin</span>)-[:<span class="property">locatedIn</span>]->(zone:<span class="function">Twin</span>)
+<span class="keyword">WHERE</span> sensor.\`$metadata\`.\`$model\` = <span class="string">'dtmi:facility:Sensor;1'</span>
+  <span class="keyword">AND</span> <span class="function">ST_DWithin</span>(
+    sensor.location::geometry,
+    <span class="function">ST_MakePoint</span>(<span class="number">-122.4194</span>, <span class="number">37.7749</span>)::geometry,
+    <span class="number">1000</span>  <span class="comment">-- meters</span>
+  )
+<span class="keyword">RETURN</span> sensor.\`$dtId\`, sensor.reading, zone.name`;
 
   return (
     <div className="bg-brand-dark text-foreground min-h-screen antialiased">
-      {/* Hero Section */}
-      <section
-        className="relative py-20 md:py-32 hero-glow"
-        aria-label="Graph Hero Section"
-      >
-        <div
-          className="container mx-auto px-4 sm:px-6 lg:px-8 text-center"
-          role="region"
-          aria-label="Graph Hero Content"
-        >
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-muted-foreground mb-4 border border-white/10">
-            <DatabaseZap className="h-4 w-4" />
-            Semantic Memory for AI Agents
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="gradient-text">Semantic Memory</span> for AI Agents
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto">
-            {graphProduct.description}
-            <br />
-            <span className="block mt-4 text-brand-teal font-semibold text-lg">
-              <span className="bg-brand-teal/10 px-2 py-1 rounded">
-                Open Source
-              </span>{" "}
-              &mdash; Built on PostgreSQL & Apache AGE. Free to self-host.
-            </span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <div className="flex flex-col items-center">
+      {/* Hero */}
+      <section className="relative py-24 md:py-32" aria-label="Hero">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-brand-teal font-mono text-sm mb-6 tracking-wide">
+              GRAPH DATABASE
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+              PostgreSQL with graph
+              <br />
+              and vector superpowers
+            </h1>
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Every Graph instance runs PostgreSQL with Apache AGE for Cypher
+              queries and pgvector for embeddings. Schema validation ensures
+              data integrity.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=home&utm_medium=cta&utm_campaign=launch&utm_content=graph_hero"
+                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackDeployClick("all", "graph_page")}
-                className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90"
+                className="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-8 bg-brand-teal text-black hover:bg-brand-teal/90 transition-colors"
               >
-                Deploy Graph Now
+                Deploy a Graph
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-              <p className="text-sm text-muted-foreground mt-2 text-center">
-                Free tier • No credit card
-                <br />
-                One click signup
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
               <a
                 href="https://docs.konnektr.io/docs/graph"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackDocumentationClick("graph_hero")}
-                className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors h-11 px-6 py-3 border border-white/20 text-foreground bg-brand-dark hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-8 border border-white/20 text-foreground hover:bg-white/5 transition-colors"
               >
-                <Play className="mr-2 h-5 w-5" />
-                View Docs
+                Read the Docs
+                <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             </div>
           </div>
         </div>
       </section>
-      <main>
-        {/* Features Section */}
-        <section
-          className="py-20 md:py-28 bg-black/10"
-          aria-label="Graph Features"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Structured Context AI Agents Can Trust
-              </h2>
-              <p className="mt-4 text-lg text-brand-teal font-semibold">
-                Validated property graphs with vector embeddings. Give AI agents
-                semantic context with guaranteed integrity—not just floating
-                embeddings.
-              </p>
-            </div>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Feature 1: Schema Validation */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
-                  <Shield className="h-6 w-6" />
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-white">
-                  Schema Validation
+
+      {/* Tech Stack */}
+      <section
+        className="py-20 border-t border-white/5"
+        aria-label="Technology Stack"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 rounded-lg bg-white/[0.02] border border-white/10">
+                <Database className="h-8 w-8 text-brand-teal mb-4" />
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  PostgreSQL
                 </h3>
-                <p className="mt-2 text-muted-foreground">
-                  Schema validation prevents data corruption. Relationships,
-                  properties, and models are validated on write—agents always
-                  get structurally correct context.
+                <p className="text-sm text-muted-foreground">
+                  The world's most advanced open-source relational database.
+                  ACID compliant, battle-tested, with decades of reliability.
+                  Your data is stored in standard Postgres tables.
                 </p>
-              </Card>
-              {/* Feature 2: Hybrid Intelligence */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
-                  <Network className="h-6 w-6" />
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-white">
-                  Hybrid Intelligence
+              </div>
+              <div className="p-6 rounded-lg bg-white/[0.02] border border-white/10">
+                <Network className="h-8 w-8 text-brand-teal mb-4" />
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Apache AGE
                 </h3>
-                <p className="mt-2 text-muted-foreground">
-                  Store vector embeddings as properties. Query by similarity AND
-                  traverse relationships—no separate vector database needed.
-                  Semantic search with structural guarantees.
+                <p className="text-sm text-muted-foreground">
+                  Graph extension for PostgreSQL. Execute Cypher queries
+                  directly on your data without leaving Postgres. Traverse
+                  relationships with native graph performance.
                 </p>
-              </Card>
-              {/* Feature 3: No Vendor Lock-In */}
-              <Card className="feature-card rounded-xl p-8 bg-white/3 border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-brand-teal hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-brand-blue/50 text-brand-teal border border-brand-teal/50">
-                  <Zap className="h-6 w-6" />
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-white">
-                  No Vendor Lock-In
+              </div>
+              <div className="p-6 rounded-lg bg-white/[0.02] border border-white/10">
+                <Search className="h-8 w-8 text-brand-teal mb-4" />
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  pgvector
                 </h3>
-                <p className="mt-2 text-muted-foreground">
-                  100% open source, Apache 2.0 licensed. Built on PostgreSQL
-                  foundation you can audit and trust. Self-host or use our
-                  managed service.
+                <p className="text-sm text-muted-foreground">
+                  Vector similarity search for embeddings. Store vectors as
+                  entity properties and query with cosine or L2 distance. True
+                  hybrid graph + vector queries.
                 </p>
-              </Card>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Graph Explorer Section */}
-        <section className="py-20 md:py-28" aria-label="Graph Explorer">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Description */}
+      {/* Schema Validation */}
+      <section
+        className="py-20 border-t border-white/5"
+        aria-label="Schema Validation"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Visualize & Query with Graph Explorer
+                <h2 className="text-3xl font-bold text-white mb-6">
+                  Schema-enforced entities
                 </h2>
-                <p className="text-lg text-muted-foreground mb-6">
-                  Graph Explorer provides an intuitive interface to interact
-                  with your digital twin graph. Query your data, visualize
-                  relationships, and explore your semantic model without writing
-                  code.
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Define DTDL models that specify exactly what properties and
+                  relationships are allowed. Every write is validated against
+                  your schema before it touches the database.
                 </p>
-                <div className="space-y-4">
+                <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <div className="mt-1">
-                      <Shield className="h-5 w-5 text-brand-teal" />
-                    </div>
+                    <Shield className="h-5 w-5 text-brand-teal mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        Full Model & Data Management
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Load and inspect DTDL models, create twin and
-                        relationship instances, update properties, and run
-                        Cypher queries with an integrated code editor.
-                      </p>
+                      <div className="font-medium text-white">
+                        Property validation
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Type checking, required fields, and allowed values
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="mt-1">
-                      <Network className="h-5 w-5 text-brand-teal" />
-                    </div>
+                    <Layers className="h-5 w-5 text-brand-teal mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        Relationship Visualization
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        See your digital twin relationships in an interactive
-                        graph view. Understand complex data structures at a
-                        glance.
-                      </p>
+                      <div className="font-medium text-white">
+                        Model inheritance
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Extend base models with additional properties
+                      </div>
                     </div>
                   </div>
-                  {/* Future */}
-                  {/* <div className="flex items-start gap-3">
-                    <div className="mt-1">
-                      <Zap className="h-5 w-5 text-brand-teal" />
-                    </div>
+                  <div className="flex items-start gap-3">
+                    <Network className="h-5 w-5 text-brand-teal mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        Real-Time Updates
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Monitor your digital twins in real-time. See changes as
-                        they happen with live data refresh.
-                      </p>
+                      <div className="font-medium text-white">
+                        Relationship constraints
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Define allowed relationship types and targets
+                      </div>
                     </div>
-                  </div> */}
-                </div>
-                <div className="mt-8">
-                  <a
-                    href="https://docs.konnektr.io/docs/graph/explorer"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-brand-teal hover:text-brand-teal/80 font-medium"
-                  >
-                    Learn more about Graph Explorer
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </div>
                 </div>
               </div>
 
-              {/* Screenshot */}
-              <div className="relative">
-                <div className="aspect-video rounded-xl border border-brand-teal/30 overflow-hidden">
-                  <img
-                    src={explorerScreenshot}
-                    alt="Graph Explorer interface showing query builder and relationship visualization"
-                    className="w-full h-full object-cover"
-                  />
+              <CodeBlock
+                code={dtdlSchemaCode}
+                language="JSON"
+                filename="module.dtdl.json"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Validation Error Demo */}
+      <section
+        className="py-20 border-t border-white/5"
+        aria-label="Validation"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              <CodeBlock
+                code={validationErrorCode}
+                language="JavaScript"
+                filename="validation-demo.js"
+              />
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6">
+                  Prevent bad data at write time
+                </h2>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  When an agent tries to write invalid data, the transaction is
+                  rejected with a clear error message. No corrupted state, no
+                  contradictory information.
+                </p>
+                <div className="p-4 rounded-lg bg-brand-teal/5 border border-brand-teal/20">
+                  <p className="text-sm text-foreground">
+                    <strong>Why this matters:</strong> Vector databases accept
+                    any JSON. Over time, your knowledge base fills with
+                    inconsistent data that confuses agents. Schema validation
+                    prevents this from happening.
+                  </p>
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-brand-teal/10 rounded-full blur-3xl"></div>
-                <div className="absolute -top-4 -left-4 w-32 h-32 bg-brand-blue/10 rounded-full blur-3xl"></div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Why AI Agents Need Semantic Graphs Section */}
-        <section
-          className="py-20 md:py-28 bg-black/10"
-          aria-label="Why AI Agents Need Semantic Graphs"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Why AI Agents Need Semantic Graphs
+      {/* Query Capabilities */}
+      <section className="py-20 border-t border-white/5" aria-label="Queries">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Powerful query capabilities
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Vector databases give you similarity search. But AI agents need
-                more than embeddings—they need relationships they can trust.
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Combine graph traversal with vector similarity in a single
+                query.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* Problem Side */}
-              <div className="rounded-xl p-8 bg-red-950/20 border border-red-500/20">
-                <h3 className="text-xl font-bold text-white mb-4">
-                  The Problem with Vector-Only RAG
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Hybrid Query */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">
+                  Hybrid graph + vector
                 </h3>
-                <ul className="space-y-4 text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <span>
-                      No guaranteed relationships between retrieved chunks
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <span>
-                      Embeddings can contradict without schema enforcement
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <span>No way to traverse connections between entities</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <span>Context degrades as knowledge base scales</span>
-                  </li>
-                </ul>
+                <p className="text-sm text-muted-foreground">
+                  Traverse relationships with Cypher, then rank results by
+                  embedding similarity. Structure AND semantics in one query.
+                </p>
+                <CodeBlock
+                  code={hybridQueryCode}
+                  language="Cypher"
+                  filename="hybrid-query.cypher"
+                />
               </div>
 
-              {/* Solution Side */}
-              <div className="rounded-xl p-8 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border border-brand-teal/30">
-                <h3 className="text-xl font-bold text-white mb-4">
-                  Graph + Vector = Agent Intelligence
+              {/* Spatial Query */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">
+                  Spatial queries with PostGIS
                 </h3>
-                <ul className="space-y-4 text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                    <span>
-                      <strong className="text-white">Similarity search</strong>{" "}
-                      (vector) + relationship traversal (graph)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                    <span>
-                      <strong className="text-white">Schema validation</strong>{" "}
-                      prevents contradictory information
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                    <span>
-                      <strong className="text-white">
-                        Traverse entity connections
-                      </strong>{" "}
-                      for richer context
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                    <span>
-                      <strong className="text-white">Hybrid query:</strong>{" "}
-                      "Find similar sensors AND their upstream assets"
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="text-center mt-12">
-              <p className="text-lg text-brand-teal font-medium max-w-2xl mx-auto">
-                Purpose-built for AI agents that need more than embeddings—they
-                need relationships they can trust.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Real-World Use Cases Section */}
-        <section className="py-20 md:py-28" aria-label="Graph Use Cases">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Real-World Use Cases
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                See how Graph enables digital twins that bring value to the
-                physical world.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Use Case 1: Water Distribution Systems */}
-              <Card className="p-8 bg-white/3 border border-white/10">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
-                    <Network className="h-6 w-6 text-brand-teal" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Water Distribution Systems
-                    </h3>
-                    <p className="text-sm text-brand-teal font-medium">
-                      Utilities • Infrastructure • Smart Cities
-                    </p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  <strong className="text-white">The Challenge:</strong> Water
-                  networks have complex pipe connections, pressure dependencies,
-                  and sensor relationships. Leaks cascade through the system
-                  unpredictably.
+                <p className="text-sm text-muted-foreground">
+                  Full PostGIS support for geospatial data. Find entities near a
+                  location, within a polygon, or along a path.
                 </p>
-                <p className="text-muted-foreground mb-4">
-                  <strong className="text-white">With Graph:</strong> Model
-                  pipes, valves, sensors, and pressure zones as connected
-                  assets. Detect leak impact zones and optimize meter
-                  commissioning workflows.
-                </p>
-                <div className="text-sm text-brand-teal">
-                  "When leak detected at Pipe-A47, which downstream meters and
-                  pressure zones are affected?"
-                </div>
-              </Card>
-
-              {/* Use Case 2: Traffic Infrastructure */}
-              <Card className="p-8 bg-white/3 border border-white/10">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
-                    <DatabaseZap className="h-6 w-6 text-brand-teal" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Traffic Infrastructure
-                    </h3>
-                    <p className="text-sm text-brand-teal font-medium">
-                      Transportation • Smart Cities • Asset Management
-                    </p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  <strong className="text-white">The Challenge:</strong> Traffic
-                  lights, bridges, signs, and sensors form an interconnected
-                  system. Asset failures create cascading traffic impacts.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  <strong className="text-white">With Graph:</strong> Model
-                  traffic infrastructure as connected assets. Predict failure
-                  impacts and assess traffic flow consequences before they
-                  happen.
-                </p>
-                <div className="text-sm text-brand-teal">
-                  "If Bridge-B12 needs maintenance, which traffic routes and
-                  zones will be impacted?"
-                </div>
-              </Card>
-
-              {/* Use Case 3: Railway Operations */}
-              <Card className="p-8 bg-white/3 border border-white/10">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
-                    <Shield className="h-6 w-6 text-brand-teal" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Railway Operations
-                    </h3>
-                    <p className="text-sm text-brand-teal font-medium">
-                      Rail Transport • Energy Management • Operations
-                    </p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  <strong className="text-white">The Challenge:</strong> Train
-                  schedules, track sections, power grids, and energy consumption
-                  are deeply interconnected. Optimization requires understanding
-                  complex dependencies.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  <strong className="text-white">With Graph:</strong> Connect
-                  trains, tracks, power systems, and schedules in one model.
-                  Optimize energy usage and detect conflicts before they impact
-                  service.
-                </p>
-                <div className="text-sm text-brand-teal">
-                  "Which trains will be affected if PowerGrid-7 reaches 90%
-                  capacity during peak hours?"
-                </div>
-              </Card>
-
-              {/* Use Case 4: Infrastructure Monitoring */}
-              <Card className="p-8 bg-white/3 border border-white/10">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
-                    <Zap className="h-6 w-6 text-brand-teal" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Infrastructure Monitoring
-                    </h3>
-                    <p className="text-sm text-brand-teal font-medium">
-                      Civil Engineering • Asset Health • Environmental
-                    </p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  <strong className="text-white">The Challenge:</strong>{" "}
-                  Structural sensors, environmental conditions, and asset health
-                  create complex monitoring networks. Anomalies need contextual
-                  analysis.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  <strong className="text-white">With Graph:</strong> Model
-                  sensors, structures, and environmental factors as connected
-                  entities. Correlate deformation, temperature, and groundwater
-                  data intelligently.
-                </p>
-                <div className="text-sm text-brand-teal">
-                  "Correlate Bridge-C3 deformation sensors with temperature and
-                  groundwater level changes"
-                </div>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Code Examples Section */}
-        <section className="py-20 md:py-28" aria-label="Graph Code Examples">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Built for Developers & AI Agents
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Integrate Graph with your existing tools or build semantic
-                knowledge bases for AI applications. Compatible with Azure
-                Digital Twins SDK and standard REST APIs.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {/* Azure Digital Twins SDK Compatibility */}
-              <Card className="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10">
-                <div className="mb-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-blue/20 text-brand-teal rounded-full text-sm font-medium mb-4">
-                    <Shield className="h-4 w-4" />
-                    Azure DT SDK Compatible
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    Use Existing Azure Tools
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-6">
-                    Drop-in replacement for Azure Digital Twins. Use the
-                    official Azure SDK with your Konnektr Graph endpoint—no code
-                    changes required.
-                  </p>
-                </div>
-                <div className="bg-black/30 rounded-lg p-4 border border-white/10 overflow-x-auto">
-                  <pre className="text-xs text-green-400 font-mono">
-                    <code>{`# Python example
-from azure.digitaltwins.core import DigitalTwinsClient
-from azure.identity import DefaultAzureCredential
-
-# Point to your Konnektr Graph instance
-endpoint = "https://<resource-id>.api.graph.konnektr.io"
-credential = DefaultAzureCredential()
-
-client = DigitalTwinsClient(endpoint, credential)
-
-# Query your digital twins
-query = "SELECT twin, rel, sensor FROM DIGITALTWINS MATCH (twin:Twin)-[rel:isObservedBy]->(sensor:Twin)
-WHERE sensor.$dtId = 'sensor-001'
-twins = client.query_twins(query)
-
-for twin in twins:
-    print(twin)`}</code>
-                  </pre>
-                </div>
-                <div className="mt-4 text-xs text-muted-foreground">
-                  Works with Azure.DigitalTwins.Core SDK (Python, .NET,
-                  JavaScript)
-                </div>
-              </Card>
-
-              {/* AI Agent Integration */}
-              <Card className="p-8 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border-brand-teal/30">
-                <div className="mb-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/20 text-brand-teal rounded-full text-sm font-medium mb-4">
-                    <Network className="h-4 w-4" />
-                    Perfect for AI Agents
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    Semantic Knowledge for AI
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-6">
-                    Provide rich contextual knowledge to your AI agents. Query
-                    relationships and semantic data through simple REST APIs.
-                  </p>
-                </div>
-                <div className="bg-black/30 rounded-lg p-4 border border-brand-teal/30 overflow-x-auto">
-                  <pre className="text-xs text-green-400 font-mono">
-                    <code>{`# REST API example for AI agent context
-import requests
-
-api_url = "https://<resource-id>.api.graph.konnektr.io"
-headers = {"Authorization": "Bearer <token>"}
-
-# Get related entities for RAG context
-query = """
-MATCH (twin:Twin)-[rel:isObservedBy]->(sensor:Twin {\`$dtId\`: 'sensor-001'})
-RETURN twin, rel, sensor
-"""
-
-response = requests.post(
-    f"{api_url}/query",
-    headers=headers,
-    json={"query": query}
-)
-
-context = response.json()
-# Feed context to your LLM or agent`}</code>
-                  </pre>
-                </div>
-                <div className="mt-4 text-xs text-muted-foreground">
-                  Standard REST API—works with any programming language or AI
-                  framework
-                </div>
-              </Card>
-            </div>
-
-            <div className="text-center mt-12">
-              <a
-                href="https://docs.konnektr.io/docs/graph"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-brand-teal hover:text-brand-teal/80 font-medium"
-              >
-                View Full Documentation & Examples
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Graph vs Alternatives */}
-        <section
-          className="py-20 md:py-28 bg-black/10"
-          aria-label="Graph Advantages"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Why Choose Graph Over Alternatives?
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Compare Graph with other solutions and see why growing companies
-                choose us.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* vs SQL Databases */}
-              <Card className="p-6 bg-white/3 border border-white/10">
-                <div className="text-center mb-6">
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    vs SQL Databases
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Traditional relational databases
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-white">
-                        Complex JOINs for relationships
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Multiple table joins get expensive fast
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-white">
-                        Schema migrations are painful
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Adding relationships breaks existing code
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-t border-white/10 pt-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                      <div>
-                        <p className="text-sm font-medium text-white">
-                          Graph: Natural relationships
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Query relationships as you think about them
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* vs Graph Databases */}
-              <Card className="p-6 bg-white/3 border border-white/10">
-                <div className="text-center mb-6">
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    vs Proprietary Graphs
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Neo4j, Amazon Neptune, etc.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-white">
-                        Expensive licensing costs
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Enterprise pricing that hurts growth
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-white">
-                        Vendor lock-in risks
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Hard to migrate away when you grow
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-t border-white/10 pt-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                      <div>
-                        <p className="text-sm font-medium text-white">
-                          Graph: Open source & PostgreSQL
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          No lock-in, audit the code, trust the foundation
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* vs Document Databases */}
-              <Card className="p-6 bg-white/3 border border-white/10">
-                <div className="text-center mb-6">
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    vs Document Databases
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    MongoDB, CouchDB, etc.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-white">
-                        No relationship enforcement
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        References can break without validation
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
-                    <div>
-                      <p className="text-sm font-medium text-white">
-                        Complex queries for connected data
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Multiple queries needed for relationship traversal
-                      </p>
-                    </div>
-                  </div>
-                  <div className="border-t border-white/10 pt-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-brand-teal mt-2 flex-shrink-0"></div>
-                      <div>
-                        <p className="text-sm font-medium text-white">
-                          Graph: Relationships as first-class citizens
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Validate connections, traverse efficiently
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            <div className="mt-12 text-center">
-              <div className="inline-flex items-center gap-2 rounded-full bg-brand-teal/10 px-4 py-2 text-sm border border-brand-teal/20">
-                <Shield className="h-4 w-4 text-brand-teal" />
-                <span className="text-brand-teal font-medium">
-                  Built on PostgreSQL
-                </span>
-              </div>
-              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                Get the best of both worlds: graph power with SQL reliability.
-                Battle-tested foundation that your team can audit, trust, and
-                extend.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section className="py-20 md:py-28" aria-label="Graph Pricing">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Simple, Transparent Pricing
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Start free for development and testing. Scale to production with
-                our Standard plan. All plans include the full power of semantic
-                property graphs.
-              </p>
-            </div>
-
-            {/* Pricing Comparison Table */}
-            <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-                {/* Features Column */}
-                <div className="hidden lg:block lg:col-span-1">
-                  {/* Header Spacer Row */}
-                  <div className="min-h-20 py-4"></div>
-                  <div className="h-32 flex items-end pb-6">
-                    <h3 className="text-xl font-bold text-white">Features</h3>
-                  </div>
-                  <div className="space-y-0 divide-y divide-white/10">
-                    {/* Row 1: Twin Instances */}
-                    <div className="flex flex-col justify-center min-h-20 py-4">
-                      <p className="font-medium text-foreground">
-                        Twin Instances
-                      </p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Maximum digital twins per resource
-                      </p>
-                    </div>
-                    {/* Row 2: Rate Limits */}
-                    <div className="flex flex-col justify-center min-h-20 py-4">
-                      <p className="font-medium text-foreground">Rate Limits</p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Query units per minute
-                      </p>
-                    </div>
-                    {/* Row 3: Authentication */}
-                    <div className="flex flex-col justify-center min-h-20 py-4">
-                      <p className="font-medium text-foreground">
-                        Authentication
-                      </p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Access control methods
-                      </p>
-                    </div>
-                    {/* Row 4: Event Notifications */}
-                    <div className="flex flex-col justify-center min-h-20 py-4">
-                      <p className="font-medium text-foreground">
-                        Event Notifications
-                      </p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Stream changes to external systems
-                      </p>
-                    </div>
-                    {/* Row 5: MCP Server */}
-                    <div className="flex flex-col justify-center min-h-20 py-4">
-                      <p className="font-medium text-foreground">MCP Server</p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        AI Context Protocol
-                      </p>
-                    </div>
-                    {/* Row 6: Support */}
-                    <div className="flex flex-col justify-center min-h-20 py-4">
-                      <p className="font-medium text-foreground">Support</p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Help and assistance level
-                      </p>
-                    </div>
-                    {/* Row 6: Use Case */}
-                    <div className="flex flex-col justify-center min-h-20 py-4">
-                      <p className="font-medium text-foreground">Use Case</p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Best suited for
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Developer Tier Column */}
-                <Card className="lg:col-span-1 p-6 bg-gradient-to-br from-white/5 to-white/[0.02] border-white/10 flex flex-col">
-                  <div className="text-center pb-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      Developer
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      For development & testing
-                    </p>
-                    <div className="mb-4">
-                      <span className="text-4xl font-bold text-foreground">
-                        Free
-                      </span>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        per month / resource
-                      </p>
-                    </div>
-                  </div>
-                  <div className="divide-y divide-white/10">
-                    {/* Row 1: Twin Instances */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Twin Instances
-                      </p>
-                      <p className="font-semibold text-foreground">Up to 500</p>
-                    </div>
-                    {/* Row 2: Rate Limits */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Rate Limits
-                      </p>
-                      <p className="font-semibold text-foreground">
-                        1,000 QU/min
-                      </p>
-                    </div>
-                    {/* Row 3: Authentication */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Authentication
-                      </p>
-                      <p className="text-foreground">User Authentication</p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Device Code Flow only
-                      </p>
-                    </div>
-                    {/* Row 4: Event Notifications */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Event Notifications
-                      </p>
-                      <p className="text-muted-foreground">Not available</p>
-                    </div>
-                    {/* Row 5: MCP Server */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        MCP Server
-                      </p>
-                      <p className="text-muted-foreground">Not available</p>
-                    </div>
-                    {/* Row 6: Support */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Support
-                      </p>
-                      <p className="text-foreground">Community</p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        GitHub Issues
-                      </p>
-                    </div>
-                    {/* Row 7: Use Case */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Use Case
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        Development & Testing
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-6">
-                    <a
-                      href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&sku=free&utm_source=home&utm_medium=pricing_table&utm_campaign=launch&utm_content=graph_developer"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() =>
-                        trackDeployClick("developer", "graph_page")
-                      }
-                      className="block w-full"
-                    >
-                      <Button className="w-full bg-brand-blue hover:bg-brand-blue/90">
-                        Start Deploying
-                      </Button>
-                    </a>
-                    <p className="text-sm text-muted-foreground mt-2 text-center">
-                      Free tier • No credit card
-                      <br />
-                      Sign up required
-                    </p>
-                  </div>
-                </Card>
-
-                {/* Standard Tier Column */}
-                <Card className="lg:col-span-1 p-6 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 border-brand-teal relative flex flex-col">
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-brand-teal text-black px-4 py-1 rounded-full text-xs font-medium">
-                      Most Popular
-                    </div>
-                  </div>
-                  <div className="text-center pb-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      Standard
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      For production applications
-                    </p>
-                    <div className="mb-4">
-                      <span className="text-4xl font-bold text-foreground">
-                        $99
-                      </span>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        per month / resource
-                      </p>
-                    </div>
-                  </div>
-                  <div className="divide-y divide-white/10">
-                    {/* Row 1: Twin Instances */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Twin Instances
-                      </p>
-                      <p className="font-semibold text-foreground">Up to 1M</p>
-                    </div>
-                    {/* Row 2: Rate Limits */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Rate Limits
-                      </p>
-                      <p className="font-semibold text-brand-teal">Unlimited</p>
-                    </div>
-                    {/* Row 3: Authentication */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Authentication
-                      </p>
-                      <p className="text-foreground">M2M Authentication</p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Client ID & Secret
-                      </p>
-                    </div>
-                    {/* Row 4: Event Notifications */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Event Notifications
-                      </p>
-                      <p className="text-foreground">Included</p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Kafka, MQTT, webhooks, ADX
-                      </p>
-                    </div>
-                    {/* Row 5: MCP Server */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        MCP Server
-                      </p>
-                      <p className="text-foreground">Included</p>
-                    </div>
-                    {/* Row 6: Support */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Support
-                      </p>
-                      <p className="text-foreground">Email Support</p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Business hours
-                      </p>
-                    </div>
-                    {/* Row 7: Use Case */}
-                    <div className="flex flex-col justify-center min-h-20 py-4 text-center">
-                      <p className="lg:hidden text-xs text-muted-foreground mb-1">
-                        Use Case
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        Production Applications
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-6">
-                    <a
-                      href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&sku=standard&utm_source=home&utm_medium=pricing_table&utm_campaign=launch&utm_content=graph_standard"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackDeployClick("standard", "graph_page")}
-                      className="block w-full"
-                    >
-                      <Button className="w-full bg-brand-teal hover:bg-brand-teal/90">
-                        Choose Standard
-                      </Button>
-                    </a>
-                    <p className="text-sm text-muted-foreground mt-2 text-center">
-                      Sign up and credit card required
-                    </p>
-                  </div>
-                </Card>
-              </div>
-
-              {/* Enterprise Note */}
-              <div className="text-center mt-12 p-8 bg-white/3 border border-white/10 rounded-xl">
-                <h4 className="text-xl font-bold text-white mb-2">
-                  Need More?
-                </h4>
-                <p className="text-muted-foreground mb-4">
-                  Enterprise plans available with unlimited twins, custom API
-                  limits, high-availability SLA, and dedicated support.
-                </p>
-                <MailingListDialog
-                  trigger={
-                    <Button
-                      variant="outline"
-                      className="border-white/20 text-foreground hover:bg-white/10 cursor-pointer"
-                    >
-                      Contact Sales
-                    </Button>
-                  }
-                  title="Contact Sales"
-                  description="Tell us about your needs and we'll get back to you with a custom enterprise plan."
-                  ctaText="Send Message"
-                  product="Graph Enterprise"
-                  successMessage="Thank you! Our sales team will contact you shortly."
+                <CodeBlock
+                  code={spatialQueryCode}
+                  language="Cypher"
+                  filename="spatial-query.cypher"
                 />
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Final CTA Section */}
-        <section className="py-12 md:py-20" aria-label="Graph Call to Action">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-gradient-to-r from-brand-blue to-brand-teal text-center">
-              <Network className="mx-auto h-10 w-10 mb-4 text-white" />
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Ready to Build with Semantic Context?
+      {/* Comparison Table */}
+      <section
+        className="py-20 border-t border-white/5"
+        aria-label="Comparison"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-white mb-4">
+                How it compares
               </h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                Skip RDF complexity. Get meaningful data relationships with
-                validation, built on PostgreSQL you can trust.
-                <br />
-                <span className="block mt-2 text-brand-light text-base font-semibold">
-                  Open source and free to self-host. Managed plans start with a
-                  free tier.
-                </span>
+              <p className="text-muted-foreground">
+                Different databases for different problems.
               </p>
-              <div className="mt-8 flex flex-col items-center">
-                <a
-                  href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph&utm_source=graph_page&utm_medium=cta&utm_campaign=launch&utm_content=final_cta"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackDeployClick("all", "graph_page")}
-                  className="inline-block"
-                >
-                  <Button className="h-11 px-6 py-3 bg-brand-teal text-black shadow hover:bg-brand-teal/90 text-base font-medium cursor-pointer">
-                    Deploy Graph Now
-                  </Button>
-                </a>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Free tier available • One-click signup with Google or GitHub
-                </p>
-              </div>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full comparison-table">
+                <thead>
+                  <tr className="border-b border-white/10">
+                    <th className="text-left text-muted-foreground font-medium py-4 px-6">
+                      Capability
+                    </th>
+                    <th className="text-left text-brand-teal font-semibold py-4 px-6 bg-brand-teal/5">
+                      Konnektr Graph
+                    </th>
+                    <th className="text-left text-muted-foreground font-medium py-4 px-6">
+                      Vector DBs
+                    </th>
+                    <th className="text-left text-muted-foreground font-medium py-4 px-6">
+                      SQL Databases
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm">
+                  <tr>
+                    <td className="py-4 px-6 text-white">Schema validation</td>
+                    <td className="py-4 px-6 bg-brand-teal/5">
+                      <span className="flex items-center gap-2 text-brand-teal">
+                        <Check className="h-4 w-4" /> DTDL models
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <X className="h-4 w-4" /> None
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <Check className="h-4 w-4" /> Rigid tables
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 text-white">
+                      Relationship traversal
+                    </td>
+                    <td className="py-4 px-6 bg-brand-teal/5">
+                      <span className="flex items-center gap-2 text-brand-teal">
+                        <Check className="h-4 w-4" /> Native Cypher
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <X className="h-4 w-4" /> Not supported
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <Check className="h-4 w-4" /> Slow JOINs
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 text-white">Vector similarity</td>
+                    <td className="py-4 px-6 bg-brand-teal/5">
+                      <span className="flex items-center gap-2 text-brand-teal">
+                        <Check className="h-4 w-4" /> pgvector
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <Check className="h-4 w-4" /> Primary feature
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <X className="h-4 w-4" /> Extension only
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 text-white">Hybrid queries</td>
+                    <td className="py-4 px-6 bg-brand-teal/5">
+                      <span className="flex items-center gap-2 text-brand-teal">
+                        <Check className="h-4 w-4" /> Graph + Vector
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <X className="h-4 w-4" /> Vector only
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <X className="h-4 w-4" /> Keyword only
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 text-white">ACID transactions</td>
+                    <td className="py-4 px-6 bg-brand-teal/5">
+                      <span className="flex items-center gap-2 text-brand-teal">
+                        <Check className="h-4 w-4" /> PostgreSQL
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <X className="h-4 w-4" /> Eventually consistent
+                      </span>
+                    </td>
+                    <td className="py-4 px-6 text-muted-foreground">
+                      <span className="flex items-center gap-2">
+                        <Check className="h-4 w-4" /> Full support
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* MCP Integration Callout */}
+      <section
+        className="py-20 border-t border-white/5"
+        aria-label="MCP Integration"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-brand-teal font-mono text-sm mb-4">
+              AGENT INTEGRATION
+            </p>
+            <h2 className="text-3xl font-bold text-white mb-6">
+              Every graph includes an MCP server
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Connect Claude, Cursor, or custom agents directly to your graph.
+              16 tools for creating, querying, and managing entities.
+            </p>
+            <button
+              onClick={() => navigate("/mcp")}
+              className="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-8 border border-brand-teal/30 text-brand-teal hover:bg-brand-teal/5 transition-colors cursor-pointer"
+            >
+              Learn about MCP
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing CTA */}
+      <section className="py-20 border-t border-white/5" aria-label="Pricing">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Simple, predictable pricing
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Start free with 500 entities. Pay for capacity as you grow.
+              Upgrade to Standard ($49/mo) or Enterprise when you need more.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-8 bg-brand-teal text-black hover:bg-brand-teal/90 transition-colors"
+              >
+                Deploy Free Graph
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+              <button
+                onClick={() => navigate("/pricing")}
+                className="inline-flex items-center justify-center rounded-md text-base font-medium h-12 px-8 border border-white/20 text-foreground hover:bg-white/5 transition-colors cursor-pointer"
+              >
+                View All Plans
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

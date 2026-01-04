@@ -156,33 +156,106 @@
 }
 
 @layer utilities {
-  /* Brand gradient text */
-  .gradient-text {
-    background: linear-gradient(to right, var(--brand-blue), var(--brand-teal));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* Brand accent text - solid color, no gradient */
+  .text-accent-teal {
+    color: var(--brand-teal);
   }
 
-  /* Hero section background glow */
+  /* Hero section - subtle top border glow only */
   .hero-glow {
-    background-image: radial-gradient(
-      ellipse 50% 80% at 50% -20%,
-      color-mix(in oklch, var(--brand-blue) 50%, transparent),
-      transparent
-    );
+    border-top: 1px solid color-mix(in oklch, var(--brand-teal) 20%, transparent);
   }
 
   /* Interactive feature cards */
   .feature-card {
     background-color: color-mix(in oklch, var(--foreground) 3%, transparent);
     border: 1px solid color-mix(in oklch, var(--foreground) 10%, transparent);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
 
   .feature-card:hover {
     background-color: color-mix(in oklch, var(--foreground) 5%, transparent);
     border-color: var(--brand-teal);
-    transform: translateY(-5px);
+  }
+
+  /* Code syntax highlighting */
+  .code-block {
+    background-color: oklch(0.08 0.02 240);
+    border: 1px solid color-mix(in oklch, var(--foreground) 10%, transparent);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  .code-block .keyword { color: oklch(0.70 0.12 250); } /* blue */
+  .code-block .string { color: oklch(0.70 0.15 150); } /* green */
+  .code-block .comment { color: oklch(0.50 0.01 240); } /* gray */
+  .code-block .function { color: oklch(0.75 0.12 200); } /* cyan */
+  .code-block .property { color: oklch(0.80 0.10 60); } /* orange */
+  .code-block .number { color: oklch(0.70 0.12 320); } /* pink */
+  .code-block .punctuation { color: oklch(0.60 0.01 240); } /* light gray */
+  .code-block .operator { color: oklch(0.75 0.12 180); } /* teal */
+
+  /* Schematic lines for industrial feel */
+  .schematic-line {
+    stroke: var(--brand-teal);
+    stroke-width: 1;
+    fill: none;
+    opacity: 0.4;
+  }
+
+  .schematic-line-active {
+    opacity: 1;
+    stroke-dasharray: 8 4;
+    animation: dash 20s linear infinite;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -100;
+    }
+  }
+
+  /* Node dots for graph visualization */
+  .graph-node {
+    fill: var(--brand-teal);
+    transition: all 0.2s ease;
+  }
+
+  .graph-node:hover {
+    fill: var(--brand-light);
+    transform: scale(1.2);
+  }
+
+  /* Terminal/console styling */
+  .terminal {
+    background-color: oklch(0.06 0.02 240);
+    border: 1px solid oklch(0.20 0.02 240);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  .terminal-header {
+    background-color: oklch(0.10 0.02 240);
+    border-bottom: 1px solid oklch(0.20 0.02 240);
+  }
+
+  /* MCP tool call styling */
+  .mcp-tool-call {
+    border-left: 2px solid var(--brand-teal);
+    background-color: oklch(0.10 0.02 240);
+  }
+
+  /* Table styling for comparison tables */
+  .comparison-table th {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid oklch(0.20 0.02 240);
+    font-weight: 500;
+  }
+
+  .comparison-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid oklch(0.15 0.02 240);
+  }
+
+  .comparison-table tr:last-child td {
+    border-bottom: none;
   }
 }
