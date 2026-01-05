@@ -55,7 +55,7 @@ function PricingTier({
         className={`w-full h-11 ${
           highlighted
             ? "bg-brand-teal text-black hover:bg-brand-teal/90"
-            : "bg-white/5 text-foreground hover:bg-white/10 border border-white/20"
+            : "bg-white/5 text-foreground hover:bg-white/10 border border-white/20 cursor-pointer"
         }`}
         onClick={() => window.open(ctaHref, "_blank")}
       >
@@ -453,7 +453,7 @@ export default function Page() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
-              className="bg-brand-teal text-black hover:bg-brand-teal/90 h-12 px-8"
+              className="bg-brand-teal text-black hover:bg-brand-teal/90 h-12 px-8 cursor-pointer"
               onClick={() =>
                 window.open(
                   "https://ktrlplane.konnektr.io/resources/create?resource_type=Konnektr.Graph",
@@ -466,7 +466,7 @@ export default function Page() {
             </Button>
             <Button
               variant="outline"
-              className="border-white/20 text-white hover:bg-white/5 h-12 px-8"
+              className="border-white/20 text-white hover:bg-white/5 h-12 px-8 cursor-pointer"
               onClick={() => window.open("mailto:sales@konnektr.io", "_blank")}
             >
               Talk to Sales
