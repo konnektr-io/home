@@ -96,7 +96,7 @@ export function DesktopNavigation({ className }: NavigationProps) {
         <NavigationMenuItem>
           <button
             onClick={() => navigate("/pricing")}
-            className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
           >
             Pricing
           </button>
@@ -186,7 +186,7 @@ export function MobileNavigation({ className }: NavigationProps) {
                 navigate("/pricing");
                 setIsOpen(false);
               }}
-              className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium"
+              className="block w-full text-left p-3 rounded-lg hover:bg-brand-teal/10 transition-colors text-foreground font-medium cursor-pointer"
             >
               Pricing
             </button>
