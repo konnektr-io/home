@@ -438,10 +438,10 @@ export default function Page() {
                 <li>
                   Email:{" "}
                   <a
-                    href="mailto:legal@konnektr.com"
+                    href="mailto:info@konnektr.io"
                     className="text-brand-teal hover:underline"
                   >
-                    legal@konnektr.com
+                    info@konnektr.io
                   </a>
                 </li>
                 <li>

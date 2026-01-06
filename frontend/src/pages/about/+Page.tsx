@@ -179,7 +179,7 @@ export default function Page() {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://docs.konnektr.com"
+                href="https://docs.konnektr.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-black rounded-lg transition-colors"

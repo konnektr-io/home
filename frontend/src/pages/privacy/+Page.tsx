@@ -211,10 +211,10 @@ export default function Page() {
               <p className="text-muted-foreground mb-6">
                 To exercise these rights, contact us at{" "}
                 <a
-                  href="mailto:privacy@konnektr.com"
+                  href="mailto:info@konnektr.io"
                   className="text-brand-teal hover:underline"
                 >
-                  privacy@konnektr.com
+                  info@konnektr.io
                 </a>
                 .
               </p>
@@ -310,10 +310,10 @@ export default function Page() {
                 <li>
                   Email:{" "}
                   <a
-                    href="mailto:privacy@konnektr.com"
+                    href="mailto:info@konnektr.io"
                     className="text-brand-teal hover:underline"
                   >
-                    privacy@konnektr.com
+                    info@konnektr.io
                   </a>
                 </li>
                 <li>
