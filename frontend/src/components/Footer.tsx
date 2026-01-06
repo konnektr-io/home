@@ -99,7 +99,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/konnektr-io/konnektr-home/issues"
+                  href="https://github.com/konnektr-io/home/issues"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
